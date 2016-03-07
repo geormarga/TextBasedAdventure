@@ -14,7 +14,6 @@ import textbasedadventure.Observer;
 public class Forest extends Room implements Observer {
 
     public Forest() {
-
         setDescription("You are in the forest. West of you there's a castle, and in the east there's a keep ");
         setHint("One tree looks different from the others, it's sticking out. In front of you lies a rusty key");
         roomItems.register(this);
@@ -28,6 +27,5 @@ public class Forest extends Room implements Observer {
         if (!roomItems.getItems().containsKey("sundial")) {
             roomItems.getItems().get("tree").setDescription("Nothing to see here, just a tree.");
         }
-        
     }
 }
