@@ -6,24 +6,24 @@
 package items;
 
 import features.Pickable;
+import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Inventory;
-import textbasedadventure.RoomItems;
 
 /**
  *
  * @author Aenaos
  */
-public class SilverKey extends Item implements Pickable{
+public class SilverKey extends Item implements Pickable {
 
     public SilverKey() {
         this.setName("silver key");
-        setDescription("This key can unlock silver chests");
+        setDescription("This key can unlock silver chests.");
     }
 
     @Override
-    public void pickup(Inventory inventory, RoomItems roomItems) {
-        inventory.addItemToInventory(this);
-        roomItems.removeItemFromRoom(this);
+    public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
+        inventory.addElement(this.name, this);
+        roomItems.removeElement(this.name, this);
         System.out.println("You picked up a silver key.");
     }
 }
