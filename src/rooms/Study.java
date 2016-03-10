@@ -13,35 +13,21 @@ import textbasedadventure.Observer;
  *
  * @author Aenaos
  */
-public class Study extends Room implements Observer{
+public class Study extends Room implements Observer {
 
     public Study() {
         setDescription("There are lots of books here. Unfortunately, I don't have time to spend reading.");
         setHint("There is something curious about this bookshelf.");
     }
 
-/*
-    @Override
-    public void getMovementMessage() {
-        /*
-         Book book = (Book) state.getCurrentRoom().getItems().get("book");
-         if ("in".equals(attr) && !book.isPulled()) {
-         System.out.print("Go where?");
-         } else {
-         state.setCurrentRoom((Room) state.getCurrentRoom().getRooms().get(attr));
-         System.out.println(state.getCurrentRoom().getDescription());
-         }
-    }
-*/
-
     @Override
     public void update() {
-        Book book = (Book) roomItems.getItems().get("book");
-        if(book.isPulled()){
-            nearbyRooms.addNearbyRoom("in",new HiddenRoom());
-            Bookshelf bookshelf = (Bookshelf) roomItems.getItems().get("bookshelf");
+        Book book = (Book) roomItems.getElements().get("book");
+        if (book.isPulled()) {
+            nearbyRooms.addElement("in", new HiddenRoom());
+            Bookshelf bookshelf = (Bookshelf) roomItems.getElements().get("bookshelf");
             bookshelf.setDescription("A chasm opened on the wall, you can go in.");
         }
     }
-    
+
 }
