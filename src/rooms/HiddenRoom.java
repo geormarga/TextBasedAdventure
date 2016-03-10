@@ -21,8 +21,8 @@ public class HiddenRoom extends Room implements Observer {
 
     @Override
     public void update() {
-        if (!roomItems.getItems().containsKey("artifact")) {
-             roomItems.getItems().get("stand").setDescription("A stone stand.");
+        if (!roomItems.getElements().containsKey("artifact")) {
+             roomItems.getElements().get("stand").setDescription("A stone stand.");
         }
     }
 }
