@@ -6,8 +6,8 @@
 package items;
 
 import features.Pickable;
+import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Inventory;
-import textbasedadventure.RoomItems;
 
 /**
  *
@@ -21,9 +21,9 @@ public class Sundial extends Item implements Pickable {
     }
 
     @Override
-    public void pickup(Inventory inventory, RoomItems roomItems) {
-        inventory.addItemToInventory(this);
-        roomItems.removeItemFromRoom(this);
+    public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
+        inventory.addElement(this.name, this);
+        roomItems.removeElement(this.name, this);
         System.out.println("You picked up a sundial.");
     }
 
