@@ -5,8 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
-
 /**
  *
  * @author Aenaos
@@ -21,6 +19,6 @@ public class StartingRoom extends Room {
                 + "By typing exit game, you can exit anytime. Type start game to begin...";
         hint = "This is the starting room. What did you expect to see?";
         
-        containerType = (Containable) new DoesNotContain();
+        containerType =  new DoesNotContain();
     }
 }

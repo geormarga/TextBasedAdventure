@@ -13,7 +13,7 @@ import messages.IMessage;
  */
 public class LoadSuccessMessage implements IMessage{
     @Override
-    public void display() {
+    public void display(String text) {
        System.out.println("The game has been loaded , you are ready to play!");
     }
     

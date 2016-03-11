@@ -5,7 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
 import items.Item;
 import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
@@ -21,7 +20,7 @@ public class Cave extends Room implements Observer {
     public Cave() {
         setDescription("You are in a cave.");
         setHint("Its kinda dark and you can't see well in here, but you can hear someone screaming!");
-        containerType = (Containable) new DoesContain();
+        containerType =  new DoesContain();
         container = new HashMapOfElements<>();
     }
 

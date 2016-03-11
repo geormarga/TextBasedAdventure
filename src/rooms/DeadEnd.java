@@ -5,7 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
 import items.Hatch;
 import items.WoodenWheel;
 import textbasedadventure.Observer;
@@ -20,7 +19,7 @@ public class DeadEnd extends Room implements Observer {
 
         description = "This is the end of the road. There is a switchlike wheel, and a hatch in the room.";
         hint = "While looking arround you stumble upon a hole in the ground.";
-        containerType = (Containable) new DoesNotContain();
+        containerType =  new DoesNotContain();
     }
     /*
      System.out.println("You must open the hatch first.");

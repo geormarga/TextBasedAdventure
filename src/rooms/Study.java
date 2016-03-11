@@ -5,7 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
 import items.Book;
 import items.Bookshelf;
 import textbasedadventure.Observer;
@@ -19,7 +18,7 @@ public class Study extends Room implements Observer {
     public Study() {
         description = "There are lots of books here. Unfortunately, I don't have time to spend reading.";
         hint = "There is something curious about this bookshelf.";
-        containerType = (Containable) new DoesNotContain();
+        containerType = new DoesNotContain();
     }
 
     @Override

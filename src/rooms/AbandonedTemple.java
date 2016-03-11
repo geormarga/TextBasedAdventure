@@ -5,7 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
 import textbasedadventure.Observer;
 
 /**
@@ -18,7 +17,7 @@ public class AbandonedTemple extends Room implements Observer{
         description = "This is the temple of sunlight. Many pilgrims through the years came"
                 + " by to witness this enchanted old ruin.";
         hint = "In sight are: A statue and an altar.";
-        containerType = (Containable) new DoesNotContain();
+        containerType = new DoesNotContain();
     }
 
     @Override

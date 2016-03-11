@@ -5,7 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
 import items.Item;
 import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
@@ -21,7 +20,7 @@ public class HiddenRoom extends Room implements Observer {
     public HiddenRoom() {
         description = "Wow. I didn't believe that it would work!";
         hint = "There is a stand in the center of the room.";
-        containerType = (Containable) new DoesContain();
+        containerType =  new DoesContain();
         container = new HashMapOfElements<>();
     }
 

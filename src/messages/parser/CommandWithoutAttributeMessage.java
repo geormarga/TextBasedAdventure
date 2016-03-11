@@ -14,7 +14,7 @@ import messages.IMessage;
 public class CommandWithoutAttributeMessage implements IMessage {
 
     @Override
-    public void display() {
+    public void display(String string) {
         System.out.println("You gave a command, without any attributes.");
     }
 }

@@ -14,7 +14,7 @@ import messages.IMessage;
 public class WrongCommandMessage implements IMessage{
 
     @Override
-    public void display() {
+    public void display(String text) {
       System.out.println("I didn't recognise the command.");
     }
     

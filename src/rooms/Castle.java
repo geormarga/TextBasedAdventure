@@ -5,7 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
 import items.CircularArtifact;
 import items.Item;
 import items.containers.CommonChest;
@@ -23,7 +22,7 @@ public class Castle extends Room implements Observer {
     public Castle() {
         description = "You are in the castle yard. You are free to go in, but there is also a cave to the west...";
         hint = "You found a chest on the ground.";
-        containerType = (Containable) new DoesContain();
+        containerType = new DoesContain();
         container = new HashMapOfElements<>();
     }
 

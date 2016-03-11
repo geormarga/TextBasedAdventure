@@ -11,6 +11,6 @@ package messages;
  */
 public interface IMessage {
     
-    public void display();
+    public void display(String text);
     
 }

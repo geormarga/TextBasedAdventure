@@ -5,10 +5,22 @@
  */
 package rooms;
 
+import features.Containable;
+
 /**
  *
  * @author Aenaos
  */
-public class DoesNotContain {
-    
+public class DoesNotContain implements Containable {
+
+    @Override
+    public boolean contains() {
+        return true;
+    }
+
+    @Override
+    public boolean tryIfContains() {
+        return true;
+    }
+
 }

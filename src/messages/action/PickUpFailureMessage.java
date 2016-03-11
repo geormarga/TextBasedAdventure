@@ -14,7 +14,7 @@ import messages.IMessage;
 public class PickUpFailureMessage implements IMessage {
 
     @Override
-    public void display() {
+    public void display(String text) {
         System.out.println("There isn't such an item in this room.");
     }
 

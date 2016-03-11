@@ -14,7 +14,7 @@ import messages.IMessage;
 public class MoveFailureMessage implements IMessage {
 
     @Override
-    public void display() {
+    public void display(String text) {
         System.out.println("You can't go that way!");
     }
 

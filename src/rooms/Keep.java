@@ -5,7 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
 import items.Item;
 import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
@@ -21,7 +20,7 @@ public class Keep extends Room implements Observer {
     public Keep() {
         description = "You are in the keep. Unfortunately there's no visible path from which you can enter.";
         hint = "You see something shining in a mudpit. A silver chest lies on the ground.";
-        containerType = (Containable) new DoesContain();
+        containerType =  new DoesContain();
         container = new HashMapOfElements<>();
     }
 

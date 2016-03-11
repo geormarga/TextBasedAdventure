@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package messages.action;
+package messages.game;
 
 import messages.IMessage;
 
@@ -11,10 +11,8 @@ import messages.IMessage;
  *
  * @author Aenaos
  */
-public class ExamineFailureMessage implements IMessage{
-    @Override
+public class PickUpMessage implements IMessage{
     public void display(String text) {
-        System.out.println("You look around, but you can't find an item to examine.");
+            System.out.println("You picked up a(n)" + text + ".");   
     }
-    
 }

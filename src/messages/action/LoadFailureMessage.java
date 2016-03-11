@@ -13,7 +13,7 @@ import messages.IMessage;
  */
 public class LoadFailureMessage implements IMessage{
     @Override
-    public void display() {
+    public void display(String text) {
     System.out.println("Could not load the game, absence of file.");
     }
     

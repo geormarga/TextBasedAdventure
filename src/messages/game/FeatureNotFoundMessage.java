@@ -11,11 +11,11 @@ import messages.IMessage;
  *
  * @author Aenaos
  */
-public class FeatureNotFoundMessage implements IMessage{
+public class FeatureNotFoundMessage implements IMessage {
 
     @Override
-    public void display() {
-            System.out.println("Could not find what you were looking for.");   
+    public void display(String text) {
+        System.out.println("Could not find " + text + ".");
     }
-    
+
 }
