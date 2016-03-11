@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.Containable;
 import features.Lookable;
 import features.Moveable;
 import items.Item;
@@ -23,6 +24,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
     protected HashMapOfElements<Item> roomItems = new HashMapOfElements<>();
     protected String description;
     protected String hint;
+    protected Containable containerType;
 
     public HashMapOfElements<Room> getNearbyRooms() {
         return nearbyRooms;
@@ -54,6 +56,14 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     public void setHint(String hint) {
         this.hint = hint;
+    }
+
+    public Containable getContainerType() {
+        return containerType;
+    }
+
+    public void setContainerType(Containable containerType) {
+        this.containerType = containerType;
     }
 
     public void getMovementMessage() {
