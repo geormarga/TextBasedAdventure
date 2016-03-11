@@ -11,7 +11,7 @@ import items.Item;
  *
  * @author Aenaos
  */
-public class Mudpit extends Item {
+public class Mudpit extends Item{
 
     public Mudpit() {
         setDescription("There's a key in the mudpit.");
