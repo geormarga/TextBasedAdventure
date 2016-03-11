@@ -19,8 +19,8 @@ public class Keep extends Room implements Observer {
     HashMapOfElements<Item> container;
 
     public Keep() {
-        setDescription("You are in the keep. Unfortunately there's no visible path from which you can enter.");
-        setHint("You see something shining in a mudpit. A silver chest lies on the ground.");
+        description = "You are in the keep. Unfortunately there's no visible path from which you can enter.";
+        hint = "You see something shining in a mudpit. A silver chest lies on the ground.";
         containerType = (Containable) new DoesContain();
         container = new HashMapOfElements<>();
     }
