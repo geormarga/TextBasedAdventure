@@ -13,17 +13,18 @@ import textbasedadventure.Inventory;
  *
  * @author Aenaos
  */
-public class TornNote extends Item implements Pickable {
+public class GoldenKey extends Item implements Pickable {
 
-    public TornNote() {
-        this.setName("torn note");
-        setDescription("To succeed in the quest of thee, you must find artifacts three ...");
+    public GoldenKey() {
+        this.setName("golden key");
+        setDescription("With this key you can unlock golden chests");
     }
 
     @Override
     public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
         inventory.addElement(this.name, this);
         roomItems.removeElement(this.name, this);
-        System.out.println("You picked up a torn note.");
+        System.out.println("You picked up a golden key.");
     }
+
 }

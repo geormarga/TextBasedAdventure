@@ -13,17 +13,24 @@ import textbasedadventure.Inventory;
  *
  * @author Aenaos
  */
-public class TornNote extends Item implements Pickable {
+public class Torch extends Item implements Pickable {
 
-    public TornNote() {
-        this.setName("torn note");
-        setDescription("To succeed in the quest of thee, you must find artifacts three ...");
+    public Torch() {
+        setName("torch");
+        setDescription("A wooden torch that can be used to see in the dark");
     }
 
     @Override
     public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
         inventory.addElement(this.name, this);
         roomItems.removeElement(this.name, this);
-        System.out.println("You picked up a torn note.");
+        System.out.println("You picked up a torch.");
     }
+    /*
+     public void use(String attr, State state) {
+     setLit(true);
+     setDescription("It is lit so that you can see in the dark.");
+     System.out.println(this.getDescription());
+     }*/
+
 }

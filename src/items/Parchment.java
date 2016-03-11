@@ -13,17 +13,16 @@ import textbasedadventure.Inventory;
  *
  * @author Aenaos
  */
-public class TornNote extends Item implements Pickable {
+public class Parchment extends Item implements Pickable {
 
-    public TornNote() {
-        this.setName("torn note");
-        setDescription("To succeed in the quest of thee, you must find artifacts three ...");
+    public Parchment() {
+        setDescription("It's all smudged. After all, moisture isn't papers' best friend...");
     }
 
     @Override
     public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
         inventory.addElement(this.name, this);
-        roomItems.removeElement(this.name, this);
-        System.out.println("You picked up a torn note.");
+        roomItems.removeElement(this.name,this);
+        System.out.println("You picked up a plain note.");
     }
 }
