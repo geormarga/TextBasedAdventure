@@ -5,6 +5,8 @@
  */
 package rooms;
 
+import features.Containable;
+
 /**
  *
  * @author Aenaos
@@ -12,7 +14,8 @@ package rooms;
 public class Hall extends Room {
 
     public Hall() {
-        setDescription("You went inside the Castle. It's vast halls seem haunted");
-        setHint("You can see some rooms left and right ... and stairs heading down.");
+        description = "You went inside the Castle. It's vast halls seem haunted";
+        hint = "You can see some rooms left and right ... and stairs heading down.";
+        containerType = (Containable) new DoesNotContain();
     }
 }
