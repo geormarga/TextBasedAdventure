@@ -5,6 +5,9 @@
  */
 package rooms;
 
+import features.Containable;
+import items.Item;
+import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
 
 /**
@@ -13,16 +16,19 @@ import textbasedadventure.Observer;
  */
 public class HiddenRoom extends Room implements Observer {
 
+    HashMapOfElements<Item> container;
+    
     public HiddenRoom() {
-        setDescription("Wow. I didn't believe that it would work!");
-        setHint("There is a stand in the center of the room.");
-
+        description = "Wow. I didn't believe that it would work!";
+        hint = "There is a stand in the center of the room.";
+        containerType = (Containable) new DoesContain();
+        container = new HashMapOfElements<>();
     }
 
     @Override
     public void update() {
         if (!roomItems.getElements().containsKey("artifact")) {
-             roomItems.getElements().get("stand").setDescription("A stone stand.");
+            roomItems.getElements().get("stand").setDescription("A stone stand.");
         }
     }
 }
