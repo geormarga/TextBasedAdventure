@@ -5,6 +5,8 @@
  */
 package rooms;
 
+import features.Containable;
+
 /**
  *
  * @author Aenaos
@@ -13,8 +15,8 @@ public class LivingRoom extends Room {
 
     public LivingRoom() {
 
-        setDescription("You are in the Living Room.\n"
-                + "By looking this room. It seems this castle is abandoned!");
-        setHint("This room is a mess... something happened here!");
+        description = "This is the main Dining Room. The plates on the table indicated that this castle has long been abandonded.";
+        hint = "This room is a mess... something happened here!";
+        containerType = (Containable) new DoesNotContain();
     }
 }
