@@ -15,8 +15,8 @@ import java.io.Serializable;
 public abstract class Item implements Examinable, Serializable {
 
     
-    protected String description;
     protected String name;
+    protected String description;
 
     @Override
     public void examine(){

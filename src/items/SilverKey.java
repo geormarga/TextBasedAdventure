@@ -16,8 +16,8 @@ import textbasedadventure.Inventory;
 public class SilverKey extends Item implements Pickable {
 
     public SilverKey() {
-        this.setName("silver key");
-        setDescription("This key can unlock silver chests.");
+        name = "silver key";
+        description = "This key can unlock silver chests.";
     }
 
     @Override

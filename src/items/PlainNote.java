@@ -16,9 +16,11 @@ import textbasedadventure.Inventory;
 public class PlainNote extends Item implements Pickable {
 
     public PlainNote() {
-        setDescription("I do not know if anyone is reading this."
+        
+        name = "plain note";
+        description = "I do not know if anyone is reading this."
                 + "When you will arrive in the hall of Castle , don't go down the stairs. "
-                + "For your own safety!");
+                + "For your own safety!";
     }
 
     @Override

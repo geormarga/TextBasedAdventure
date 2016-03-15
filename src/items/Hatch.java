@@ -13,7 +13,7 @@ import textbasedadventure.State;
  *
  * @author Aenaos
  */
-public class Hatch extends Item implements Openable{
+public class Hatch extends Item implements Openable {
 
     private boolean isOpen;
 
@@ -26,15 +26,14 @@ public class Hatch extends Item implements Openable{
     }
 
     public Hatch() {
-        this.setName("hatch");
-        setDescription("The area below the hatch is flooded. I need to get rid of the water so that I can go down there.");
+        name = "hatch";
+        description = "The area below the hatch is flooded. I need to get rid of the water so that I can go down there.";
     }
 
-    
     private void updateDescription(State state) {
         state.getCurrentRoom().getRoomItems().getElements().get("hatch").setDescription("Water's gone. You can proceed.");
     }
-    
+
     /*
      public void open(String attr, State state) {
 
@@ -48,7 +47,6 @@ public class Hatch extends Item implements Openable{
      }
      }
      */
-
     @Override
     public void open(Inventory inventory) {
         //if wheel is turned open hatch

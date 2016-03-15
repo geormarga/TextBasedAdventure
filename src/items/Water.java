@@ -9,12 +9,11 @@ package items;
  *
  * @author Aenaos
  */
-public class Water extends Item{
+public class Water extends Item {
 
     public Water() {
-        setName("water");
-        setDescription("A lot of water.");
+        name = "water";
+        description = "A lot of water.";
     }
-    
-    
+
 }

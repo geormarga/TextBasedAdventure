@@ -16,8 +16,8 @@ import textbasedadventure.Inventory;
 public class TornNote extends Item implements Pickable {
 
     public TornNote() {
-        this.setName("torn note");
-        setDescription("To succeed in the quest of thee, you must find artifacts three ...");
+        name = "torn note";
+        description = "To succeed in the quest of thee, you must find artifacts three ...";
     }
 
     @Override

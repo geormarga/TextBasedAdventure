@@ -12,8 +12,8 @@ package items;
 public class Bookshelf extends Item{
 
     public Bookshelf() {
-        this.setName("bookshelf"); 
-        setDescription("Maybe it's one of those trap doors... A book is standing out. More than it should, at least.");
+        name = "bookshelf"; 
+        description = "Maybe it's one of those trap doors... A book is standing out. More than it should, at least.";
     }
     
     

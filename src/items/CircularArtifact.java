@@ -17,8 +17,8 @@ import textbasedadventure.Inventory;
 public class CircularArtifact extends Item implements Pickable, Usable {
 
     public CircularArtifact() {
-        this.setName("circular artifact");
-        setDescription("One of the three sun artifacts. It has the shape of a circle.");
+        name = "circular artifact";
+        description = "One of the three sun artifacts. It has the shape of a circle.";
     }
 
     @Override

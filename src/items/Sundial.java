@@ -16,8 +16,8 @@ import textbasedadventure.Inventory;
 public class Sundial extends Item implements Pickable {
 
     public Sundial() {
-        this.setName("sundial");
-        setDescription("It's a sundial.You look closer only to find a line, marking the dial: Ten to two .");
+        name = "sundial";
+        description = "It's a sundial.You look closer only to find a line, marking the dial: Ten to two .";
     }
 
     @Override

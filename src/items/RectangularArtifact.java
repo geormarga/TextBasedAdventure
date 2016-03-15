@@ -17,8 +17,8 @@ import textbasedadventure.Inventory;
 public class RectangularArtifact extends Item implements Pickable, Usable {
 
     public RectangularArtifact() {
-        this.setName("rectangular artifact");
-        setDescription("One of the three sun artifacts. It has the shape of a rectangle.");
+        name = "rectangular artifact";
+        description = "One of the three sun artifacts. It has the shape of a rectangle.";
     }
 
     @Override

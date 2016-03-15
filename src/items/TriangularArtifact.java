@@ -17,8 +17,8 @@ import textbasedadventure.Inventory;
 public class TriangularArtifact extends Item implements Pickable, Usable {
 
     public TriangularArtifact() {
-        setName("triangular artifact");
-        setDescription("One of the three sun artifacts. It's the shape of a triangle.");
+        name = "triangular artifact";
+        description = "One of the three sun artifacts. It's the shape of a triangle.";
     }
 
     @Override

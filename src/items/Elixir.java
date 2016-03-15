@@ -17,8 +17,8 @@ import textbasedadventure.Inventory;
 public class Elixir extends Item implements Pickable, Usable {
 
     public Elixir() {
-        this.setName("elixir");
-        setDescription("An elixir that could cure most diseases.");
+        name = "elixir";
+        description = "An elixir that could cure most diseases.";
     }
 
     @Override

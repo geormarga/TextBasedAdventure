@@ -15,6 +15,11 @@ public class WoodenWheel extends Item implements Turnable {
 
     boolean turned;
 
+    public WoodenWheel() {
+        name = "wooden wheel";
+        description = "You can turn it, to open the floodgate.";
+    }
+
     public boolean isTurned() {
         return turned;
     }
@@ -23,17 +28,11 @@ public class WoodenWheel extends Item implements Turnable {
         this.turned = turned;
     }
 
-    public WoodenWheel() {
-        setName("wooden wheel");
-        setDescription("You can turn it, to open the floodgate.");
-    }
-
     @Override
     public void turn() {
         this.setTurned(true);
         this.setDescription("Already turned.");
         System.out.println("The floodgate is open.");
     }
-
 
 }

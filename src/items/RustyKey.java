@@ -16,8 +16,8 @@ import textbasedadventure.Inventory;
 public class RustyKey extends Item implements Pickable {
 
     public RustyKey() {
-        this.setName("rusty key");
-        setDescription("This key can unlock common chests.");
+        name = "rusty key";
+        description = "This key can unlock common chests.";
     }
 
     @Override

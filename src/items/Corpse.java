@@ -12,9 +12,9 @@ package items;
 public class Corpse extends Item {
 
     public Corpse() {
-        this.setName("corpse"); 
-        setDescription("Must have been dead for years, can't even tell if it's human or not."
-                + " There's a piece of parchment on the corpse.");
+        name = "corpse"; 
+        description = "Must have been dead for years, can't even tell if it's human or not."
+                + " There's a piece of parchment on the corpse.";
     }
 
 }

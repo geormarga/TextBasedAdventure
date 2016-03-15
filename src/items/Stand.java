@@ -12,7 +12,7 @@ package items;
 public class Stand extends Item {
 
     public Stand() {
-        this.setName("stand");
-        setDescription("A triangular artifact lies on top of the stand.");
+        name = "stand";
+        description = "A triangular artifact lies on top of the stand.";
     }
 }

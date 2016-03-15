@@ -12,7 +12,8 @@ package items;
 public class Statue extends Item {
 
     public Statue() {
-        setDescription("A statue honouring the Sun. I guess it's magnificent enough, to have people worshipping it.");
+        name = "statue";
+        description = "A statue honouring the Sun. I guess it's magnificent enough, to have people worshipping it.";
     }
     
 }

@@ -16,8 +16,8 @@ import textbasedadventure.Inventory;
 public class Torch extends Item implements Pickable {
 
     public Torch() {
-        setName("torch");
-        setDescription("A wooden torch that can be used to see in the dark");
+        name = "torch";
+        description = "A wooden torch that can be used to see in the dark";
     }
 
     @Override

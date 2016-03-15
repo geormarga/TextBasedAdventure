@@ -16,9 +16,9 @@ public class Altar extends Item {
     boolean hasRectangular;
     
     public Altar() {
-        this.setName("altar");
-        setDescription("There are three slots for different artifacts to place. \n"
-                + "A circular, a rectangular and a triangular one.");
+        name = "altar";
+        description = "There are three slots for different artifacts to place. \n"
+                + "A circular, a rectangular and a triangular one.";
     }
     
     public boolean hasCircular() {

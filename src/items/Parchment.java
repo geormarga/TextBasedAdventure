@@ -16,7 +16,9 @@ import textbasedadventure.Inventory;
 public class Parchment extends Item implements Pickable {
 
     public Parchment() {
-        setDescription("It's all smudged. After all, moisture isn't papers' best friend...");
+        
+        name = "parchment";
+        description = "It's all smudged. After all, moisture isn't papers' best friend...";
     }
 
     @Override

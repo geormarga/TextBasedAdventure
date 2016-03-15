@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class Rock extends Item {
 
     public Rock() {
-        this.setName("rock");
-        setDescription("Lifting the rock revealed a hidden place. There is a golden chest");
+        name = "rock";
+        description = "Lifting the rock revealed a hidden place. There is a golden chest";
     }
 
     private void createItem(State state) {

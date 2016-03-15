@@ -15,17 +15,17 @@ public class Book extends Item implements Pullable {
 
     private boolean pulled = false;
 
+    public Book() {
+        name = "book";
+        description = "There's some sort of mechanism linking this particular book to the bookshelf.";
+    }
+
     public boolean isPulled() {
         return pulled;
     }
 
     public void setPulled(boolean pulled) {
         this.pulled = pulled;
-    }
-
-    public Book() {
-        this.setName("book");
-        setDescription("There's some sort of mechanism linking this particular book to the bookshelf.");
     }
 
     @Override

@@ -17,10 +17,10 @@ public class OldMan extends Item {
     public String choice;
 
     public OldMan() {
-        this.setName("old man");
-        setDescription("You see an old man screaming in pain.What do you do?\n"
+        name = "old man";
+        description = "You see an old man screaming in pain.What do you do?\n"
                 + "Put him out of his misery..[press 1]\nTry to help him somehow[press 2]"
-                + "\nDo nothing[press 3]");
+                + "\nDo nothing[press 3]";
     }
 
     public void examine(State state) {
@@ -54,9 +54,7 @@ public class OldMan extends Item {
 
     private void createItem(State state) //Create item golden key
     {
-
         Item goldenKey = new GoldenKey();
         state.getCurrentRoom().getRoomItems().getElements().put("key", goldenKey);
-
     }
 }
