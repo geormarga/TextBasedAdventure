@@ -14,13 +14,9 @@ import features.Containable;
 public class DoesNotContain implements Containable {
 
     @Override
-    public boolean contains() {
-        return true;
+    public boolean hasContainer() {
+        return false;
     }
 
-    @Override
-    public boolean tryIfContains() {
-        return true;
-    }
 
 }

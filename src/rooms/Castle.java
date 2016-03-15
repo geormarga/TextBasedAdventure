@@ -38,9 +38,13 @@ public class Castle extends Room implements Observer {
     public void update() {
         CommonChest chest = (CommonChest) roomItems.getElements().get("chest");
         if (chest.isOpen()) {
-            roomItems.addElement("artifact", new CircularArtifact());
+            CircularArtifact artifact = new CircularArtifact();
+            
+            roomItems.addElement("artifact", artifact);
+            container.addElement("artifact", artifact);
+            
             System.out.println("Items in chest:");
-            for (String key : getContainerItems().getElements().keySet()) {
+            for (String key : container.getElements().keySet()) {
                 System.out.println(key + ",");
             }
             System.out.println(".");
