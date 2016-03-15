@@ -5,9 +5,11 @@ import java.util.HashMap;
 
 public class CommandList {
 
-    private final HashMap<String, ArrayList<String>> commandList = new HashMap<>();
+    private final HashMap<String, ArrayList<String>> commandList;
 
     public CommandList() {
+        this.commandList = new HashMap<>();
+        
         ArrayList attrMove = new ArrayList();
         ArrayList attrPickup = new ArrayList();
         ArrayList attrOpen = new ArrayList();

@@ -69,7 +69,6 @@ public class Game implements Saveable, Loadable {
 
     @Override
     public void save(State state) {
-
         /*
          public boolean save(State state, Saveable saveable) {
          FileOutputStream saveFile = null;

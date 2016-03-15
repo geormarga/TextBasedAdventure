@@ -13,7 +13,11 @@ import java.io.Serializable;
  */
 public class Actor implements Serializable {
 
-    private final Inventory inventory = new Inventory();
+    private final Inventory inventory;
+
+    public Actor() {
+        this.inventory = new Inventory();
+    }
 
     public Inventory getInventory() {
         return inventory;
