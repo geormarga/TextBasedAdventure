@@ -5,7 +5,6 @@
  */
 package textbasedadventure;
 
-import features.Feature;
 import items.Altar;
 import items.Book;
 import items.Bookshelf;
@@ -51,8 +50,6 @@ import rooms.Study;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Stack;
-import messages.IMessage;
-import messages.game.FeatureNotFoundMessage;
 
 public class State implements Serializable {
 
@@ -267,54 +264,4 @@ public class State implements Serializable {
         System.out.println(this.currentRoom.getDescription());
 
     }
-
-    public Feature getRoomFeature(String attr) {
-        return (Feature) this.getCurrentRoom().getNearbyRooms().getElements().get(attr);
-    }
-
-    public Feature getItemFeature(String attr) {
-        return (Feature) this.getCurrentRoom().getRoomItems().getElements().get(attr);
-    }
-
-    public Feature getInventoryFeature() {
-        return (Feature) this.getActor().getInventory();
-    }
-
-    public Feature getFeature(String attr) throws Exception {
-
-        if (this.getCurrentRoom().getNearbyRooms().existsInHashMap(attr)) {
-            return getRoomFeature(attr);
-        }
-        if (this.getCurrentRoom().getRoomItems().existsInHashMap(attr)) {
-            return getItemFeature(attr);
-        }
-        if (attr.equals("inventory")) {
-            return getInventoryFeature();
-        }
-        if (attr.equals("around")) {
-            return this.getCurrentRoom();
-        }
-
-        return (Feature) new Object();
-    }
-
-    public boolean hasFeature(String attr) {
-        boolean check = false;
-        if (this.getCurrentRoom().getNearbyRooms().existsInHashMap(attr)) {
-            check = true;
-        } else if (this.getCurrentRoom().getRoomItems().existsInHashMap(attr)) {
-            check = true;
-        } else if (this.getCurrentRoom().getRoomItems().existsInHashMap(attr)) {
-            check = true;// how to get items in containers
-        } else if (attr.equals("inventory")) {
-            check = true;
-        } else if (attr.equals("around")) {
-            check = true;
-        } else {
-            IMessage message = new FeatureNotFoundMessage();
-            message.display(attr);
-        }
-        return check;
-    }
-
 }
