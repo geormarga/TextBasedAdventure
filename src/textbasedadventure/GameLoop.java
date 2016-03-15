@@ -8,6 +8,7 @@ package textbasedadventure;
 import actions.Action;
 import actions.ActionController;
 import features.Feature;
+import features.FeatureController;
 import java.util.Scanner;
 
 /**
@@ -18,17 +19,20 @@ public class GameLoop {
 
     private String text;
     private final ActionController actionController;
-    private final Parser parser ;
+    private final FeatureController featureController;
+    private final Parser parser;
 
     public void gameLoop(State state) throws Exception {
 
         this.setText();
         while (!text.equals("exit game")) {
             if (parser.CommandIsValid(text)) {
-                if (state.hasFeature(parser.getAttr())) {
-                    Feature feature = state.getFeature(parser.getAttr());
+                if (featureController.hasFeature(parser.getAttr(), state)) {
+
+                    Feature feature = featureController.getFeature(parser.getAttr(), state);
                     Action action = actionController.getAction(parser.getCommand());
                     actionController.executeAction(action, feature, state);
+
                 }
             }
             this.setText();
@@ -43,6 +47,8 @@ public class GameLoop {
 
     public GameLoop() {
         this.actionController = new ActionController();
+        this.featureController = new FeatureController();
         this.parser = new Parser();
+
     }
 }
