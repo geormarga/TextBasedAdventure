@@ -18,8 +18,8 @@ public class CommonChest extends Item implements Openable {
     boolean open;
 
     public CommonChest() {
-        this.setName("common chest");
-        setDescription("If only I had a key...");
+        name = "common chest";
+        description = "If only I had a key...";
     }
 
     public void setOpen(boolean open) {

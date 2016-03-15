@@ -14,6 +14,7 @@ import items.Item;
 public class Mudpit extends Item{
 
     public Mudpit() {
-        setDescription("There's a key in the mudpit.");
+        name = "mudpit";
+        description = "There's a key in the mudpit.";
     }
 }

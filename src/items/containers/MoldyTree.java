@@ -14,13 +14,7 @@ import items.Item;
 public class MoldyTree extends Item {
 
     public MoldyTree() {
-        this.setName("moldy tree");
-        setDescription("The tree is pretty moldy and old. Looking down you see an old sundial lying on the ground, near the tree's roots");
-    }
-
-    public void update() {
-        if (!getContainerItems().getElements().containsKey("sundial")) {
-            this.setDescription("Nothing to see here, just a tree.");
-        }
+        name = "moldy tree";
+        description = "The tree is pretty moldy and old. Looking down you see an old sundial lying on the ground, near the tree's roots";
     }
 }

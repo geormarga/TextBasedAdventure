@@ -6,8 +6,6 @@
 package items.containers;
 
 import items.Item;
-import items.Torch;
-import textbasedadventure.State;
 
 /**
  *
@@ -16,23 +14,8 @@ import textbasedadventure.State;
 public class Hole extends Item {
 
     public Hole() {
-        this.setName("hole");
-        setDescription("There's a hole on the ground, and what looks to be a torch in it.");
+        name = "hole";
+        description = "There's a hole on the ground, and what looks to be a torch in it.";
     }
-
-    private void createItem(State state) {
-        if (description.equals("There's a hole on the ground, and what looks to be a torch in it.")) {
-            Item torch = new Torch();
-            state.getCurrentRoom().getRoomItems().getElements().put("torch", torch);
-        }
-    }
-
-    public void update() {
-        if (!getContainerItems().getItems().containsKey("torch")) {
-            this.setDescription("Just an empty hole...");
-        }
-    }
-
-     //torch 
-    //"");
+    //torch
 }
