@@ -8,7 +8,6 @@ package rooms;
 import items.CircularArtifact;
 import items.Item;
 import items.TornNote;
-import items.containers.CommonChest;
 import items.containers.GoldenChest;
 import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;

@@ -6,6 +6,7 @@
 package rooms;
 
 import features.Containable;
+import features.Feature;
 import features.Lookable;
 import features.Moveable;
 import items.Item;
@@ -80,5 +81,10 @@ public abstract class Room implements Lookable, Serializable, Moveable {
         state.getRoute().push(this);
         state.setCurrentRoom(this);
         this.getMovementMessage();
+    }
+    
+    @Override 
+    public Feature getFeature(){
+        return this;
     }
 }
