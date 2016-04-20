@@ -33,9 +33,8 @@ public class HashMapOfElements<T> implements Subject{
 
     @Override
     public void notifyObserver() {
-        for (Observer observer : observers) {
-            observer.update();
-        }
+        observers.stream().forEach((observer) -> {observer.update();
+        });
     }
 
     public HashMap<String, T> getElements() {
