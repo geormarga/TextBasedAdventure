@@ -5,8 +5,7 @@
  */
 package features;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
 import messages.IMessage;
 import messages.game.FeatureNotFoundMessage;
 import textbasedadventure.State;
@@ -16,7 +15,7 @@ import textbasedadventure.State;
  * @author Aenaos
  */
 public class FeatureController {
-    
+
     public boolean hasFeature(String attr, State state) {
         boolean check = false;
         if (state.getCurrentRoom().getNearbyRooms().existsInHashMap(attr)) {
@@ -36,31 +35,50 @@ public class FeatureController {
         return check;
     }
 
-    public Feature getRoomFeature(String attr, State state) {
+    public Feature getFeature(String attr, State state) throws Exception {
+        Feature feature;
+
+        HashMap<String,Feature> takis = new HashMap<>();
+        
+        takis.forEach((String,Feature)->System.out.println(""));
+        takis.forEach((attr,feature)-> get);
+        if (state.getCurrentRoom().getNearbyRooms().existsInHashMap(attr)) {
+            feature = getRoomFeature(attr, state);
+        }
+        
+        if (state.getCurrentRoom().getRoomItems().existsInHashMap(attr)) {
+            feature = getItemFeature(attr, state);
+        }
+
+        if (state.getCurrentRoom().getContainerType().hasContainer() && state.getCurrentRoom()) {
+            pickable.pickup(state.getActor().getInventory(), state.getCurrentRoom().getRoomItems());
+        }
+
+        if (attr.equals("inventory")) {
+            feature = getInventoryFeature(state);
+        }
+        if (attr.equals("around")) {
+            feature = state.getCurrentRoom();
+        }
+        if (attr.equals("chest")) {
+            //  return getInventoryFeature(state);
+        }
+        return feature;
+    }
+
+    private Feature getRoomFeature(String attr, State state) {
         return (Feature) state.getCurrentRoom().getNearbyRooms().getElements().get(attr);
     }
 
-    public Feature getItemFeature(String attr, State state) {
+    private Feature getItemFeature(String attr, State state) {
         return (Feature) state.getCurrentRoom().getRoomItems().getElements().get(attr);
     }
 
-    public Feature getInventoryFeature(State state) {
+    private Feature getInventoryFeature(State state) {
         return (Feature) state.getActor().getInventory();
     }
 
-    public Feature getFeature(String attr, State state) throws Exception {
-        if (state.getCurrentRoom().getNearbyRooms().existsInHashMap(attr)) {
-            return getRoomFeature(attr, state);
-        }
-        if (state.getCurrentRoom().getRoomItems().existsInHashMap(attr)) {
-            return getItemFeature(attr, state);
-        }
-        if (attr.equals("inventory")) {
-            return getInventoryFeature(state);
-        }
-        if (attr.equals("around")) {
-            return state.getCurrentRoom();
-        }
-        return (Feature) new Object();
+    public Containable tryLambda() {
+        return null;
     }
 }
