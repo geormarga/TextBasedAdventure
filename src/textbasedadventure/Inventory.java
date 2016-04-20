@@ -1,5 +1,6 @@
 package textbasedadventure;
 
+import features.Feature;
 import features.Showable;
 import items.Item;
 
@@ -16,8 +17,13 @@ public class Inventory extends HashMapOfElements<Item> implements Showable {
 
     @Override
     public void show() {
-        for (String key : getElements().keySet()) {
+        getElements().keySet().stream().forEach((key) -> {
             System.out.println(key);
-        }
+        });
+    }
+
+    @Override
+    public Feature getFeature() {
+        return this;
     }
 }
