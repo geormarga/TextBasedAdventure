@@ -11,4 +11,5 @@ package features;
  * @author Aenaos
  */
 public interface Feature{
+    public Feature getFeature();
 }
