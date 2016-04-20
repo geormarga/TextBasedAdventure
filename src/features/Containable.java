@@ -5,14 +5,11 @@
  */
 package features;
 
-import items.Item;
-import textbasedadventure.HashMapOfElements;
-
 /**
  *
  * @author Aenaos
  */
 public interface Containable {
 
-    public HashMapOfElements<Item> contains();
+    public boolean hasContainer();
 }
