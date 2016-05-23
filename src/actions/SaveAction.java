@@ -5,18 +5,18 @@
  */
 package actions;
 
-import features.Saveable;
+import features.Storable;
 import textbasedadventure.State;
 
 /**
  *
  * @author Aenaos
  */
-public class SaveAction implements Action<Saveable> {
+public class SaveAction implements Action<Storable> {
 
     @Override
-    public void execute(State state, Saveable saveable) {
-        saveable.save(state);
+    public void execute(State state, Storable storable) {
+        storable.save(state);
     }
 
 }

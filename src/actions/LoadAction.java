@@ -5,17 +5,17 @@
  */
 package actions;
 
-import features.Loadable;
+import features.Storable;
 import textbasedadventure.State;
 
 /**
  *
  * @author Aenaos
  */
-public class LoadAction implements Action<Loadable> {
+public class LoadAction implements Action<Storable> {
 
     @Override
-    public void execute(State state, Loadable loadable) {
+    public void execute(State state, Storable loadable) {
         loadable.load();
     }
 }

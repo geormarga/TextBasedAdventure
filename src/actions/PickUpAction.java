@@ -16,6 +16,10 @@ public class PickUpAction implements Action<Pickable> {
 
     @Override
     public void execute(State state, Pickable pickable) {
-        pickable.pickup(state.getActor().getInventory(), state.getCurrentRoom().getRoomItems());
+        if (state.getCurrentRoom().getContainerType().hasContainer()) {
+            
+        } else {
+            pickable.pickup(state.getActor().getInventory(), state.getCurrentRoom().getRoomItems());
+        }
     }
 }
