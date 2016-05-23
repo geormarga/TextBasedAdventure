@@ -27,13 +27,11 @@ public class GameLoop {
         this.setText();
         while (!text.equals("exit game")) {
             if (parser.CommandIsValid(text)) {
-                if (featureController.hasFeature(parser.getAttr(), state)) {
-
-                    Feature feature = featureController.getFeature(parser.getAttr(), state);
+                
+                    Feature feature = featureController.getFeature(parser.getAttr());
                     Action action = actionController.getAction(parser.getCommand());
                     actionController.executeAction(action, feature, state);
 
-                }
             }
             this.setText();
         }
