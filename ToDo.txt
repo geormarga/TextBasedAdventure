@@ -1,0 +1,25 @@
+- Return pair<feature,IMessage> to structure in time as an mvc
+- Try something similar to C#'s INotifyPropertyChanged for observer-Subject
+- IDisposable for files
+- Implement lambdas (especially FeatureController)
+- what happens if a lambda iterates a list and encounters a null value? use .filter and .
+- remove getFeature from feature interface
+
+- Feature should register itself on FeatureFactory (maybe alongside with the implementation part of the observer pattern)
+
+- featurefactory should get initialized before first usage, maybe passed around
+
+- maybe i dont need a hashmap if i initialize new instances of items and rooms in the feature factory
+
+- dont forget to remove container classes (strategy pattern)
+
+- how to limitate a user from navigating to rooms which arent adjacent,
+  and interacting with items which dont exist in the room
+  maybe have a list of adjacent rooms in every room and check those on moveaction
+
+- fix exit action (command needs to have attribute) and exit without waiting for another command
+- commandfactory and command controller
+
+!!!!make parser better he should translate west east etc to a room
+
+- how should i know between to rooms which is west if both can be gradually

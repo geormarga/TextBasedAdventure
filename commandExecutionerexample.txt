@@ -1,0 +1,72 @@
+    public interface IRoom
+    {
+        void DoSomething(string something);
+    }
+
+    public interface ICommandExecutioner
+    {
+        void ExecuteCommand(string args);
+    }
+
+    public interface ICommandResult { }
+
+    //use lambdas
+    public delegate ICommandResult CommandExecute(IRoom room, string commmand, List<string> args);
+
+
+
+    internal interface ICommandHost : ICommandExecutioner
+    {
+
+        void RegisterCommand(string command, string description,
+                                                        CommandExecute callback);
+
+
+        void DeregisterCommand(string command);
+
+
+        void PushExecutioner(ICommandExecutioner executioner);
+
+
+        void PopExecutioner();
+    }
+
+    internal class GameCommandHost : ICommandHost
+    {
+
+        public void RegisterCommand(string command, string description, CommandExecute callback)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeregisterCommand(string command)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PushExecutioner(ICommandExecutioner executioner)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PopExecutioner()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExecuteCommand(string args)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class ExampleRoom : IRoom
+    {
+        public void RegisterCommand(GameCommandHost commandHost)
+        {
+            commandHost.RegisterCommand("north", "goes north", (room, command, args) =>
+                {
+                    room.DoSomething(command);
+                });
+        }
+    }
