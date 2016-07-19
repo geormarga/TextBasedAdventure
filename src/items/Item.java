@@ -6,7 +6,6 @@
 package items;
 
 import features.Examinable;
-import features.Feature;
 import java.io.Serializable;
 
 /**
@@ -22,11 +21,6 @@ public abstract class Item implements Examinable, Serializable {
     @Override
     public void examine(){
         System.out.println(description);
-    }
-    
-    @Override
-    public Feature getFeature(){
-        return this;
     }
 
     public void setDescription(String desc) {
