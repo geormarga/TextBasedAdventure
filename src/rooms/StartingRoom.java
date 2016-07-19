@@ -13,6 +13,7 @@ public class StartingRoom extends Room {
 
     public StartingRoom() {
 
+        name = "starting room";
         description = "Welcome, this is the starting room!\n"
                 + "The goal of the game is to collect all artifacts\n"
                 + "and find the Escape Room to escape.\n"

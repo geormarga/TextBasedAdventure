@@ -18,6 +18,7 @@ public class Dungeon extends Room implements Observer {
     HashMapOfElements<Item> container;
 
     public Dungeon() {
+        name = "dungeon";
         description = "This must be a dungeon, by the looks of it many people drew their final breath here...";
         hint = "There's a musty corpse on the ground";
         containerType =  new DoesContain();

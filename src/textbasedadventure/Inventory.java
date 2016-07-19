@@ -21,9 +21,4 @@ public class Inventory extends HashMapOfElements<Item> implements Showable {
             System.out.println(key);
         });
     }
-
-    @Override
-    public Feature getFeature() {
-        return this;
-    }
 }

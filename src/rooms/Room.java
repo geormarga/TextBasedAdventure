@@ -23,6 +23,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     protected HashMapOfElements<Room> nearbyRooms = new HashMapOfElements<>();
     protected HashMapOfElements<Item> roomItems = new HashMapOfElements<>();
+    protected String name;
     protected String description;
     protected String hint;
     protected Containable containerType;
@@ -41,6 +42,10 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     public void setRoomItems(HashMap<String, Item> par) {
         roomItems.setElements(par);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
@@ -81,10 +86,5 @@ public abstract class Room implements Lookable, Serializable, Moveable {
         state.getRoute().push(this);
         state.setCurrentRoom(this);
         this.getMovementMessage();
-    }
-    
-    @Override 
-    public Feature getFeature(){
-        return this;
     }
 }

@@ -9,7 +9,7 @@ public class CommandList {
 
     public CommandList() {
         this.commandList = new HashMap<>();
-        
+
         ArrayList attrMove = new ArrayList();
         ArrayList attrPickup = new ArrayList();
         ArrayList attrOpen = new ArrayList();
@@ -124,13 +124,6 @@ public class CommandList {
     }
 
     public boolean isAttr(String command, String attr) {
-        
-        ArrayList<String> setMap = this.getCommandList().get(command);
-        if(setMap==null){
-            return false;
-        }else{
-            return setMap.contains(attr);
-        }
-     
+        return this.getCommandList().get(command).contains(attr);
     }
 }

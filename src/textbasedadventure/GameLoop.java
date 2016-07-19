@@ -21,17 +21,16 @@ public class GameLoop {
     private final ActionController actionController;
     private final FeatureController featureController;
     private final Parser parser;
+    private boolean canContinue = true;
 
     public void gameLoop(State state) throws Exception {
 
         this.setText();
-        while (!text.equals("exit game")) {
+        while (canContinue) {
             if (parser.CommandIsValid(text)) {
-                
-                    Feature feature = featureController.getFeature(parser.getAttr());
+                    Feature feature = featureController.getFeature(parser.getAttr(),state.getFeatureFactory());
                     Action action = actionController.getAction(parser.getCommand());
-                    actionController.executeAction(action, feature, state);
-
+                    canContinue = actionController.executeAction(action, feature, state);
             }
             this.setText();
         }

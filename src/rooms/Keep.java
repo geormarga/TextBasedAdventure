@@ -22,9 +22,10 @@ public class Keep extends Room implements Observer {
     HashMapOfElements<Item> container;
 
     public Keep() {
+        name = "keep";
         description = "You are in the keep. Unfortunately there's no visible path from which you can enter.";
         hint = "You see something shining in a mudpit. A silver chest lies on the ground.";
-        containerType =  new DoesContain();
+        containerType = new DoesContain();
         container = new HashMapOfElements<>();
     }
 
@@ -32,19 +33,19 @@ public class Keep extends Room implements Observer {
     public void update() {
         if (!roomItems.getElements().containsKey("key")) {
             setHint("A mudpit formed on the floor of the keep. A chest lies on the ground as well.");
-            
+
         }
-        
+
         SilverChest chest = (SilverChest) roomItems.getElements().get("chest");
         if (chest.isOpen()) {
             CircularArtifact artifact = new CircularArtifact();
             TornNote note = new TornNote();
-            
+
             roomItems.addElement("artifact", artifact);
             container.addElement("artifact", artifact);
             roomItems.addElement("artifact", note);
             container.addElement("artifact", note);
-            
+
             System.out.println("Items in chest:");
             for (String key : container.getElements().keySet()) {
                 System.out.println(key + ",");

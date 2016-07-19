@@ -5,7 +5,8 @@
  */
 package textbasedadventure;
 
-import features.Feature;
+import features.Exitable;
+import features.Startable;
 import features.Storable;
 import java.io.File;
 
@@ -19,7 +20,7 @@ import java.io.FileNotFoundException;
  *
  * @author Aenaos
  */
-public class Game implements Storable {
+public class Game implements Storable,Startable,Exitable {
 
     private final File savegame = new File("//");
     
@@ -31,7 +32,7 @@ public class Game implements Storable {
         try {
             fin = new FileInputStream(savegame);
         } catch (FileNotFoundException ex) {
-            System.err.println("No load");
+            System.err.println("No load action performed.");
         }
     }
 
@@ -44,12 +45,13 @@ public class Game implements Storable {
             ObjectOutputStream save = new ObjectOutputStream(saveFile);
             save.writeObject(state);
         } catch (Exception ex) {
-            System.err.println("No save");
+            System.err.println("No save action performed.");
         }
     }
-
+    
     @Override
-    public Feature getFeature() {
-        return this;
+    public void start(){
+    
     }
+    
 }

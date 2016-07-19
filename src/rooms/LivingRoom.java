@@ -12,9 +12,9 @@ package rooms;
 public class LivingRoom extends Room {
 
     public LivingRoom() {
-
+        name = "living room";
         description = "This is the main Dining Room. The plates on the table indicated that this castle has long been abandonded.";
         hint = "This room is a mess... something happened here!";
-        containerType =  new DoesNotContain();
+        containerType = new DoesNotContain();
     }
 }
