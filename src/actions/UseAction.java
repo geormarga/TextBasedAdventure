@@ -15,7 +15,8 @@ import textbasedadventure.State;
 public class UseAction implements Action<Usable> {
 
     @Override
-    public void execute(State state, Usable usable) {
+    public boolean execute(State state, Usable usable) {
         usable.use(state.getActor().getInventory(), state.getCurrentRoom().getRoomItems());
+        return true;
     }
 }

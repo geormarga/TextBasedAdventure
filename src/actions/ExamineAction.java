@@ -15,7 +15,8 @@ import textbasedadventure.State;
 public class ExamineAction implements Action<Examinable> {
 
     @Override
-    public void execute(State state, Examinable examinable) {
+    public boolean execute(State state, Examinable examinable) {
         examinable.examine();
+        return true;
     }
 }

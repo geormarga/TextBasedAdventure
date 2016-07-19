@@ -15,7 +15,8 @@ import textbasedadventure.State;
 public class OpenAction implements Action<Openable>{
 
     @Override
-    public void execute(State state, Openable openable) {
+    public boolean execute(State state, Openable openable) {
         openable.open(state.getActor().getInventory());
+        return true;
     }
 }

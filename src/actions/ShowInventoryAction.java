@@ -15,7 +15,8 @@ import textbasedadventure.State;
 public class ShowInventoryAction implements Action<Showable>{
 
     @Override
-    public void execute(State state, Showable showable) {
+    public boolean execute(State state, Showable showable) {
         showable.show();
+        return true;
     }
 }

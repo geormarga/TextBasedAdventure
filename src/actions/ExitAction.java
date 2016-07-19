@@ -5,19 +5,17 @@
  */
 package actions;
 
-import features.Pullable;
 import textbasedadventure.State;
 
 /**
  *
  * @author Aenaos
  */
-public class PullAction implements Action<Pullable> {
+public class ExitAction implements Action {
 
     @Override
-    public boolean execute(State state, Pullable pullable) {
-        pullable.pull();
-        return true;
+    public boolean execute(State state, Object t) {
+        return false;
     }
+    
 }
-

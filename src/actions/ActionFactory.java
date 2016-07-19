@@ -35,6 +35,7 @@ public class ActionFactory {
         this.registerAction("pull", new PullAction());
         this.registerAction("turn", new TurnAction());
         this.registerAction("use", new UseAction());
+        this.registerAction("exit", new ExitAction());
         /*
          this.registerAction("return", new ReturnAction());
          this.registerAction("load", new LoadAction());

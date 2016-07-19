@@ -15,8 +15,9 @@ import textbasedadventure.State;
 public class SaveAction implements Action<Storable> {
 
     @Override
-    public void execute(State state, Storable storable) {
+    public boolean execute(State state, Storable storable) {
         storable.save(state);
+        return true;
     }
 
 }

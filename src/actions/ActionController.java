@@ -14,8 +14,8 @@ import textbasedadventure.State;
  */
 public class ActionController {
 
-    public void executeAction(Action action, Feature feature, State state) {
-        action.execute(state, feature);
+    public boolean executeAction(Action action, Feature feature, State state) {
+        return action.execute(state, feature);
     }
 
     public Action getAction(String command) {

@@ -15,7 +15,8 @@ import textbasedadventure.State;
 public class TurnAction implements Action<Turnable> {
 
     @Override
-    public void execute(State state, Turnable turnable ) {
+    public boolean execute(State state, Turnable turnable ) {
         turnable.turn();
+        return true;
     }
 }

@@ -16,13 +16,14 @@ import textbasedadventure.State;
 public class ReturnAction implements Action<Moveable>{
     
     @Override
-    public void execute(State state, Moveable moveable) {
+    public boolean execute(State state, Moveable moveable) {
         Room lastRoom;
         if (!state.getRoute().empty()) {
             lastRoom = (Room) state.getRoute().pop();
             state.setCurrentRoom(lastRoom);
             System.out.println(state.getCurrentRoom().getDescription());
         }
+        return true;
     }
     
 }
