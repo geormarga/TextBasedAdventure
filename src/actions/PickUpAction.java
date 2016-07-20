@@ -15,12 +15,8 @@ import textbasedadventure.State;
 public class PickUpAction implements Action<Pickable> {
 
     @Override
-    public boolean execute(State state, Pickable pickable) {
-        if (state.getCurrentRoom().getContainerType().hasContainer()) {
-            return true;
-        } else {
+    public boolean execute(State state, Pickable pickable) {     
             pickable.pickup(state.getActor().getInventory(), state.getCurrentRoom().getRoomItems());
             return true;
-        }
     }
 }
