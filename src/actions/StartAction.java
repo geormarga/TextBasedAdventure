@@ -15,7 +15,8 @@ public class StartAction implements Action{
 
     @Override
     public boolean execute(State state, Object t) {
-       game.start();
+       //game.start();
+        return true;
     }
     
 }
