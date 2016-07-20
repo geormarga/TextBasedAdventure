@@ -63,15 +63,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
     public void setHint(String hint) {
         this.hint = hint;
     }
-
-    public Containable getContainerType() {
-        return containerType;
-    }
-
-    public void setContainerType(Containable containerType) {
-        this.containerType = containerType;
-    }
-
+    
     public void getMovementMessage() {
         System.out.println(this.getDescription());
     }

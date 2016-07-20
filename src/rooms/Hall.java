@@ -15,6 +15,5 @@ public class Hall extends Room {
         name = "hall";
         description = "You went inside the Castle. It's vast halls seem haunted";
         hint = "You can see some rooms left and right ... and stairs heading down.";
-        containerType =  new DoesNotContain();
     }
 }

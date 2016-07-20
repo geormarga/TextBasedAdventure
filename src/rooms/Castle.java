@@ -23,8 +23,6 @@ public class Castle extends Room implements Observer {
         name= "castle";
         description = "You are in the castle yard. You are free to go in, but there is also a cave to the west...";
         hint = "You found a chest on the ground.";
-        containerType = new DoesContain();
-        container = new HashMapOfElements<>();
     }
 
     public HashMapOfElements<Item> getContainer() {

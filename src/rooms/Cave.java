@@ -24,8 +24,6 @@ public class Cave extends Room implements Observer {
         name = "cave";
         description = "You are in a cave.";
         hint = "Its kinda dark and you can't see well in here, but you can hear someone screaming!";
-        containerType = new DoesContain();
-        container = new HashMapOfElements<>();
     }
 
     @Override
