@@ -5,8 +5,6 @@
  */
 package rooms;
 
-import features.Containable;
-import features.Feature;
 import features.Lookable;
 import features.Moveable;
 import items.Item;
@@ -26,7 +24,6 @@ public abstract class Room implements Lookable, Serializable, Moveable {
     protected String name;
     protected String description;
     protected String hint;
-    protected Containable containerType;
 
     public HashMapOfElements<Room> getNearbyRooms() {
         return nearbyRooms;
