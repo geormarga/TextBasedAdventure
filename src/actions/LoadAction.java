@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class LoadAction implements Action<Storable> {
 
     @Override
-    public boolean execute(State state, Storable loadable) {
-        loadable.load();
+    public boolean execute(State state, Storable storable) {
+        storable.load();
         return true;
     }
 }
