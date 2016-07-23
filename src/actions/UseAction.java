@@ -16,7 +16,7 @@ public class UseAction implements Action<Usable> {
 
     @Override
     public boolean execute(State state, Usable usable) {
-        usable.use(state.getActor().getInventory(), state.getCurrentRoom().getRoomItems());
+        usable.use(state.getActor().getInventory(), state.getMap());
         return true;
     }
 }

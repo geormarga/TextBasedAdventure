@@ -5,14 +5,13 @@
  */
 package features;
 
-import items.Item;
-import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Inventory;
+import textbasedadventure.Map;
 
 /**
  *
  * @author Aenaos
  */
 public interface Pickable extends Examinable {
-    public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems);
+    public void pickup(Inventory inventory, Map map);
 }

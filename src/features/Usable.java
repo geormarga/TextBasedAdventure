@@ -5,14 +5,13 @@
  */
 package features;
 
-import items.Item;
-import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Inventory;
+import textbasedadventure.Map;
 
 /**
  *
  * @author Aenaos
  */
 public interface Usable extends Feature {
-    public void use(Inventory inventory, HashMapOfElements<Item> roomItems);
+    public void use(Inventory inventory, Map map);
 }
