@@ -18,7 +18,6 @@ public class MoveAction implements Action<Moveable>{
     public boolean execute(State state, Moveable moveable) {
         moveable.move(state);
         return true;
-
     }
 
 }
