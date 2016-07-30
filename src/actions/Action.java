@@ -12,6 +12,9 @@ import textbasedadventure.State;
  * @author Aenaos
  * @param <T> Item to do action on
  */
-public interface Action<T>{
+public interface Action<T> {
+
     boolean execute(State state, T t);
+
+    boolean existsInContext(State state, T t);
 }
