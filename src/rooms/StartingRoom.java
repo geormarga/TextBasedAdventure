@@ -5,6 +5,8 @@
  */
 package rooms;
 
+import textbasedadventure.State;
+
 /**
  *
  * @author Aenaos
@@ -20,5 +22,12 @@ public class StartingRoom extends Room {
                 + "By typing exit game, you can exit anytime. Type start game to begin...";
         hint = "This is the starting room. What did you expect to see?";
       
+    }
+    
+    @Override
+    public void move(State state) {
+        state.setPreviousRoom(this);
+        state.setCurrentRoom(this);
+        this.getMovementMessage();
     }
 }

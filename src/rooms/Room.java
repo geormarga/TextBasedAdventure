@@ -7,10 +7,8 @@ package rooms;
 
 import features.Lookable;
 import features.Moveable;
-import items.Item;
 import java.io.Serializable;
-import java.util.HashMap;
-import textbasedadventure.HashMapOfElements;
+import java.util.List;
 import textbasedadventure.State;
 
 /**
@@ -19,26 +17,46 @@ import textbasedadventure.State;
  */
 public abstract class Room implements Lookable, Serializable, Moveable {
 
-    protected HashMapOfElements<Room> nearbyRooms = new HashMapOfElements<>();
-    protected HashMapOfElements<Item> roomItems = new HashMapOfElements<>();
+    protected List<String> nearbyRooms;
+    protected List<String> roomItems;
     protected String name;
     protected String description;
     protected String hint;
 
-    public HashMapOfElements<Room> getNearbyRooms() {
-        return nearbyRooms;
+    public void registerItem(String itemName) {
+        roomItems.add(itemName);
     }
 
-    public void setNearbyRooms(HashMap<String, Room> par) {
-        nearbyRooms.setElements(par);
+    public void unregisterItem(String itemName) {
+        roomItems.remove(itemName);
     }
 
-    public HashMapOfElements<Item> getRoomItems() {
-        return roomItems;
+    public void registerRoom(String roomName) {
+        nearbyRooms.add(roomName);
     }
 
-    public void setRoomItems(HashMap<String, Item> par) {
-        roomItems.setElements(par);
+    public void unregisterRoom(String roomName) {
+        nearbyRooms.remove(roomName);
+    }
+
+    public void setRoomItems(List<String> list) {
+        this.roomItems = list;
+    }
+
+    public List<String> getRoomItems() {
+        return this.roomItems;
+    }
+
+    public void setNearbyRooms(List<String> list) {
+        this.nearbyRooms = list;
+    }
+
+    public List<String> getNearbyRooms() {
+        return this.nearbyRooms;
+    }
+
+    public boolean existsInRoom(String itemName) {
+        return roomItems.contains(itemName);
     }
 
     public String getName() {
@@ -60,7 +78,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
     public void setHint(String hint) {
         this.hint = hint;
     }
-    
+
     public void getMovementMessage() {
         System.out.println(this.getDescription());
     }
@@ -72,7 +90,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     @Override
     public void move(State state) {
-        state.getRoute().push(this);
+        state.setPreviousRoom(state.getCurrentRoom());
         state.setCurrentRoom(this);
         this.getMovementMessage();
     }

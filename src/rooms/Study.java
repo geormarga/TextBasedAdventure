@@ -8,6 +8,7 @@ package rooms;
 import items.Book;
 import items.Bookshelf;
 import textbasedadventure.Observer;
+import textbasedadventure.State;
 
 /**
  *
@@ -22,11 +23,11 @@ public class Study extends Room implements Observer {
     }
 
     @Override
-    public void update() {
-        Book book = (Book) roomItems.getElements().get("book");
+    public void update(State state) {
+        Book book = (Book) state.getFeatureFactory().createFeature("book");
         if (book.isPulled()) {
-            nearbyRooms.addElement("in", new HiddenRoom());
-            Bookshelf bookshelf = (Bookshelf) roomItems.getElements().get("bookshelf");
+            this.registerRoom("hidden room");
+            Bookshelf bookshelf = (Bookshelf) state.getFeatureFactory().createFeature("bookshelf");
             bookshelf.setDescription("A chasm opened on the wall, you can go in.");
         }
     }

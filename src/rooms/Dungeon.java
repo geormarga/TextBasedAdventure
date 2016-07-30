@@ -5,17 +5,14 @@
  */
 package rooms;
 
-import items.Item;
-import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
+import textbasedadventure.State;
 
 /**
  *
  * @author Aenaos
  */
 public class Dungeon extends Room implements Observer {
-
-    HashMapOfElements<Item> container;
 
     public Dungeon() {
         name = "dungeon";
@@ -25,8 +22,8 @@ public class Dungeon extends Room implements Observer {
     }
 
     @Override
-    public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(State state) {
+        //
     }
 
     @Override

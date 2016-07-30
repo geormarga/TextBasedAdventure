@@ -6,6 +6,7 @@
 package rooms;
 
 import textbasedadventure.Observer;
+import textbasedadventure.State;
 
 /**
  *
@@ -21,7 +22,7 @@ public class AbandonedTemple extends Room implements Observer{
     }
 
     @Override
-    public void update() {
+    public void update(State state) {
         //each one is set and all together 4 cases
     }
 }

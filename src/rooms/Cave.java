@@ -5,12 +5,9 @@
  */
 package rooms;
 
-import items.CircularArtifact;
-import items.Item;
-import items.TornNote;
 import items.containers.GoldenChest;
-import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
+import textbasedadventure.State;
 
 /**
  *
@@ -18,7 +15,6 @@ import textbasedadventure.Observer;
  */
 public class Cave extends Room implements Observer {
 
-    HashMapOfElements<Item> container;
 
     public Cave() {
         name = "cave";
@@ -27,19 +23,17 @@ public class Cave extends Room implements Observer {
     }
 
     @Override
-    public void update() {
-        GoldenChest chest = (GoldenChest) roomItems.getElements().get("chest");
+    public void update(State state) {
+        GoldenChest chest = (GoldenChest) state.getFeatureFactory().createFeature("golden chest");
         if (chest.isOpen()) {
-            CircularArtifact artifact = new CircularArtifact();
-            TornNote note = new TornNote();
             
-            roomItems.addElement("artifact", artifact);
-            container.addElement("artifact", artifact);
-            roomItems.addElement("artifact", note);
-            container.addElement("artifact", note);
+            this.registerItem("torn note");
+            this.registerItem("circular artifact");
+            chest.getContainerItems().add("torn note");
+             chest.getContainerItems().add("circular artifact");
             
             System.out.println("Items in chest:");
-            for (String key : container.getElements().keySet()) {
+            for (String key : chest.getContainerItems()) {
                 System.out.println(key + ",");
             }
             System.out.println(".");

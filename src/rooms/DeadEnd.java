@@ -6,9 +6,8 @@
 package rooms;
 
 import items.Hatch;
-import items.Item;
-import items.Torch;
 import items.WoodenWheel;
+import items.containers.Hole;
 import textbasedadventure.Observer;
 import textbasedadventure.State;
 
@@ -28,22 +27,23 @@ public class DeadEnd extends Room implements Observer {
      */
 
     @Override
-    public void update() {
-        if (!roomItems.existsInHashMap("torch")) {
-            //hole desc = setDescription("Just an empty hole...");
+    public void update(State state) {
+        if (!existsInRoom("torch")) {
+            Hole hole = (Hole) state.getFeatureFactory().createFeature("hole");
+            hole.setDescription("Just an empty hole...");
         }
 
-        WoodenWheel wheel = (WoodenWheel) roomItems.getElements().get("wheel");
+        WoodenWheel wheel = (WoodenWheel) state.getFeatureFactory().createFeature("wooden wheel");
         if (wheel.isTurned()) {
-            Hatch hatch = (Hatch) roomItems.getElements().get("hatch");
+            Hatch hatch = (Hatch) state.getFeatureFactory().createFeature("hatch");
             hatch.setOpen(true);
+            this.registerItem("hatch");
         }
     }
 
     private void createItem(State state) {
         if (description.equals("There's a hole on the ground, and what looks to be a torch in it.")) {
-            Item torch = new Torch();
-            state.getCurrentRoom().getRoomItems().getElements().put("torch", torch);
+            this.registerItem("torch");
         }
     }
 }

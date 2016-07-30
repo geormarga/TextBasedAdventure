@@ -5,9 +5,9 @@
  */
 package rooms;
 
-import items.Item;
-import textbasedadventure.HashMapOfElements;
+import items.Stand;
 import textbasedadventure.Observer;
+import textbasedadventure.State;
 
 /**
  *
@@ -15,8 +15,6 @@ import textbasedadventure.Observer;
  */
 public class HiddenRoom extends Room implements Observer {
 
-    HashMapOfElements<Item> container;
-    
     public HiddenRoom() {
         name = "hidden room";
         description = "Wow. I didn't believe that it would work!";
@@ -24,9 +22,10 @@ public class HiddenRoom extends Room implements Observer {
     }
 
     @Override
-    public void update() {
-        if (!roomItems.getElements().containsKey("artifact")) {
-            roomItems.getElements().get("stand").setDescription("A stone stand.");
+    public void update(State state) {
+        if (!state.getCurrentRoom().existsInRoom("triangular artifact")) {
+            Stand stand = (Stand) state.getFeatureFactory().createFeature("stand");
+            stand.setDescription("A stone stand.");
         }
     }
 }

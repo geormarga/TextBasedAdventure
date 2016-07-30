@@ -5,17 +5,14 @@
  */
 package rooms;
 
-import items.Item;
-import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
+import textbasedadventure.State;
 
 /**
  *
  * @author Aenaos
  */
 public class Forest extends Room implements Observer {
-
-    HashMapOfElements<Item> container;
 
     public Forest() {
         name = "forest";
@@ -24,12 +21,21 @@ public class Forest extends Room implements Observer {
     }
 
     @Override
-    public void update() {
-        if (!roomItems.getElements().containsKey("key")) {
+    public void update(State state) {
+        if (!this.existsInRoom("rusty key")) {
             setHint("One tree looks different from the others, it's sticking out.");
         }
-        if (!container.getElements().containsKey("sundial")) {
+        if (!this.existsInRoom("sundial")) {
             this.setDescription("Nothing to see here, just a tree.");
         }
+    }
+
+    @Override
+    public void move(State state) {
+        if (state.getPreviousRoom().getName().equals("starting room")) {
+            state.setPreviousRoom(this);
+        }
+        state.setCurrentRoom(this);
+        this.getMovementMessage();
     }
 }

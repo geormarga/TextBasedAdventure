@@ -5,21 +5,15 @@
  */
 package rooms;
 
-import items.CircularArtifact;
-import items.Item;
-import items.TornNote;
-import items.containers.GoldenChest;
 import items.containers.SilverChest;
-import textbasedadventure.HashMapOfElements;
 import textbasedadventure.Observer;
+import textbasedadventure.State;
 
 /**
  *
  * @author Aenaos
  */
 public class Keep extends Room implements Observer {
-
-    HashMapOfElements<Item> container;
 
     public Keep() {
         name = "keep";
@@ -28,24 +22,22 @@ public class Keep extends Room implements Observer {
     }
 
     @Override
-    public void update() {
-        if (!roomItems.getElements().containsKey("key")) {
+    public void update(State state) {
+        if (this.existsInRoom("key")) {
             setHint("A mudpit formed on the floor of the keep. A chest lies on the ground as well.");
 
         }
 
-        SilverChest chest = (SilverChest) roomItems.getElements().get("chest");
+        SilverChest chest = (SilverChest) state.getFeatureFactory().createFeature("silver chest");
         if (chest.isOpen()) {
-            CircularArtifact artifact = new CircularArtifact();
-            TornNote note = new TornNote();
 
-            roomItems.addElement("artifact", artifact);
-            container.addElement("artifact", artifact);
-            roomItems.addElement("artifact", note);
-            container.addElement("artifact", note);
+            this.registerItem("circular artifact");
+            this.registerItem("torn note");
+            chest.getContainerItems().add("circular artifact");
+            chest.getContainerItems().add("torn note");
 
             System.out.println("Items in chest:");
-            for (String key : container.getElements().keySet()) {
+            for (String key : chest.getContainerItems()) {
                 System.out.println(key + ",");
             }
             System.out.println(".");
