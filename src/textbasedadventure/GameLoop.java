@@ -22,17 +22,20 @@ public class GameLoop {
     private final FeatureController featureController;
     private final Parser parser;
     private boolean canContinue = true;
-    private final Map map;
 
     public void gameLoop(State state) throws Exception {
 
         this.setText();
         while (canContinue) {
-            if (parser.CommandIsValid(text)) {
-                    map.getCorrectRoomName(state.getCurrentRoom().getName(),parser.getAttr());
-                    Feature feature = featureController.getFeature(map.getCorrectName(),state.getFeatureFactory());
-                    Action action = actionController.getAction(parser.getCommand());
-                    canContinue = actionController.executeAction(action, feature, state);
+            if (parser.CommandIsValid(text, state)) {
+                try{
+                Feature feature = featureController.getFeature(parser.getAttr(), state.getFeatureFactory(),state);
+                Action action = actionController.getAction(parser.getCommand());
+                canContinue = actionController.executeAction(action, feature, state);
+                }catch (NullPointerException ex){
+                System.out.println("Could not find what you were looking for");
+                }
+                
             }
             this.setText();
         }
@@ -48,6 +51,5 @@ public class GameLoop {
         this.actionController = new ActionController();
         this.featureController = new FeatureController();
         this.parser = new Parser();
-        this.map = new Map();
     }
 }
