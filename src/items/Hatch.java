@@ -6,6 +6,7 @@
 package items;
 
 import features.Openable;
+import rooms.Room;
 import textbasedadventure.Inventory;
 import textbasedadventure.State;
 
@@ -30,23 +31,22 @@ public class Hatch extends Item implements Openable {
         description = "The area below the hatch is flooded. I need to get rid of the water so that I can go down there.";
     }
 
-    private void updateDescription(State state) {
-        state.getCurrentRoom().getRoomItems().getElements().get("hatch").setDescription("Water's gone. You can proceed.");
+    public void updateDescription() {
+        this.setDescription("Water's gone. You can proceed.");
     }
 
-    /*
-     public void open(String attr, State state) {
+    public void open(String attr, State state) {
 
-     if (this.isFlooded(state)) {
-     System.out.println("You need to get rid of the water first.");
-     } else {
-     setIsOpen(true);
-     System.out.println("The hatch is now open.");
-     setDescription("The hatch is now open.");
+        WoodenWheel wheel= (WoodenWheel) state.getFeatureFactory().createFeature("wooden wheel");
+        if (!wheel.isTurned()) {
+            System.out.println("You need to get rid of the water first.");
+        } else {
+            System.out.println("The hatch is now open.");
+            setDescription("The hatch is now open.");
 
-     }
-     }
-     */
+        }
+    }
+
     @Override
     public void open(Inventory inventory) {
         //if wheel is turned open hatch
