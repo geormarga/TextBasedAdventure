@@ -11,5 +11,5 @@ package textbasedadventure;
  * @author Aenaos
  */
 public interface Observer {
-    public void update();
+    public void update(State state);
 }
