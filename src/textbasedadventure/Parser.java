@@ -18,11 +18,12 @@ import messages.parser.CommandWithoutAttributeMessage;
  */
 public class Parser {
 
+    
     private final CommandList cmdList = new CommandList();
     private String command;
     private String attr;
 
-    public boolean CommandIsValid(String text) {
+    public boolean CommandIsValid(String text, State state) {
 
         Boolean isValid = false;
         String split1, split2;
@@ -52,9 +53,9 @@ public class Parser {
             default:
                 return false;
         }
-        if (isCommandWithAttr(split1, split2)) {
+        if (isCommandWithAttr(split1, split2, state)) {
             this.command = split1;
-            this.attr = split2;
+            this.attr = cmdList.getCorrectAttribute(split2);
             isValid = true;
         }
         return isValid;
@@ -63,9 +64,9 @@ public class Parser {
     /*
      Checks if string is an attribute ,if not returns info message.
      */
-    public boolean isCommandWithAttr(String command, String attr) {
+    public boolean isCommandWithAttr(String command, String attr, State state) {
         boolean cmdCheck = cmdList.isVerb(command);
-        boolean attrCheck = cmdList.isAttr(command, attr);
+        boolean attrCheck = cmdList.isAttr(attr, state);
         boolean attrEmpty = attr.isEmpty();
         this.getParsingMessage(cmdCheck, attrCheck, attrEmpty);
         return (cmdCheck && attrCheck);
@@ -78,15 +79,15 @@ public class Parser {
 
         if (!cmdCheck) {
             IMessage message = new WrongCommandMessage();
-            message.display("");
+            message.display();
         } else {
             if (!attrCheck) {
                 IMessage message = new WrongAttributeMessage();
-                message.display("");
+                message.display();
             }
             if (attrEmpty) {
                 IMessage message = new CommandWithoutAttributeMessage();
-                message.display("");
+                message.display();
             }
         }
     }
