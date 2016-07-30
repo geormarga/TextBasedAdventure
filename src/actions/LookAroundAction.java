@@ -6,6 +6,7 @@
 package actions;
 
 import features.Lookable;
+import rooms.Room;
 import textbasedadventure.State;
 
 /**
@@ -18,6 +19,14 @@ public class LookAroundAction implements Action<Lookable> {
     public boolean execute(State state, Lookable lookable) {
         lookable.look();
         return true;
+    }
+
+    /*  Returns true if the string represents the current room. Else returns false.
+     */
+    @Override
+    public boolean existsInContext(State state, Lookable lookable) {
+        Room room = (Room) lookable;
+        return state.getCurrentRoom().getName().equals(room.getName());
     }
 
 }

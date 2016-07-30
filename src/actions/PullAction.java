@@ -6,6 +6,7 @@
 package actions;
 
 import features.Pullable;
+import items.Item;
 import textbasedadventure.State;
 
 /**
@@ -19,5 +20,12 @@ public class PullAction implements Action<Pullable> {
         pullable.pull();
         return true;
     }
-}
 
+    @Override
+    /*  Returns true if the string represents an item in the current room. Else returns false.
+     */
+    public boolean existsInContext(State state, Pullable pullable) {
+        Item item = (Item) pullable;
+        return state.getCurrentRoom().getRoomItems().contains(item.getName());
+    }
+}

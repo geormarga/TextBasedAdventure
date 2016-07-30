@@ -11,12 +11,17 @@ import textbasedadventure.State;
  *
  * @author Aenaos
  */
-public class StartAction implements Action{
+public class StartAction implements Action {
 
     @Override
     public boolean execute(State state, Object t) {
-       //game.start();
+        //game.start();
         return true;
     }
-    
+
+    @Override
+    public boolean existsInContext(State state, Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

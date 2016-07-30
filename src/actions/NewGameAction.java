@@ -19,4 +19,9 @@ public class NewGameAction implements Action<Storable> {
         loadable.load();
         return true;
     }
+
+    @Override
+    public boolean existsInContext(State state, Storable t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

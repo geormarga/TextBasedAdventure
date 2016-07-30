@@ -17,5 +17,10 @@ public class ExitAction implements Action {
     public boolean execute(State state, Object t) {
         return false;
     }
-    
+
+    @Override
+    public boolean existsInContext(State state, Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

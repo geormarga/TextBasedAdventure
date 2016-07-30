@@ -6,17 +6,26 @@
 package actions;
 
 import features.Openable;
+import items.Item;
 import textbasedadventure.State;
 
 /**
  *
  * @author Aenaos
  */
-public class OpenAction implements Action<Openable>{
+public class OpenAction implements Action<Openable> {
 
     @Override
     public boolean execute(State state, Openable openable) {
-        openable.open(state.getActor().getInventory());
+        openable.open(state.getInventory());
         return true;
+    }
+    
+    /*  Returns true if the string represents an item in the current room. Else returns false.
+     */
+    @Override
+    public boolean existsInContext(State state, Openable openable) {
+        Item item = (Item) openable;
+        return state.getCurrentRoom().getRoomItems().contains(item.getName());
     }
 }

@@ -6,6 +6,11 @@
 package actions;
 
 import features.Examinable;
+import items.Item;
+import messages.IMessage;
+import messages.action.ExamineFailureMessage;
+import rooms.Room;
+import textbasedadventure.Inventory;
 import textbasedadventure.State;
 
 /**
@@ -16,7 +21,20 @@ public class ExamineAction implements Action<Examinable> {
 
     @Override
     public boolean execute(State state, Examinable examinable) {
-        examinable.examine();
+        if (examinable instanceof Examinable) {
+            examinable.examine();
+            return true;
+        }
+        IMessage message = new ExamineFailureMessage();
+        message.display();
         return true;
+    }
+    /*  Returns true if the string represents an item in the room or an item in the inventory Else returns false.
+     */
+
+    @Override
+    public boolean existsInContext(State state, Examinable examinable) {
+        Item item = (Item) examinable;
+        return state.getCurrentRoom().getRoomItems().contains(item.getName()) || state.getInventory().isInInventory(item.getName());
     }
 }
