@@ -7,6 +7,7 @@ package items.containers;
 
 import features.Openable;
 import items.Item;
+import java.util.List;
 import textbasedadventure.Inventory;
 
 /**
@@ -15,7 +16,8 @@ import textbasedadventure.Inventory;
  */
 public class GoldenChest extends Item implements Openable {
 
-    boolean open;
+    private List<String> containerItems;
+    private boolean open;
 
     public GoldenChest() {
         name = "golden chest";
@@ -32,12 +34,15 @@ public class GoldenChest extends Item implements Openable {
 
     @Override
     public void open(Inventory inventory) {
-        if (inventory.getElements().containsKey("golden key")) {
+        if (inventory.isInInventory("golden key")) {
             this.setOpen(true);
             System.out.println("Chest is open you should probably examine it.");
         }
     }
 
+    public List<String> getContainerItems() {
+        return this.containerItems;
+    }
     //circularArtifact
     //on open getCurrentRoom & add items to current room 
     //and maybe a list? so that I can show what each chest has in 

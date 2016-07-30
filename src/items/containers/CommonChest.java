@@ -7,6 +7,7 @@ package items.containers;
 
 import features.Openable;
 import items.Item;
+import java.util.List;
 import textbasedadventure.Inventory;
 
 /**
@@ -15,7 +16,8 @@ import textbasedadventure.Inventory;
  */
 public class CommonChest extends Item implements Openable {
 
-    boolean open;
+    private List<String> containerItems;
+    private boolean open;
 
     public CommonChest() {
         name = "common chest";
@@ -32,9 +34,14 @@ public class CommonChest extends Item implements Openable {
 
     @Override
     public void open(Inventory inventory) {
-        if (inventory.getElements().containsKey("rusty key")) {
+        if (inventory.isInInventory("rusty key")) {
             this.setOpen(true);
             System.out.println("Chest is open you should probably examine it.");
         }
     }
+    
+    public List<String> getContainerItems(){
+        return this.containerItems;
+    }
+    
 }
