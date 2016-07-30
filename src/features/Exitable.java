@@ -9,6 +9,6 @@ package features;
  *
  * @author Aenaos
  */
-public interface Exitable extends Feature{
-    
+public interface Exitable extends Feature {
+
 }

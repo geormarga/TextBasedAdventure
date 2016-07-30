@@ -5,16 +5,17 @@
  */
 package features;
 
+import textbasedadventure.State;
+
 /**
  *
  * @author Aenaos
  */
 public class FeatureController {
-   
-//            IMessage message = new FeatureNotFoundMessage();
-//            message.display(attr);
 
-    public Feature getFeature(String attr,FeatureFactory featureFactory){
-         return featureFactory.createFeature(attr);
+    public Feature getFeature(String attr, FeatureFactory featureFactory, State state) {
+        return featureFactory.createFeature(attr);
+
     }
+
 }

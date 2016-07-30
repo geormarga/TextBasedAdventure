@@ -9,6 +9,7 @@ package features;
  *
  * @author Aenaos
  */
-public interface Examinable extends Feature{
+public interface Examinable extends Feature {
+
     public void examine();
 }

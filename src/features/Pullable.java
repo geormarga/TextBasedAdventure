@@ -9,6 +9,7 @@ package features;
  *
  * @author Aenaos
  */
-public interface Pullable extends Feature{
+public interface Pullable extends Feature {
+
     public void pull();
 }

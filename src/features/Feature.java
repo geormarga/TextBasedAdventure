@@ -5,11 +5,10 @@
  */
 package features;
 
-
 /**
  *
  * @author Aenaos
  */
-public interface Feature{
-    
+public interface Feature {
+
 }

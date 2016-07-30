@@ -12,5 +12,6 @@ import textbasedadventure.Inventory;
  * @author Aenaos
  */
 public interface Openable extends Feature {
+
     public void open(Inventory inventory);
 }

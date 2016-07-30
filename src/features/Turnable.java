@@ -5,10 +5,13 @@
  */
 package features;
 
+import textbasedadventure.State;
+
 /**
  *
  * @author Aenaos
  */
 public interface Turnable extends Feature {
-    public void turn();
+
+    public void turn(State state);
 }

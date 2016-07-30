@@ -9,6 +9,7 @@ package features;
  *
  * @author Aenaos
  */
-public interface Startable extends Feature{
+public interface Startable extends Feature {
+
     public void start();
 }

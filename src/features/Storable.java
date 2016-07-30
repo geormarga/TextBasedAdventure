@@ -11,7 +11,9 @@ import textbasedadventure.State;
  *
  * @author Aenaos
  */
-public interface Storable extends Feature{
+public interface Storable extends Feature {
+
     public void save(State state);
+
     public void load();
 }

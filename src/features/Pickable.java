@@ -5,13 +5,14 @@
  */
 package features;
 
+import rooms.Room;
 import textbasedadventure.Inventory;
-import textbasedadventure.Map;
 
 /**
  *
  * @author Aenaos
  */
 public interface Pickable extends Examinable {
-    public void pickup(Inventory inventory, Map map);
+
+    public void pickup(Inventory inventory, Room room);
 }

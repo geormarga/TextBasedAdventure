@@ -5,13 +5,14 @@
  */
 package features;
 
+import rooms.Room;
 import textbasedadventure.Inventory;
-import textbasedadventure.Map;
 
 /**
  *
  * @author Aenaos
  */
 public interface Usable extends Feature {
-    public void use(Inventory inventory, Map map);
+
+    public void use(Inventory inventory, Room room);
 }

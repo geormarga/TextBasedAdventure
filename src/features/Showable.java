@@ -9,6 +9,7 @@ package features;
  *
  * @author Aenaos
  */
-public interface Showable extends Feature{
+public interface Showable extends Feature {
+
     public void show();
 }

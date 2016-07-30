@@ -11,9 +11,8 @@ import java.util.HashMap;
  *
  * @author Aenaos
  */
-
 public class FeatureFactory {
-   
+
     private final HashMap<String, Feature> aFeatureMap = new HashMap<>();
 
     public void registerFeature(String Name, Feature feature) {

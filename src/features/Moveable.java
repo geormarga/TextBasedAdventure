@@ -11,6 +11,7 @@ import textbasedadventure.State;
  *
  * @author Aenaos
  */
-public interface Moveable extends Feature{
+public interface Moveable extends Feature {
+
     public void move(State state);
 }
