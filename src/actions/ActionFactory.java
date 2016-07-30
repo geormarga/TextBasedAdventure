@@ -35,13 +35,6 @@ public class ActionFactory {
         this.registerAction("pull", new PullAction());
         this.registerAction("turn", new TurnAction());
         this.registerAction("use", new UseAction());
-        this.registerAction("exit", new ExitAction());
-        /*
-         this.registerAction("load", new LoadAction());
-         this.registerAction("save", new SaveAction());
-         this.registerAction("new game", new NewGameAction());
-         
-         */
     }
 
 }
