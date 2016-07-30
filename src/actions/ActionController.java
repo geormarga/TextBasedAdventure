@@ -6,6 +6,8 @@
 package actions;
 
 import features.Feature;
+import messages.IMessage;
+import messages.game.FeatureNotFoundMessage;
 import textbasedadventure.State;
 
 /**
@@ -15,7 +17,13 @@ import textbasedadventure.State;
 public class ActionController {
 
     public boolean executeAction(Action action, Feature feature, State state) {
-        return action.execute(state, feature);
+        if (action.existsInContext(state, feature)) {
+            return action.execute(state, feature);
+        } else {
+            IMessage message = new FeatureNotFoundMessage("feature");
+            message.display();
+            return true;
+        }
     }
 
     public Action getAction(String command) {
