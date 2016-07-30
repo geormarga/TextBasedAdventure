@@ -13,8 +13,10 @@ import messages.IMessage;
  */
 public class MoveFailureMessage implements IMessage {
 
+    private String attr;
+
     @Override
-    public void display(String text) {
+    public void display() {
         System.out.println("You can't go that way!");
     }
 

@@ -13,8 +13,10 @@ import messages.IMessage;
  */
 public class PickUpFailureMessage implements IMessage {
 
+    private String attr;
+
     @Override
-    public void display(String text) {
+    public void display() {
         System.out.println("There isn't such an item in this room.");
     }
 

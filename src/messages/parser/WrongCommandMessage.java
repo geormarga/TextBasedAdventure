@@ -11,11 +11,13 @@ import messages.IMessage;
  *
  * @author Aenaos
  */
-public class WrongCommandMessage implements IMessage{
+public class WrongCommandMessage implements IMessage {
+
+    private String attr;
 
     @Override
-    public void display(String text) {
-      System.out.println("I didn't recognise the command.");
+    public void display() {
+        System.out.println("I didn't recognise the command.");
     }
-    
+
 }

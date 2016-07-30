@@ -11,10 +11,13 @@ import messages.IMessage;
  *
  * @author Aenaos
  */
-public class LoadSuccessMessage implements IMessage{
+public class LoadSuccessMessage implements IMessage {
+
+    private String attr;
+
     @Override
-    public void display(String text) {
-       System.out.println("The game has been loaded , you are ready to play!");
+    public void display() {
+        System.out.println("The game has been loaded , you are ready to play!");
     }
-    
+
 }

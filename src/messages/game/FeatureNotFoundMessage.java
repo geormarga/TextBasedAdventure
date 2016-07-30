@@ -13,9 +13,16 @@ import messages.IMessage;
  */
 public class FeatureNotFoundMessage implements IMessage {
 
+    private String attr;
+
+    public FeatureNotFoundMessage(String attr) {
+        this.attr = attr;
+    }
+
+    
     @Override
-    public void display(String text) {
-        System.out.println("Could not find " + text + ".");
+    public void display() {
+        System.out.println("Could not find " + this.attr + ".");
     }
 
 }

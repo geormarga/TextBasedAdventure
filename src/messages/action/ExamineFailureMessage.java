@@ -11,10 +11,13 @@ import messages.IMessage;
  *
  * @author Aenaos
  */
-public class ExamineFailureMessage implements IMessage{
+public class ExamineFailureMessage implements IMessage {
+
+    private String attr;
+
     @Override
-    public void display(String text) {
+    public void display() {
         System.out.println("You look around, but you can't find an item to examine.");
     }
-    
+
 }

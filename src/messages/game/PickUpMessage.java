@@ -11,8 +11,15 @@ import messages.IMessage;
  *
  * @author Aenaos
  */
-public class PickUpMessage implements IMessage{
-    public void display(String text) {
-            System.out.println("You picked up a(n)" + text + ".");   
+public class PickUpMessage implements IMessage {
+
+    private String attr;
+
+    PickUpMessage(String attr) {
+        this.attr = attr;
+    }
+
+    public void display() {
+        System.out.println("You picked up a(n)" + this.attr + ".");
     }
 }

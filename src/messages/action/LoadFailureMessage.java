@@ -11,10 +11,13 @@ import messages.IMessage;
  *
  * @author Aenaos
  */
-public class LoadFailureMessage implements IMessage{
+public class LoadFailureMessage implements IMessage {
+
+    private String attr;
+
     @Override
-    public void display(String text) {
-    System.out.println("Could not load the game, absence of file.");
+    public void display() {
+        System.out.println("Could not load the game, absence of file.");
     }
-    
+
 }
