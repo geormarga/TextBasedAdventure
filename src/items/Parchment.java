@@ -6,7 +6,7 @@
 package items;
 
 import features.Pickable;
-import textbasedadventure.HashMapOfElements;
+import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
@@ -16,15 +16,15 @@ import textbasedadventure.Inventory;
 public class Parchment extends Item implements Pickable {
 
     public Parchment() {
-        
+
         name = "parchment";
         description = "It's all smudged. After all, moisture isn't papers' best friend...";
     }
 
     @Override
-    public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
-        inventory.addElement(this.name, this);
-        roomItems.removeElement(this.name,this);
+    public void pickup(Inventory inventory, Room room) {
+        inventory.registerItem(this.name);
+        room.unregisterItem(this.name);
         System.out.println("You picked up a plain note.");
     }
 }

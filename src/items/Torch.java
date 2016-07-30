@@ -6,7 +6,7 @@
 package items;
 
 import features.Pickable;
-import textbasedadventure.HashMapOfElements;
+import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
@@ -21,9 +21,9 @@ public class Torch extends Item implements Pickable {
     }
 
     @Override
-    public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
-        inventory.addElement(this.name, this);
-        roomItems.removeElement(this.name, this);
+    public void pickup(Inventory inventory, Room room) {
+        inventory.registerItem(this.name);
+        room.unregisterItem(this.name);
         System.out.println("You picked up a torch.");
     }
     /*

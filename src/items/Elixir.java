@@ -7,7 +7,7 @@ package items;
 
 import features.Pickable;
 import features.Usable;
-import textbasedadventure.HashMapOfElements;
+import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
@@ -22,9 +22,9 @@ public class Elixir extends Item implements Pickable, Usable {
     }
 
     @Override
-    public void pickup(Inventory inventory, HashMapOfElements<Item> roomItems) {
-        inventory.addElement(this.name, this);
-        roomItems.removeElement(this.name, this);
+    public void pickup(Inventory inventory, Room room) {
+        inventory.registerItem(this.name);
+        room.unregisterItem(this.name);
         System.out.println("You picked up an elixir.");
     }
 
@@ -51,9 +51,9 @@ public class Elixir extends Item implements Pickable, Usable {
      }
      */
     @Override
-    public void use(Inventory inventory, HashMapOfElements<Item> roomItems) {
-        roomItems.addElement("circularArtifact", this);
-        inventory.removeElement(this.name, this);
+    public void use(Inventory inventory, Room room) {
+        room.registerItem(this.name);
+        inventory.unregisterItem(this.name);
         //altar you already set the object
     }
 }

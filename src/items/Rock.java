@@ -5,8 +5,7 @@
  */
 package items;
 
-import items.containers.GoldenChest;
-import textbasedadventure.State;
+import rooms.Room;
 
 /**
  *
@@ -19,10 +18,8 @@ public class Rock extends Item {
         description = "Lifting the rock revealed a hidden place. There is a golden chest";
     }
 
-    private void createItem(State state) {
-        Elixir elixir = new Elixir();
-        GoldenChest goldenChest = new GoldenChest();
-        state.getCurrentRoom().getRoomItems().addElement("elixir", elixir);
-        state.getCurrentRoom().getRoomItems().addElement("chest", goldenChest);
+    private void createItem(Room room) {
+        room.registerItem("elixir");
+        room.registerItem("golden chest");
     }
 }

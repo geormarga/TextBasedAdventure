@@ -6,7 +6,7 @@
 package items;
 
 import java.util.Scanner;
-import textbasedadventure.State;
+import rooms.Room;
 
 /**
  *
@@ -23,7 +23,7 @@ public class OldMan extends Item {
                 + "\nDo nothing[press 3]";
     }
 
-    public void examine(State state) {
+    public void examine(Room room) {
         System.out.println(this.getDescription());
         OUTER:
         while (this.getDescription().equals("You see an old man screaming in pain.What do you do?\n"
@@ -35,7 +35,7 @@ public class OldMan extends Item {
                 case "1": //Create the golden key in the room
                     System.out.println("You killed the old man.");
                     this.setDescription("This is the old man's corpse.There is a key in his pocket");
-                    this.createItem(state);
+                    this.createItem(room);
                     break;
                 case "2": //Change the descriptions
                     this.setDescription("The old man is in a lot of pain and he is trempling.\n"
@@ -52,9 +52,8 @@ public class OldMan extends Item {
         }
     }
 
-    private void createItem(State state) //Create item golden key
+    private void createItem(Room room) //Create item golden key
     {
-        Item goldenKey = new GoldenKey();
-        state.getCurrentRoom().getRoomItems().getElements().put("key", goldenKey);
+        room.registerItem("golden key");
     }
 }
