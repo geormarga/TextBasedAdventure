@@ -37,7 +37,6 @@ public class ActionFactory {
         this.registerAction("use", new UseAction());
         this.registerAction("exit", new ExitAction());
         /*
-         this.registerAction("return", new ReturnAction());
          this.registerAction("load", new LoadAction());
          this.registerAction("save", new SaveAction());
          this.registerAction("new game", new NewGameAction());
