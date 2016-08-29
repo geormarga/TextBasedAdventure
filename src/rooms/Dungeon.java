@@ -30,6 +30,6 @@ public class Dungeon extends Room implements Observer {
     public void getMovementMessage() {
         // if ("down".equals(attr)
         String as = "The staircase collapsed, and you died!\n\nGame Over\n";
-        //action.act("newGame.sav", state);
+        //action.act(, state);
     }
 }
