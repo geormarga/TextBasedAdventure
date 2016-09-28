@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TextBasedAdventure.iml" filepath="$PROJECT_DIR$/TextBasedAdventure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tba.iml" filepath="$PROJECT_DIR$/tba.iml" />
     </modules>
   </component>
 </project>
