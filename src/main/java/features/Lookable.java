@@ -11,5 +11,5 @@ package features;
  */
 public interface Lookable extends Feature {
 
-    public void look();
+    void look();
 }

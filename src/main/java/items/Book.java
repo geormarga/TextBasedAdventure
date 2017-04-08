@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pullable;
 
 /**
@@ -15,9 +16,10 @@ public class Book extends Item implements Pullable {
 
     private boolean pulled = false;
 
-    public Book() {
+    public Book(FeatureFactory featureFactory) {
         name = "book";
         description = "There's some sort of mechanism linking this particular book to the bookshelf.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     public boolean isPulled() {

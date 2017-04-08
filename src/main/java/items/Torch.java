@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import rooms.Room;
 import textbasedadventure.Inventory;
@@ -15,9 +16,10 @@ import textbasedadventure.Inventory;
  */
 public class Torch extends Item implements Pickable {
 
-    public Torch() {
+    public Torch(FeatureFactory featureFactory) {
         name = "torch";
         description = "A wooden torch that can be used to see in the dark";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

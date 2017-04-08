@@ -9,6 +9,9 @@ import actions.Action;
 import actions.ActionController;
 import features.Feature;
 import features.FeatureController;
+
+import java.io.InvalidClassException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -27,19 +30,20 @@ public class GameLoop {
 
         this.setText();
         while (canContinue) {
-            if (parser.CommandIsValid(text, state)) {
-                try{
-                Feature feature = featureController.getFeature(parser.getAttr(), state.getFeatureFactory(),state);
+        if (parser.CommandIsValid(text)) {
+            try{
+                List<Feature> features = featureController.getFeatures(parser.getAttributes(),state.getFeatureFactory());
                 Action action = actionController.getAction(parser.getCommand());
-                canContinue = actionController.executeAction(action, feature, state);
-                }catch (NullPointerException ex){
-                System.out.println("Could not find what you were looking for");
-                }
-                
+                canContinue = actionController.executeAction(action, features, state);
+            }catch (NullPointerException ex){
+                System.out.println("Could not find what you were looking for.");
+            }catch(ClassCastException ex){
+                System.out.println("Can't perform that action on this item.");
             }
-            this.setText();
         }
+        this.setText();
     }
+}
 
     public void setText() {
         Scanner scan = new Scanner(System.in);
@@ -51,5 +55,6 @@ public class GameLoop {
         this.actionController = new ActionController();
         this.featureController = new FeatureController();
         this.parser = new Parser();
+
     }
 }

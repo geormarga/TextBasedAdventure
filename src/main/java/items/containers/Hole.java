@@ -5,6 +5,7 @@
  */
 package items.containers;
 
+import features.FeatureFactory;
 import items.Item;
 
 /**
@@ -13,9 +14,10 @@ import items.Item;
  */
 public class Hole extends Item {
 
-    public Hole() {
+    public Hole(FeatureFactory featureFactory) {
         name = "hole";
         description = "There's a hole on the ground, and what looks to be a torch in it.";
+        featureFactory.registerFeature(this.name,this);
     }
     //torch
 }

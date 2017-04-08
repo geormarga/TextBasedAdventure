@@ -11,5 +11,5 @@ package features;
  */
 public interface Pullable extends Feature {
 
-    public void pull();
+    void pull();
 }

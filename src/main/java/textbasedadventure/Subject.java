@@ -10,8 +10,8 @@ package textbasedadventure;
  *
  * @author Aenaos
  */
-public interface Subject {
-    public void register(Observer o);
-    public void unregister(Observer o);
-    public void notifyObserver();
+interface Subject {
+    void register(Observer o);
+    void unregister(Observer o);
+    void notifyObserver();
 }

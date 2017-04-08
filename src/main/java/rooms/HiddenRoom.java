@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.FeatureFactory;
 import items.Stand;
 import textbasedadventure.Observer;
 import textbasedadventure.State;
@@ -15,10 +16,11 @@ import textbasedadventure.State;
  */
 public class HiddenRoom extends Room implements Observer {
 
-    public HiddenRoom() {
+    public HiddenRoom(FeatureFactory featureFactory) {
         name = "hidden room";
         description = "Wow. I didn't believe that it would work!";
         hint = "There is a stand in the center of the room.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

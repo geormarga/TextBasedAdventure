@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import rooms.Room;
 import textbasedadventure.Inventory;
@@ -15,9 +16,10 @@ import textbasedadventure.Inventory;
  */
 public class RustyKey extends Item implements Pickable {
 
-    public RustyKey() {
+    public RustyKey(FeatureFactory featureFactory) {
         name = "rusty key";
         description = "This key can unlock common chests.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

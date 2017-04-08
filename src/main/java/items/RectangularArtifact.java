@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import features.Usable;
 import rooms.Room;
@@ -16,9 +17,10 @@ import textbasedadventure.Inventory;
  */
 public class RectangularArtifact extends Item implements Pickable, Usable {
 
-    public RectangularArtifact() {
+    public RectangularArtifact(FeatureFactory featureFactory) {
         name = "rectangular artifact";
         description = "One of the three sun artifacts. It has the shape of a rectangle.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

@@ -14,5 +14,5 @@ import textbasedadventure.Inventory;
  */
 public interface Pickable extends Examinable {
 
-    public void pickup(Inventory inventory, Room room);
+    void pickup(Inventory inventory, Room room);
 }

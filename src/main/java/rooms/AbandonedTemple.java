@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.FeatureFactory;
 import textbasedadventure.Observer;
 import textbasedadventure.State;
 
@@ -14,11 +15,12 @@ import textbasedadventure.State;
  */
 public class AbandonedTemple extends Room implements Observer{
 
-    public AbandonedTemple() {
+    public AbandonedTemple(FeatureFactory featureFactory) {
         name = "abandoned temple";
         description = "This is the temple of sunlight. Many pilgrims through the years came"
                 + " by to witness this enchanted old ruin.";
         hint = "In sight are: A statue and an altar.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

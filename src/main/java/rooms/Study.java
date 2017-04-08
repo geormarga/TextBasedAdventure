@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.FeatureFactory;
 import items.Book;
 import items.Bookshelf;
 import textbasedadventure.Observer;
@@ -16,10 +17,12 @@ import textbasedadventure.State;
  */
 public class Study extends Room implements Observer {
 
-    public Study() {
+    public Study(FeatureFactory featureFactory) {
         name = "study";
         description = "There are lots of books here. Unfortunately, I don't have time to spend reading.";
         hint = "There is something curious about this bookshelf.";
+        featureFactory.registerFeature(this.name,this);
+
     }
 
     @Override

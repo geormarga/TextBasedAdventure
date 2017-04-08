@@ -14,5 +14,5 @@ import textbasedadventure.Inventory;
  */
 public interface Usable extends Feature {
 
-    public void use(Inventory inventory, Room room);
+    void use(Inventory inventory, Room room);
 }

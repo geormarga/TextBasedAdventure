@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Openable;
 import rooms.Room;
 import textbasedadventure.Inventory;
@@ -26,9 +27,10 @@ public class Hatch extends Item implements Openable {
         this.isOpen = isOpen;
     }
 
-    public Hatch() {
+    public Hatch(FeatureFactory featureFactory) {
         name = "hatch";
         description = "The area below the hatch is flooded. I need to get rid of the water so that I can go down there.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     public void updateDescription() {

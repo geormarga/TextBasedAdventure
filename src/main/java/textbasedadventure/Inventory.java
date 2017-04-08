@@ -1,5 +1,6 @@
 package textbasedadventure;
 
+import features.FeatureFactory;
 import features.Showable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +21,10 @@ public class Inventory implements Showable {
     private String name;
     private List<String> items = (List) new ArrayList<>();
 
-    public Inventory() {
+    public Inventory(FeatureFactory featureFactory) {
         this.name = "inventory";
+        featureFactory.registerFeature(this.name,this);
+
     }
 
     public boolean isInInventory(String item) {

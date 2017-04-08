@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import rooms.Room;
 import textbasedadventure.Inventory;
@@ -15,9 +16,10 @@ import textbasedadventure.Inventory;
  */
 public class SilverKey extends Item implements Pickable {
 
-    public SilverKey() {
+    public SilverKey(FeatureFactory featureFactory) {
         name = "silver key";
         description = "This key can unlock silver chests.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

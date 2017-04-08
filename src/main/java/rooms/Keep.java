@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.FeatureFactory;
 import items.containers.SilverChest;
 import textbasedadventure.Observer;
 import textbasedadventure.State;
@@ -15,10 +16,11 @@ import textbasedadventure.State;
  */
 public class Keep extends Room implements Observer {
 
-    public Keep() {
+    public Keep(FeatureFactory featureFactory) {
         name = "keep";
         description = "You are in the keep. Unfortunately there's no visible path from which you can enter.";
         hint = "You see something shining in a mudpit. A silver chest lies on the ground.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

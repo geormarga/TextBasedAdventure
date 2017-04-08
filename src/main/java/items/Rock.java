@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import rooms.Room;
 
 /**
@@ -13,9 +14,10 @@ import rooms.Room;
  */
 public class Rock extends Item {
 
-    public Rock() {
+    public Rock(FeatureFactory featureFactory) {
         name = "rock";
         description = "Lifting the rock revealed a hidden place. There is a golden chest";
+        featureFactory.registerFeature(this.name,this);
     }
 
     private void createItem(Room room) {

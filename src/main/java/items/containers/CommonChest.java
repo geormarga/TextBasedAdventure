@@ -5,6 +5,7 @@
  */
 package items.containers;
 
+import features.FeatureFactory;
 import features.Openable;
 import items.Item;
 import java.util.List;
@@ -19,9 +20,10 @@ public class CommonChest extends Item implements Openable {
     private List<String> containerItems;
     private boolean open;
 
-    public CommonChest() {
+    public CommonChest(FeatureFactory featureFactory) {
         name = "common chest";
         description = "If only I had a key...";
+        featureFactory.registerFeature(this.name,this);
     }
 
     public void setOpen(boolean open) {

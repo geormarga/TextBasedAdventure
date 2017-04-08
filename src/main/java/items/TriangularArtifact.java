@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import features.Usable;
 import rooms.Room;
@@ -16,9 +17,10 @@ import textbasedadventure.Inventory;
  */
 public class TriangularArtifact extends Item implements Pickable, Usable {
 
-    public TriangularArtifact() {
+    public TriangularArtifact(FeatureFactory featureFactory) {
         name = "triangular artifact";
         description = "One of the three sun artifacts. It's the shape of a triangle.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

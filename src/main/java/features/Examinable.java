@@ -11,5 +11,5 @@ package features;
  */
 public interface Examinable extends Feature {
 
-    public void examine();
+    void examine();
 }

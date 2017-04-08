@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import rooms.Room;
 import textbasedadventure.Inventory;
@@ -15,10 +16,11 @@ import textbasedadventure.Inventory;
  */
 public class Parchment extends Item implements Pickable {
 
-    public Parchment() {
+    public Parchment(FeatureFactory featureFactory) {
 
         name = "parchment";
         description = "It's all smudged. After all, moisture isn't papers' best friend...";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

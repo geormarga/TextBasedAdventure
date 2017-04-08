@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.FeatureFactory;
 import textbasedadventure.State;
 
 /**
@@ -13,7 +14,7 @@ import textbasedadventure.State;
  */
 public class StartingRoom extends Room {
 
-    public StartingRoom() {
+    public StartingRoom(FeatureFactory featureFactory) {
 
         name = "starting room";
         description = "Welcome, this is the starting room!\n"
@@ -21,7 +22,9 @@ public class StartingRoom extends Room {
                 + "and find the Escape Room to escape.\n"
                 + "By typing exit game, you can exit anytime. Type start game to begin...";
         hint = "This is the starting room. What did you expect to see?";
-      
+        featureFactory.registerFeature(this.name,this);
+
+
     }
     
     @Override

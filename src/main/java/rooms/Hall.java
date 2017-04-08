@@ -5,15 +5,18 @@
  */
 package rooms;
 
+import features.FeatureFactory;
+
 /**
  *
  * @author Aenaos
  */
 public class Hall extends Room {
 
-    public Hall() {
+    public Hall(FeatureFactory featureFactory) {
         name = "hall";
         description = "You went inside the Castle. It's vast halls seem haunted";
         hint = "You can see some rooms left and right ... and stairs heading down.";
+        featureFactory.registerFeature(this.name,this);
     }
 }

@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import features.Usable;
 import rooms.Room;
@@ -16,9 +17,10 @@ import textbasedadventure.Inventory;
  */
 public class CircularArtifact extends Item implements Pickable, Usable {
 
-    public CircularArtifact() {
+    public CircularArtifact(FeatureFactory featureFactory) {
         name = "circular artifact";
         description = "One of the three sun artifacts. It has the shape of a circle.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

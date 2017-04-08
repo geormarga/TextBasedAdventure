@@ -5,14 +5,17 @@
  */
 package items;
 
+import features.FeatureFactory;
+
 /**
  *
  * @author Aenaos
  */
 public class Stand extends Item {
 
-    public Stand() {
+    public Stand(FeatureFactory featureFactory) {
         name = "stand";
         description = "A triangular artifact lies on top of the stand.";
+        featureFactory.registerFeature(this.name,this);
     }
 }

@@ -19,12 +19,13 @@ public class TextBasedAdventure {
      */
     public static void main(String[] args) {
 
+        ReadXMLFile readXMLFile = new ReadXMLFile();
+        readXMLFile.translate();
         GameLoop loop = new GameLoop();
         try {
             loop.gameLoop(new State());
         } catch (Exception ex) {
             Logger.getLogger(TextBasedAdventure.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }

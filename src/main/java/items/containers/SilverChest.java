@@ -5,6 +5,7 @@
  */
 package items.containers;
 
+import features.FeatureFactory;
 import features.Openable;
 import items.Item;
 import java.util.List;
@@ -19,9 +20,10 @@ public class SilverChest extends Item implements Openable {
     private List<String> containerItems;
     private boolean open;
 
-    public SilverChest() {
+    public SilverChest(FeatureFactory featureFactory) {
         name = "silver chest";
         description = "This chest can be opened with a silver key";
+        featureFactory.registerFeature(this.name,this);
     }
 
     public void setOpen(boolean open) {

@@ -5,12 +5,12 @@
  */
 package textbasedadventure;
 
+import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.List;
 import messages.IMessage;
 import messages.parser.WrongAttributeMessage;
 import messages.parser.WrongCommandMessage;
-import messages.parser.CommandWithoutAttributeMessage;
 
 /**
  *
@@ -21,82 +21,63 @@ public class Parser {
     
     private final CommandList cmdList = new CommandList();
     private String command;
-    private String attr;
+    List<String> attributes;
+    IMessage message;
 
-    public boolean CommandIsValid(String text, State state) {
+    /**
+     *  Takes in the user input and checks if it complies with the command structure.
+     *
+     *  @param text The user input
+     *  @return The boolean value that represents the command validity.
+     */
+    public boolean CommandIsValid(String text) {
 
-        Boolean isValid = false;
-        String split1, split2;
+        List<String> readyTokens = new ArrayList<>(Arrays.asList(text.trim().split("\\s+"))); //tokenizes string to list
+        //first element is the command
+        //search for nouns
+        //also search for nouns that interact with each other //hmmm maybe not the best place to check
+        command = readyTokens.get(0);
+        readyTokens.remove(0);
+        attributes = new ArrayList<>();
+        readyTokens.forEach(token -> attributes.add(token));
 
-        StringTokenizer tokenizer = new StringTokenizer(text, " ");
-        ArrayList<String> readyTokens = new ArrayList<>();
-        while (tokenizer.hasMoreTokens()) {
-            readyTokens.add(tokenizer.nextToken());
+        //catch pick up/pickup occasion
+        if(command.equals("pick")&& attributes.get(0).equals("up")){
+            command = command + attributes.get(0);
+            attributes.remove(0);
         }
-        switch (readyTokens.size()) {
-            case 1:
-                split1 = readyTokens.get(0);
-                split2 = "";
-                break;
-            case 2:
-                split1 = readyTokens.get(0);
-                split2 = readyTokens.get(1);
-                break;
-            case 3:
-                split1 = readyTokens.get(0);
-                split2 = readyTokens.get(1) + readyTokens.get(2);
-                break;
-            case 4:
-                split1 = readyTokens.get(0) + readyTokens.get(1);
-                split2 = readyTokens.get(2) + readyTokens.get(3);
-                break;
-            default:
-                return false;
+
+        if(this.isCommand(command,cmdList) && this.isAttribute(attributes,cmdList)){
+            return true;
         }
-        if (isCommandWithAttr(split1, split2, state)) {
-            this.command = split1;
-            this.attr = cmdList.getCorrectAttribute(split2);
-            isValid = true;
+        message.display();
+        return false;
+    }
+    /**
+     * Checks if the string given is a valid command verb
+     *
+    */
+    boolean isCommand(String command, CommandList cmdList){
+        if(cmdList.isVerb(command)){
+            return true;
         }
-        return isValid;
+        this.message = new WrongCommandMessage();
+        return false;
     }
 
-    /*
-     Checks if string is an attribute ,if not returns info message.
-     */
-    public boolean isCommandWithAttr(String command, String attr, State state) {
-        boolean cmdCheck = cmdList.isVerb(command);
-        boolean attrCheck = cmdList.isAttr(attr, state);
-        boolean attrEmpty = attr.isEmpty();
-        this.getParsingMessage(cmdCheck, attrCheck, attrEmpty);
-        return (cmdCheck && attrCheck);
-    }
-
-    /*
-     Handles appropriate parsing message to show
-     */
-    public void getParsingMessage(boolean cmdCheck, boolean attrCheck, boolean attrEmpty) {
-
-        if (!cmdCheck) {
-            IMessage message = new WrongCommandMessage();
-            message.display();
-        } else {
-            if (!attrCheck) {
-                IMessage message = new WrongAttributeMessage();
-                message.display();
-            }
-            if (attrEmpty) {
-                IMessage message = new CommandWithoutAttributeMessage();
-                message.display();
-            }
+    boolean isAttribute(List<String> attributes,CommandList cmdList){
+        if(cmdList.areValidAttributes(attributes)){
+            return true;
         }
+        this.message = new WrongAttributeMessage();
+        return false;
     }
 
     public String getCommand() {
         return command;
     }
 
-    public String getAttr() {
-        return attr;
+    public List<String> getAttributes() {
+        return attributes;
     }
 }

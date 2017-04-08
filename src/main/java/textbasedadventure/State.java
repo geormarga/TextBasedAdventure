@@ -6,21 +6,7 @@
 package textbasedadventure;
 
 import features.FeatureFactory;
-import items.Altar;
-import items.Book;
-import items.Bookshelf;
-import items.CircularArtifact;
-import items.Corpse;
-import items.Elixir;
-import items.GoldenKey;
-import items.Hatch;
-import items.Item;
-import items.OldMan;
-import items.Parchment;
-import items.RectangularArtifact;
-import items.Rock;
-import items.RustyKey;
-import items.SilverKey;
+import items.*;
 
 import items.containers.MoldyTree;
 import items.containers.CommonChest;
@@ -29,12 +15,6 @@ import items.containers.Hole;
 import items.containers.Mudpit;
 import items.containers.SilverChest;
 
-import items.Stand;
-import items.Statue;
-import items.Sundial;
-import items.TriangularArtifact;
-import items.Water;
-import items.WoodenWheel;
 import rooms.AbandonedTemple;
 import rooms.Castle;
 import rooms.Cave;
@@ -95,134 +75,85 @@ public class State implements Serializable {
     private void initState() {
 
         //Create Rooms
-        Room forest = new Forest();
+        Room forest = new Forest(this.featureFactory);
         forest.setNearbyRooms(new LinkedList<>(Arrays.asList("dead end", "castle", "keep")));
         forest.setRoomItems(new LinkedList<>(Arrays.asList("rusty key", "moldy tree", "sundial")));
 
-        Room abandonedTemple = new AbandonedTemple();
+        Room abandonedTemple = new AbandonedTemple(this.featureFactory);
         abandonedTemple.setNearbyRooms(new LinkedList<>(Arrays.asList("keep")));
         abandonedTemple.setRoomItems(new LinkedList<>(Arrays.asList("statue", "altar")));
 
-        Room castle = new Castle();
+        Room castle = new Castle(this.featureFactory);
         castle.setNearbyRooms(new LinkedList<>(Arrays.asList("forest", "hall", "cave")));
         castle.setRoomItems(new LinkedList<>(Arrays.asList("common chest")));
 
-        Room cave = new Cave();
+        Room cave = new Cave(this.featureFactory);
         cave.setNearbyRooms(new LinkedList<>(Arrays.asList("castle")));
         cave.setRoomItems(new LinkedList<>(Arrays.asList("old man", "rock")));
 
-        Room deadEnd = new DeadEnd();
+        Room deadEnd = new DeadEnd(this.featureFactory);
         deadEnd.setNearbyRooms(new LinkedList<>(Arrays.asList("forest", "dungeon")));
         deadEnd.setRoomItems(new LinkedList<>(Arrays.asList("hole", "wooden wheel", "hatch")));
 
-        Room dungeon = new Dungeon();
+        Room dungeon = new Dungeon(this.featureFactory);
         dungeon.setNearbyRooms(new LinkedList<>(Arrays.asList("hall")));
         dungeon.setRoomItems(new LinkedList<>(Arrays.asList("water", "corpse", "parchment")));
 
-        Room hall = new Hall();
+        Room hall = new Hall(this.featureFactory);
         hall.setNearbyRooms(new LinkedList<>(Arrays.asList("castle", "living room", "dungeon", "study")));
         hall.setRoomItems(new LinkedList<>(Arrays.asList("common chest", "rusty key")));
 
-        Room hiddenRoom = new HiddenRoom();
+        Room hiddenRoom = new HiddenRoom(this.featureFactory);
         hiddenRoom.setNearbyRooms(new LinkedList<>(Arrays.asList("study")));
         hiddenRoom.setRoomItems(new LinkedList<>(Arrays.asList("stand", "triangular artifact")));
 
-        Room keep = new Keep();
+        Room keep = new Keep(this.featureFactory);
         keep.setNearbyRooms(new LinkedList<>(Arrays.asList("forest", "abandoned temple")));
         keep.setRoomItems(new LinkedList<>(Arrays.asList("silver chest", "mudpit", "silver key")));
 
-        Room livingRoom = new LivingRoom();
+        Room livingRoom = new LivingRoom(this.featureFactory);
         livingRoom.setNearbyRooms(new LinkedList<>(Arrays.asList("hall")));
         livingRoom.setRoomItems(new LinkedList<>(Arrays.asList()));
 
-        Room startingRoom = new StartingRoom();
+        Room startingRoom = new StartingRoom(this.featureFactory);
         startingRoom.setNearbyRooms(new LinkedList<>(Arrays.asList("forest")));
         startingRoom.setRoomItems(new LinkedList<>(Arrays.asList()));
 
-        Room study = new Study();
+        Room study = new Study(this.featureFactory);
         study.setNearbyRooms(new LinkedList<>(Arrays.asList("hall", "dungeon", "hidden room")));
         study.setRoomItems(new LinkedList<>(Arrays.asList("book", "bookshelf")));
 
         //Create Items
-        Item rustyKey = new RustyKey();
-        Item silverChest = new SilverChest();
-        Item commonChest = new CommonChest();
-        Item moldyTree = new MoldyTree();
-        Item hole = new Hole();
-        Item mudpit = new Mudpit();
-        Item woodenWheel = new WoodenWheel();
-        Item hatch = new Hatch();
-        Item water = new Water();
-        Item corpse = new Corpse();
-        Item parchment = new Parchment();
-        Item statue = new Statue();
-        Item altar = new Altar();
-        Item stand = new Stand();
-        Item book = new Book();
-        Item bookshelf = new Bookshelf();
-        Item goldenKey = new GoldenKey();
-        Item goldenChest = new GoldenChest();
-        Item oldMan = new OldMan();
-        Item rock = new Rock();
-        Item elixir = new Elixir();
-        Item sundial = new Sundial();
-        Item triangularArtifact = new TriangularArtifact();
-        Item circularArtifact = new CircularArtifact();
-        Item rectangularArtifact = new RectangularArtifact();
-        Item silverKey = new SilverKey();
-
-        //Create Inventory
-        Inventory inventory = new Inventory();
-
-        //Initialize FeatureFactory
-        //Rooms
-        featureFactory.registerFeature(forest.getName(), forest);
-        featureFactory.registerFeature(castle.getName(), castle);
-        featureFactory.registerFeature(keep.getName(), keep);
-        featureFactory.registerFeature(deadEnd.getName(), deadEnd);
-        featureFactory.registerFeature(startingRoom.getName(), startingRoom);
-        featureFactory.registerFeature(hall.getName(), hall);
-        featureFactory.registerFeature(livingRoom.getName(), livingRoom);
-        featureFactory.registerFeature(cave.getName(), cave);
-        featureFactory.registerFeature(dungeon.getName(), dungeon);
-        featureFactory.registerFeature(abandonedTemple.getName(), abandonedTemple);
-        featureFactory.registerFeature(hiddenRoom.getName(), hiddenRoom);
-        featureFactory.registerFeature(study.getName(), study);
-
-        //Items
-        featureFactory.registerFeature(rustyKey.getName(), rustyKey);
-        featureFactory.registerFeature(silverChest.getName(), silverChest);
-        featureFactory.registerFeature(commonChest.getName(), commonChest);
-        featureFactory.registerFeature(moldyTree.getName(), moldyTree);
-        featureFactory.registerFeature(hole.getName(), hole);
-        featureFactory.registerFeature(mudpit.getName(), mudpit);
-        featureFactory.registerFeature(woodenWheel.getName(), woodenWheel);
-        featureFactory.registerFeature(hatch.getName(), hatch);
-        featureFactory.registerFeature(water.getName(), water);
-        featureFactory.registerFeature(corpse.getName(), corpse);
-        featureFactory.registerFeature(parchment.getName(), parchment);
-        featureFactory.registerFeature(statue.getName(), statue);
-        featureFactory.registerFeature(altar.getName(), altar);
-        featureFactory.registerFeature(stand.getName(), stand);
-        featureFactory.registerFeature(book.getName(), book);
-        featureFactory.registerFeature(bookshelf.getName(), bookshelf);
-        featureFactory.registerFeature(goldenKey.getName(), goldenKey);
-        featureFactory.registerFeature(goldenChest.getName(), goldenChest);
-        featureFactory.registerFeature(oldMan.getName(), oldMan);
-        featureFactory.registerFeature(rock.getName(), rock);
-        featureFactory.registerFeature(elixir.getName(), elixir);
-        featureFactory.registerFeature(sundial.getName(), sundial);
-        featureFactory.registerFeature(triangularArtifact.getName(), triangularArtifact);
-        featureFactory.registerFeature(circularArtifact.getName(), circularArtifact);
-        featureFactory.registerFeature(rectangularArtifact.getName(), rectangularArtifact);
-        featureFactory.registerFeature(silverKey.getName(), silverKey);
-
-        //Inventory
-        featureFactory.registerFeature(inventory.getName(), inventory);
+        new RustyKey(this.featureFactory);
+        new SilverChest(this.featureFactory);
+        new CommonChest(this.featureFactory);
+        new MoldyTree(this.featureFactory);
+        new Hole(this.featureFactory);
+        new Mudpit(this.featureFactory);
+        new WoodenWheel(this.featureFactory);
+        new Hatch(this.featureFactory);
+        new Water(this.featureFactory);
+        new Corpse(this.featureFactory);
+        new Parchment(this.featureFactory);
+        new Statue(this.featureFactory);
+        new Altar(this.featureFactory);
+        new Stand(this.featureFactory);
+        new Book(this.featureFactory);
+        new Bookshelf(this.featureFactory);
+        new GoldenKey(this.featureFactory);
+        new GoldenChest(this.featureFactory);
+        new OldMan(this.featureFactory);
+        new Rock(this.featureFactory);
+        new Elixir(this.featureFactory);
+        new Sundial(this.featureFactory);
+        new TriangularArtifact(this.featureFactory);
+        new CircularArtifact(this.featureFactory);
+        new RectangularArtifact(this.featureFactory);
+        new SilverKey(this.featureFactory);
 
         this.currentRoom = startingRoom;
         this.previousRoom = startingRoom;
-        this.inventory = inventory;
+        this.inventory = new Inventory(this.featureFactory);
         System.out.println(this.currentRoom.getDescription());
     }
 }

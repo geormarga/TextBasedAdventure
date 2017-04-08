@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import features.Usable;
 import rooms.Room;
@@ -16,9 +17,10 @@ import textbasedadventure.Inventory;
  */
 public class Elixir extends Item implements Pickable, Usable {
 
-    public Elixir() {
+    public Elixir(FeatureFactory featureFactory) {
         name = "elixir";
         description = "An elixir that could cure most diseases.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

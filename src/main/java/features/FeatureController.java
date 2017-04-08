@@ -5,7 +5,8 @@
  */
 package features;
 
-import textbasedadventure.State;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -13,9 +14,10 @@ import textbasedadventure.State;
  */
 public class FeatureController {
 
-    public Feature getFeature(String attr, FeatureFactory featureFactory, State state) {
-        return featureFactory.createFeature(attr);
-
+    public List<Feature> getFeatures(List<String> attributes, FeatureFactory featureFactory) {
+        List<Feature> features = new LinkedList<>();
+        attributes.forEach(attr -> features.add(featureFactory.createFeature(attr)));
+        return features;
     }
 
 }

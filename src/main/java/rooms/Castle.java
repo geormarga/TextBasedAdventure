@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.FeatureFactory;
 import items.containers.CommonChest;
 import textbasedadventure.Observer;
 import textbasedadventure.State;
@@ -15,10 +16,11 @@ import textbasedadventure.State;
  */
 public class Castle extends Room implements Observer {
 
-    public Castle() {
+    public Castle(FeatureFactory featureFactory) {
         name = "castle";
         description = "You are in the castle yard. You are free to go in, but there is also a cave to the west...";
         hint = "You found a chest on the ground.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

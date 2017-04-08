@@ -5,6 +5,7 @@
  */
 package items.containers;
 
+import features.FeatureFactory;
 import items.Item;
 
 /**
@@ -13,8 +14,9 @@ import items.Item;
  */
 public class Mudpit extends Item{
 
-    public Mudpit() {
+    public Mudpit(FeatureFactory featureFactory) {
         name = "mudpit";
         description = "There's a key in the mudpit.";
+        featureFactory.registerFeature(this.name,this);
     }
 }

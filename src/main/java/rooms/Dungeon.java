@@ -5,6 +5,7 @@
  */
 package rooms;
 
+import features.FeatureFactory;
 import textbasedadventure.Observer;
 import textbasedadventure.State;
 
@@ -14,10 +15,11 @@ import textbasedadventure.State;
  */
 public class Dungeon extends Room implements Observer {
 
-    public Dungeon() {
+    public Dungeon(FeatureFactory featureFactory) {
         name = "dungeon";
         description = "This must be a dungeon, by the looks of it many people drew their final breath here...";
         hint = "There's a musty corpse on the ground";
+        featureFactory.registerFeature(this.name,this);
 
     }
 

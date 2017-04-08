@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Turnable;
 import textbasedadventure.State;
 
@@ -16,9 +17,10 @@ public class WoodenWheel extends Item implements Turnable {
 
     boolean turned;
 
-    public WoodenWheel() {
+    public WoodenWheel(FeatureFactory featureFactory) {
         name = "wooden wheel";
         description = "You can turn it, to open the floodgate.";
+        featureFactory.registerFeature(this.name,this);
     }
 
     public boolean isTurned() {

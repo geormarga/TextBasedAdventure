@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import rooms.Room;
 import textbasedadventure.Inventory;
@@ -15,9 +16,10 @@ import textbasedadventure.Inventory;
  */
 public class TornNote extends Item implements Pickable {
 
-    public TornNote() {
+    public TornNote(FeatureFactory featureFactory) {
         name = "torn note";
         description = "To succeed in the quest of thee, you must find artifacts three ...";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override

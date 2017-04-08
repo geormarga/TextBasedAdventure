@@ -5,6 +5,7 @@
  */
 package items;
 
+import features.FeatureFactory;
 import features.Pickable;
 import rooms.Room;
 import textbasedadventure.Inventory;
@@ -15,9 +16,10 @@ import textbasedadventure.Inventory;
  */
 public class Sundial extends Item implements Pickable {
 
-    public Sundial() {
+    public Sundial(FeatureFactory featureFactory) {
         name = "sundial";
         description = "It's a sundial.You look closer only to find a line, marking the dial: Ten to two .";
+        featureFactory.registerFeature(this.name,this);
     }
 
     @Override
