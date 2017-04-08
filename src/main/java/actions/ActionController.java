@@ -10,15 +10,17 @@ import messages.IMessage;
 import messages.game.FeatureNotFoundMessage;
 import textbasedadventure.State;
 
+import java.util.List;
+
 /**
  *
  * @author Aenaos
  */
 public class ActionController {
 
-    public boolean executeAction(Action action, Feature feature, State state) {
-        if (action.existsInContext(state, feature)) {
-            return action.execute(state, feature);
+    public boolean executeAction(Action action, List<Feature> features, State state) {
+        if (action.existsInContext(state, features)) {
+            return action.execute(state, features);
         } else {
             IMessage message = new FeatureNotFoundMessage("feature");
             message.display();
