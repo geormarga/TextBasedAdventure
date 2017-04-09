@@ -38,7 +38,7 @@ public class ReadXMLFile {
 
                     System.out.println("\nname : " + eElement.getAttribute("name"));
                     System.out.println("tag : " + eElement.getTagName());
-                    System.out.println("value : " + eElement.getNodeValue());
+                    //System.out.println("value : " + eElement.getNodeValue());
 
                     NodeList roomsList = eElement.getElementsByTagName("adjacentRoom");
 
@@ -49,7 +49,7 @@ public class ReadXMLFile {
                             Element roomElement = (Element) roomNode;
                             System.out.println("\nchild name : " + roomElement.getAttribute("name"));
                             System.out.println("child tag : " + roomElement.getTagName());
-                            System.out.println("child value : " + roomElement.getNodeValue());
+                            System.out.println("child value : " + roomElement.getFirstChild().getTextContent());
                         }
                     }
                 }

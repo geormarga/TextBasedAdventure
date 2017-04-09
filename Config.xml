@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rooms>
+    <room name="forest">
+        <adjacentRoom name="altar">east</adjacentRoom>
+        <adjacentRoom name="cave">west</adjacentRoom>
+    </room>
+    <room name="keep">
+        <adjacentRoom name="lake">south</adjacentRoom>
+        <adjacentRoom name="castle">north</adjacentRoom>
+    </room>
+</rooms>
