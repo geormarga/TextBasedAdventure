@@ -6,56 +6,54 @@ import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.*;
 
 import java.io.File;
+import java.util.List;
 
-/**
- * Created by Aenaos on 1/4/2017.
- */
-public class ReadXMLFile {
 
-    public void translate() {
+class ReadXMLFile {
+    private File fXmlFile;
+    private DocumentBuilderFactory dbFactory;
+    private DocumentBuilder dBuilder;
+    private Document doc;
+
+
+    /**
+     * Method that maps the user given attributes to game contextual objects depending on the state
+     * @param state The state object of the game
+     * @param attributes The command attributes that have been parsed
+     */
+    void translate(State state, List<String> attributes) {
         try {
 
-            File fXmlFile = new File("Config.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(fXmlFile);
-
-            //optional, but recommended
-            //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
+            fXmlFile = new File("Map.xml");
+            dbFactory = DocumentBuilderFactory.newInstance();
+            dBuilder = dbFactory.newDocumentBuilder();
+            doc = dBuilder.parse(fXmlFile);
             doc.getDocumentElement().normalize();
 
-            System.out.println("----------------------------");
-            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-            System.out.println("----------------------------");
-
+            String roomName = state.getCurrentRoom().getName();
             NodeList nList = doc.getDocumentElement().getChildNodes();
+
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Node nNode = nList.item(temp);
-
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
-                    Element eElement = (Element) nNode;
-
-                    System.out.println("\nname : " + eElement.getAttribute("name"));
-                    System.out.println("tag : " + eElement.getTagName());
-                    //System.out.println("value : " + eElement.getNodeValue());
-
-                    NodeList roomsList = eElement.getElementsByTagName("adjacentRoom");
-
-                    for (int roomsIndex = 0; roomsIndex < roomsList.getLength(); roomsIndex++) {
-
-                        Node roomNode = roomsList.item(roomsIndex);
-                        if (roomNode.getNodeType() == Node.ELEMENT_NODE) {
-                            Element roomElement = (Element) roomNode;
-                            System.out.println("\nchild name : " + roomElement.getAttribute("name"));
-                            System.out.println("child tag : " + roomElement.getTagName());
-                            System.out.println("child value : " + roomElement.getFirstChild().getTextContent());
+                    Element element = (Element) nNode;
+                    if (element.getAttribute("name").equals(roomName)) {
+                        NodeList roomsList = element.getChildNodes();
+                        for (int roomsIndex = 0; roomsIndex < roomsList.getLength(); roomsIndex++) {
+                            Node roomNode = roomsList.item(roomsIndex);
+                            if (roomNode.getNodeType() == Node.ELEMENT_NODE) {
+                                Element roomElement = (Element) roomNode;
+                                for (String attr : attributes) {
+                                    if (roomElement.getAttribute("name").equals(attr)) {
+                                        attributes.set(attributes.indexOf(attr), roomElement.getFirstChild().getTextContent());
+                                    }
+                                }
+                            }
                         }
                     }
-                }
 
+                }
             }
-            System.out.println("");
         } catch (
                 Exception e)
 
