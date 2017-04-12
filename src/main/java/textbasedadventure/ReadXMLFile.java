@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadXMLFile {
+
     /**
      * Method that maps the user given attributes to game contextual objects depending on the current room
      *
@@ -59,44 +60,58 @@ public class ReadXMLFile {
         return elementList;
     }
 
+    /**
+     * Method that gets the adjacent rooms as defined in the xml file
+     *
+     * @param roomName The name of the room
+     * @return The adjacent rooms for the specified roomName
+     */
     public List<String> getNearbyRooms(String roomName) {
-        List<Element> elementList = new ArrayList<>();
-        List<Element> parentList = toElementList(toNodeList("Rooms.xml"));
-        for (Element parent : parentList) {
-            List<Element> childList = toElementList(parent.getChildNodes());
-            elementList.addAll(childList);
-        }
-
-        List<String> nearbyRooms = new ArrayList<>();
-        for (Element element : elementList) {
-            Element parent = (Element) element.getParentNode();
-            if (parent.getAttribute("name").equals(roomName)) {
-                nearbyRooms.add(element.getFirstChild().getTextContent());
-            }
-        }
-        return nearbyRooms;
+        return getElements(roomName, "Rooms.xml");
     }
 
 
+    /**
+     * Method that gets a room's items as defined in the xml file
+     *
+     * @param roomName The name of the room
+     * @return The contained items for the specified roomName
+     */
     public List<String> getRoomItems(String roomName) {
+        return getElements(roomName, "Items.xml");
+    }
+
+    /**
+     * Method that gets the child nodes' string values for a parent node given
+     *
+     * @param parentName The attribute name of the parent node
+     * @param pathName   XmlFile path
+     * @return The list of elements in string
+     */
+    private List<String> getElements(String parentName, String pathName) {
         List<Element> elementList = new ArrayList<>();
-        List<Element> parentList = toElementList(toNodeList("Items.xml"));
+        List<Element> parentList = toElementList(toNodeList(pathName));
         for (Element parent : parentList) {
             List<Element> childList = toElementList(parent.getChildNodes());
             elementList.addAll(childList);
         }
 
-        List<String> roomItems = new ArrayList<>();
+        List<String> roomElements = new ArrayList<>();
         for (Element element : elementList) {
             Element parent = (Element) element.getParentNode();
-            if (parent.getAttribute("name").equals(roomName)) {
-                roomItems.add(element.getFirstChild().getTextContent());
+            if (parent.getAttribute("name").equals(parentName)) {
+                roomElements.add(element.getFirstChild().getTextContent());
             }
         }
-        return roomItems;
+        return roomElements;
     }
 
-
+    /**
+     * Method that manipulates the xml structure to create a NodeList of the existing xml nodes
+     *
+     * @param pathName XmlFile path
+     * @return NodeList from xml file
+     */
     private NodeList toNodeList(String pathName) {
         try {
             File fXmlFile = new File(pathName);
