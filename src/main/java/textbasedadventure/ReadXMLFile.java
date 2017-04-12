@@ -97,20 +97,15 @@ public class ReadXMLFile {
     }
 
 
-    public NodeList toNodeList(String pathName) {
+    private NodeList toNodeList(String pathName) {
         try {
             File fXmlFile = new File(pathName);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
             doc.getDocumentElement().normalize();
-            NodeList nodeList = doc.getDocumentElement().getChildNodes();
-            return nodeList;
-        } catch (ParserConfigurationException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } catch (SAXException ex) {
+            return doc.getDocumentElement().getChildNodes();
+        } catch (ParserConfigurationException | IOException | SAXException ex) {
             ex.printStackTrace();
         }
         return null;
