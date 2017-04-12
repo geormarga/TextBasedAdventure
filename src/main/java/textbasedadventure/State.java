@@ -28,6 +28,7 @@ import rooms.LivingRoom;
 import rooms.Room;
 import rooms.StartingRoom;
 import rooms.Study;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -69,10 +70,6 @@ public class State implements Serializable {
     }
 
     public State() {
-        this.initState();
-    }
-
-    private void initState() {
 
         //Create Rooms
         Room forest = new Forest(this.featureFactory);
