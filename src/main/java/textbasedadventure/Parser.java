@@ -8,29 +8,27 @@ package textbasedadventure;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+
 import messages.IMessage;
 import messages.parser.WrongAttributeMessage;
 import messages.parser.WrongCommandMessage;
 
 /**
- *
  * @author Aenaos
  */
 public class Parser {
 
-    
     private final CommandList cmdList = new CommandList();
     private String command;
-    List<String> attributes;
-    IMessage message;
+    private List<String> attributes;
+    private IMessage message;
 
     /**
-     *  Takes in the user input and checks if it complies with the command structure.
-     *
-     *  @param text The user input
-     *  @return The boolean value that represents the command validity.
+     * Takes in the user input and checks if it complies with the command structure. Otherwise displays an error message.
+     * @param text The user input
+     * @return The boolean value that represents the command and attribute validity.
      */
-    public boolean CommandIsValid(String text) {
+    boolean CommandIsValid(String text) {
 
         List<String> readyTokens = new ArrayList<>(Arrays.asList(text.trim().split("\\s+"))); //tokenizes string to list
         //first element is the command
@@ -39,34 +37,43 @@ public class Parser {
         command = readyTokens.get(0);
         readyTokens.remove(0);
         attributes = new ArrayList<>();
-        readyTokens.forEach(token -> attributes.add(token));
+        attributes.addAll(readyTokens);
 
         //catch pick up/pickup occasion
-        if(command.equals("pick")&& attributes.get(0).equals("up")){
+        if (command.equals("pick") && attributes.get(0).equals("up")) {
             command = command + attributes.get(0);
             attributes.remove(0);
         }
 
-        if(this.isCommand(command,cmdList) && this.isAttribute(attributes,cmdList)){
+        if (this.isCommand(command, cmdList) && this.isAttribute(attributes, cmdList)) {
             return true;
         }
         message.display();
         return false;
     }
+
     /**
-     * Checks if the string given is a valid command verb
-     *
-    */
-    boolean isCommand(String command, CommandList cmdList){
-        if(cmdList.isVerb(command)){
+     * It checks whether a command is valid, otherwise it sets an error message to be displayed.
+     * @param command The command string given by the user
+     * @param cmdList The list of commands and attributes class
+     * @return The boolean value that represents whether the command is valid
+     */
+    private boolean isCommand(String command, CommandList cmdList) {
+        if (cmdList.isVerb(command)) {
             return true;
         }
         this.message = new WrongCommandMessage();
         return false;
     }
 
-    boolean isAttribute(List<String> attributes,CommandList cmdList){
-        if(cmdList.areValidAttributes(attributes)){
+    /**
+     * It checks whether an attribute is valid, otherwise it sets an error message to be displayed.
+     * @param attributes The command attributes given by the user
+     * @param cmdList The list of commands and attributes class
+     * @return The boolean value that represents whether each one of the attributes is valid
+     */
+    private boolean isAttribute(List<String> attributes, CommandList cmdList) {
+        if (cmdList.areValidAttributes(attributes)) {
             return true;
         }
         this.message = new WrongAttributeMessage();
@@ -77,7 +84,7 @@ public class Parser {
         return command;
     }
 
-    public List<String> getAttributes() {
+    List<String> getAttributes() {
         return attributes;
     }
 }
