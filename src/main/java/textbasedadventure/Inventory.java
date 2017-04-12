@@ -2,6 +2,7 @@ package textbasedadventure;
 
 import features.FeatureFactory;
 import features.Showable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class Inventory implements Showable {
    
 
     private String name;
-    private List<String> items = (List) new ArrayList<>();
+    private List<String> items = new ArrayList<>();
 
     public Inventory(FeatureFactory featureFactory) {
         this.name = "inventory";
@@ -49,9 +50,7 @@ public class Inventory implements Showable {
     
     @Override
     public void show() {
-        items.stream().forEach((item) -> {
-            System.out.println(item);
-        });
+        items.forEach(System.out::println);
     }
 
 }
