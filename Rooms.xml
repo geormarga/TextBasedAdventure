@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rooms>
+    <room name="forest">
+        <adjacentRoom name="north">dead end</adjacentRoom>
+        <adjacentRoom name="west">castle</adjacentRoom>
+        <adjacentRoom name="east">keep</adjacentRoom>
+    </room>
+    <room name="abandoned temple">
+        <adjacentRoom name="west">keep</adjacentRoom>
+    </room>
+    <room name="castle">
+        <adjacentRoom name="east">forest</adjacentRoom>
+        <adjacentRoom name="in">hall</adjacentRoom>
+        <adjacentRoom name="west">cave</adjacentRoom>
+    </room>
+    <room name="cave">
+        <adjacentRoom name="east">castle</adjacentRoom>
+    </room>
+    <room name="dead end">
+        <adjacentRoom name="south">forest</adjacentRoom>
+        <adjacentRoom name="down">dungeon</adjacentRoom>
+    </room>
+    <room name="dungeon">
+        <adjacentRoom name="up">hall</adjacentRoom>
+    </room>
+    <room name="hall">
+        <adjacentRoom name="out">castle</adjacentRoom>
+        <adjacentRoom name="right">living room</adjacentRoom>
+        <adjacentRoom name="down">dungeon</adjacentRoom>
+        <adjacentRoom name="left">study</adjacentRoom>
+    </room>
+    <room name="hidden room">
+        <adjacentRoom name="out">study</adjacentRoom>
+    </room>
+    <room name="keep">
+        <adjacentRoom name="west">forest</adjacentRoom>
+        <adjacentRoom name="east">abandoned temple</adjacentRoom>
+    </room>
+    <room name="living room">
+        <adjacentRoom name="left">hall</adjacentRoom>
+    </room>
+    <room name="starting room">
+        <adjacentRoom name="game">forest</adjacentRoom>
+    </room>
+    <room name="study">
+        <adjacentRoom name="right">hall</adjacentRoom>
+        <adjacentRoom name="down">dungeon</adjacentRoom>
+        <adjacentRoom name="in">hidden room</adjacentRoom>
+    </room>
+</rooms>
