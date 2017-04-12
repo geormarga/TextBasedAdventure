@@ -22,19 +22,18 @@ class GameLoop {
     private final ActionController actionController;
     private final FeatureController featureController;
     private final Parser parser;
-    private boolean canContinue = true;
     private ReadXMLFile readXMLFile;
 
     void gameLoop(State state) {
 
         this.setText();
-        while (canContinue) {
+        while (true) {
             if (parser.CommandIsValid(text)) {
                 try {
                     readXMLFile.getRoomInDirection(state.getCurrentRoom().getName(), parser.getAttributes());
                     List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory());
                     Action action = actionController.getAction(parser.getCommand());
-                    canContinue = actionController.executeAction(action, features, state);
+                    actionController.executeAction(action, features, state);
                 } catch (NullPointerException ex) {
                     System.out.println("Could not find what you were looking for.");
                 } catch (ClassCastException ex) {

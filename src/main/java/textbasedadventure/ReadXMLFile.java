@@ -23,7 +23,7 @@ public class ReadXMLFile {
      */
     void getRoomInDirection(String currentRoom, List<String> attributes) {
 
-        NodeList nodeList = toNodeList("Map.xml");
+        NodeList nodeList = toNodeList("Rooms.xml");
         List<Element> elementList = new ArrayList<>();
         List<Element> parentList = toElementList(nodeList);
         for (Element parent : parentList) {
@@ -61,7 +61,7 @@ public class ReadXMLFile {
 
     public List<String> getNearbyRooms(String roomName) {
         List<Element> elementList = new ArrayList<>();
-        List<Element> parentList = toElementList(toNodeList("Map.xml"));
+        List<Element> parentList = toElementList(toNodeList("Rooms.xml"));
         for (Element parent : parentList) {
             List<Element> childList = toElementList(parent.getChildNodes());
             elementList.addAll(childList);
