@@ -11,7 +11,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class Torch extends Item implements Pickable {
@@ -19,7 +18,7 @@ public class Torch extends Item implements Pickable {
     public Torch(FeatureFactory featureFactory) {
         name = "torch";
         description = "A wooden torch that can be used to see in the dark";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

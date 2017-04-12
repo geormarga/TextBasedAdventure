@@ -8,11 +8,11 @@ package items.containers;
 import features.FeatureFactory;
 import features.Openable;
 import items.Item;
-import java.util.List;
 import textbasedadventure.Inventory;
 
+import java.util.List;
+
 /**
- *
  * @author Aenaos
  */
 public class CommonChest extends Item implements Openable {
@@ -23,7 +23,7 @@ public class CommonChest extends Item implements Openable {
     public CommonChest(FeatureFactory featureFactory) {
         name = "common chest";
         description = "If only I had a key...";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     public void setOpen(boolean open) {
@@ -41,9 +41,9 @@ public class CommonChest extends Item implements Openable {
             System.out.println("Chest is open you should probably examine it.");
         }
     }
-    
-    public List<String> getContainerItems(){
+
+    public List<String> getContainerItems() {
         return this.containerItems;
     }
-    
+
 }

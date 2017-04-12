@@ -11,7 +11,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class TornNote extends Item implements Pickable {
@@ -19,7 +18,7 @@ public class TornNote extends Item implements Pickable {
     public TornNote(FeatureFactory featureFactory) {
         name = "torn note";
         description = "To succeed in the quest of thee, you must find artifacts three ...";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

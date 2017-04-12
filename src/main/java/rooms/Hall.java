@@ -9,7 +9,6 @@ import features.FeatureFactory;
 import textbasedadventure.ReadXMLFile;
 
 /**
- *
  * @author Aenaos
  */
 public class Hall extends Room {
@@ -18,7 +17,7 @@ public class Hall extends Room {
         name = "hall";
         description = "You went inside the Castle. It's vast halls seem haunted";
         hint = "You can see some rooms left and right ... and stairs heading down.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

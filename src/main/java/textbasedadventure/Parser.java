@@ -5,13 +5,13 @@
  */
 package textbasedadventure;
 
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-
 import messages.IMessage;
 import messages.parser.WrongAttributeMessage;
 import messages.parser.WrongCommandMessage;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Aenaos

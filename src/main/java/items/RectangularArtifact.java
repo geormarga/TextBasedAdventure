@@ -12,7 +12,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class RectangularArtifact extends Item implements Pickable, Usable {
@@ -20,7 +19,7 @@ public class RectangularArtifact extends Item implements Pickable, Usable {
     public RectangularArtifact(FeatureFactory featureFactory) {
         name = "rectangular artifact";
         description = "One of the three sun artifacts. It has the shape of a rectangle.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override
@@ -31,7 +30,7 @@ public class RectangularArtifact extends Item implements Pickable, Usable {
     }
 
     @Override
-    public void use(Inventory inventory,Room room) {
+    public void use(Inventory inventory, Room room) {
         room.registerItem(this.name);
         inventory.unregisterItem(this.name);
         //altar you already set the object

@@ -8,7 +8,6 @@ package features;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public interface Turnable extends Feature {

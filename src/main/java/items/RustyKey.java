@@ -11,7 +11,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class RustyKey extends Item implements Pickable {
@@ -19,7 +18,7 @@ public class RustyKey extends Item implements Pickable {
     public RustyKey(FeatureFactory featureFactory) {
         name = "rusty key";
         description = "This key can unlock common chests.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

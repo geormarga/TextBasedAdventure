@@ -11,17 +11,16 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
-public class AbandonedTemple extends Room implements Observer{
+public class AbandonedTemple extends Room implements Observer {
 
     public AbandonedTemple(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
         name = "abandoned temple";
         description = "This is the temple of sunlight. Many pilgrims through the years came"
                 + " by to witness this enchanted old ruin.";
         hint = "In sight are: A statue and an altar.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

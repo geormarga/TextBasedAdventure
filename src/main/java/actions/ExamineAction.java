@@ -9,19 +9,16 @@ import features.Examinable;
 import items.Item;
 import messages.IMessage;
 import messages.action.ExamineFailureMessage;
-import rooms.Room;
-import textbasedadventure.Inventory;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class ExamineAction implements Action<Examinable> {
 
     @Override
     public boolean execute(State state, Examinable examinable) {
-        if (examinable instanceof Examinable) {
+        if (examinable != null) {
             examinable.examine();
             return true;
         }

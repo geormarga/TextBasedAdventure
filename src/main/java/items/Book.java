@@ -9,7 +9,6 @@ import features.FeatureFactory;
 import features.Pullable;
 
 /**
- *
  * @author Aenaos
  */
 public class Book extends Item implements Pullable {
@@ -19,14 +18,14 @@ public class Book extends Item implements Pullable {
     public Book(FeatureFactory featureFactory) {
         name = "book";
         description = "There's some sort of mechanism linking this particular book to the bookshelf.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     public boolean isPulled() {
         return pulled;
     }
 
-    public void setPulled(boolean pulled) {
+    private void setPulled(boolean pulled) {
         this.pulled = pulled;
     }
 

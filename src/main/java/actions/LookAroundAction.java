@@ -10,7 +10,6 @@ import rooms.Room;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class LookAroundAction implements Action<Lookable> {

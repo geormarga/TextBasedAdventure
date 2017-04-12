@@ -10,7 +10,6 @@ import items.Item;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class OpenAction implements Action<Openable> {
@@ -20,7 +19,7 @@ public class OpenAction implements Action<Openable> {
         openable.open(state.getInventory());
         return true;
     }
-    
+
     /*  Returns true if the string represents an item in the current room. Else returns false.
      */
     @Override

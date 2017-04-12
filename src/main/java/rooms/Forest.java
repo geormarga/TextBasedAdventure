@@ -11,7 +11,6 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class Forest extends Room implements Observer {
@@ -20,7 +19,7 @@ public class Forest extends Room implements Observer {
         name = "forest";
         description = "You are in the forest. West of you there's a castle, and in the east there's a keep ";
         hint = "One tree looks different from the others, it's sticking out. In front of you lies a rusty key";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

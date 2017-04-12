@@ -9,7 +9,6 @@ import features.FeatureFactory;
 import items.Item;
 
 /**
- *
  * @author Aenaos
  */
 public class MoldyTree extends Item {
@@ -17,6 +16,6 @@ public class MoldyTree extends Item {
     public MoldyTree(FeatureFactory featureFactory) {
         name = "moldy tree";
         description = "The tree is pretty moldy and old. Looking down you see an old sundial lying on the ground, near the tree's roots";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 }

@@ -8,7 +8,6 @@ package messages.game;
 import messages.IMessage;
 
 /**
- *
  * @author Aenaos
  */
 public class PickUpMessage implements IMessage {

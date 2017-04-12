@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
  * @author Aenaos
  */
 public class FeatureController {

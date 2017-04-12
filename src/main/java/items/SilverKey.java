@@ -11,7 +11,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class SilverKey extends Item implements Pickable {
@@ -19,7 +18,7 @@ public class SilverKey extends Item implements Pickable {
     public SilverKey(FeatureFactory featureFactory) {
         name = "silver key";
         description = "This key can unlock silver chests.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

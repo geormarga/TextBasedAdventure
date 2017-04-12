@@ -8,7 +8,6 @@ package features;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public interface Openable extends Feature {

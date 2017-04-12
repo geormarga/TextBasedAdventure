@@ -10,30 +10,29 @@ import features.Turnable;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class WoodenWheel extends Item implements Turnable {
 
-    boolean turned;
+    private boolean turned = false;
 
     public WoodenWheel(FeatureFactory featureFactory) {
         name = "wooden wheel";
         description = "You can turn it, to open the floodgate.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     public boolean isTurned() {
         return turned;
     }
 
-    public void setTurned(boolean turned) {
+    private void setTurned(boolean turned) {
         this.turned = turned;
     }
 
     @Override
     public void turn(State state) {
-        
+
         if (!isTurned()) {
             this.setTurned(true);
             this.setDescription("Already turned.");
@@ -41,7 +40,7 @@ public class WoodenWheel extends Item implements Turnable {
             Hatch hatch = (Hatch) state.getFeatureFactory().createFeature("hatch");
             hatch.setOpen(true);
             hatch.updateDescription();
-        }else{
+        } else {
             System.out.println(this.getDescription());
         }
     }

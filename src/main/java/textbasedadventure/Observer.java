@@ -7,7 +7,6 @@ package textbasedadventure;
  */
 
 /**
- *
  * @author Aenaos
  */
 public interface Observer {

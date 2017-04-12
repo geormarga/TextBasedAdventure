@@ -8,7 +8,6 @@ package items;
 import features.FeatureFactory;
 
 /**
- *
  * @author Aenaos
  */
 public class Water extends Item {
@@ -16,7 +15,7 @@ public class Water extends Item {
     public Water(FeatureFactory featureFactory) {
         name = "water";
         description = "A lot of water.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
 }

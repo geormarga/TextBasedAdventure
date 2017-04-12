@@ -8,7 +8,6 @@ package messages.parser;
 import messages.IMessage;
 
 /**
- *
  * @author Aenaos
  */
 public class WrongCommandMessage implements IMessage {

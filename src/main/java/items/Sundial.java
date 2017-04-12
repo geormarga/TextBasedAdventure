@@ -11,7 +11,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class Sundial extends Item implements Pickable {
@@ -19,7 +18,7 @@ public class Sundial extends Item implements Pickable {
     public Sundial(FeatureFactory featureFactory) {
         name = "sundial";
         description = "It's a sundial.You look closer only to find a line, marking the dial: Ten to two .";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

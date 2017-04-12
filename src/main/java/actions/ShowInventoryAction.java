@@ -10,7 +10,6 @@ import textbasedadventure.Inventory;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class ShowInventoryAction implements Action<Showable> {

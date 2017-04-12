@@ -12,7 +12,6 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class Castle extends Room implements Observer {
@@ -21,7 +20,7 @@ public class Castle extends Room implements Observer {
         name = "castle";
         description = "You are in the castle yard. You are free to go in, but there is also a cave to the west...";
         hint = "You found a chest on the ground.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

@@ -12,7 +12,6 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class HiddenRoom extends Room implements Observer {
@@ -21,7 +20,7 @@ public class HiddenRoom extends Room implements Observer {
         name = "hidden room";
         description = "Wow. I didn't believe that it would work!";
         hint = "There is a stand in the center of the room.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

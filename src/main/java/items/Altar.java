@@ -8,7 +8,6 @@ package items;
 import features.FeatureFactory;
 
 /**
- *
  * @author Aenaos
  */
 public class Altar extends Item {
@@ -16,14 +15,14 @@ public class Altar extends Item {
     private boolean hasCircular;
     private boolean hasTriangular;
     private boolean hasRectangular;
-    
+
     public Altar(FeatureFactory featureFactory) {
         name = "altar";
         description = "There are three slots for different artifacts to place. \n"
                 + "A circular, a rectangular and a triangular one.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
-    
+
     public boolean hasCircular() {
         return hasCircular;
     }

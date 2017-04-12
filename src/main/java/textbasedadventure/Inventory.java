@@ -11,20 +11,19 @@ import java.util.List;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
- *
  * @author Aenaos
  */
 public class Inventory implements Showable {
 
-   
 
     private String name;
     private List<String> items = new ArrayList<>();
 
     public Inventory(FeatureFactory featureFactory) {
         this.name = "inventory";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
 
     }
 
@@ -40,14 +39,14 @@ public class Inventory implements Showable {
         items.remove(itemName);
     }
 
-     public String getName() {
+    public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
     public void show() {
         items.forEach(System.out::println);

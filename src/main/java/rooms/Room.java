@@ -13,13 +13,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *
  * @author Aenaos
  */
 public abstract class Room implements Lookable, Serializable, Moveable {
 
-    protected List<String> nearbyRooms;
-    protected List<String> roomItems;
+    private List<String> nearbyRooms;
+    private List<String> roomItems;
     protected String name;
     protected String description;
     protected String hint;
@@ -32,7 +31,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
         roomItems.remove(itemName);
     }
 
-    public void registerRoom(String roomName) {
+    void registerRoom(String roomName) {
         nearbyRooms.add(roomName);
     }
 
@@ -56,7 +55,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
         return this.nearbyRooms;
     }
 
-    public boolean existsInRoom(String itemName) {
+    boolean existsInRoom(String itemName) {
         return roomItems.contains(itemName);
     }
 

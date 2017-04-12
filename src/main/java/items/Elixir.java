@@ -12,7 +12,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class Elixir extends Item implements Pickable, Usable {
@@ -20,7 +19,7 @@ public class Elixir extends Item implements Pickable, Usable {
     public Elixir(FeatureFactory featureFactory) {
         name = "elixir";
         description = "An elixir that could cure most diseases.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

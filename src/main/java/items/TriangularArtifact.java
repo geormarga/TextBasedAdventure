@@ -12,7 +12,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class TriangularArtifact extends Item implements Pickable, Usable {
@@ -20,7 +19,7 @@ public class TriangularArtifact extends Item implements Pickable, Usable {
     public TriangularArtifact(FeatureFactory featureFactory) {
         name = "triangular artifact";
         description = "One of the three sun artifacts. It's the shape of a triangle.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

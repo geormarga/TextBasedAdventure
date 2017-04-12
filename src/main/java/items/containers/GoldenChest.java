@@ -8,11 +8,11 @@ package items.containers;
 import features.FeatureFactory;
 import features.Openable;
 import items.Item;
-import java.util.List;
 import textbasedadventure.Inventory;
 
+import java.util.List;
+
 /**
- *
  * @author Aenaos
  */
 public class GoldenChest extends Item implements Openable {
@@ -23,7 +23,7 @@ public class GoldenChest extends Item implements Openable {
     public GoldenChest(FeatureFactory featureFactory) {
         name = "golden chest";
         description = "This chest can be opened with a golden key";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     public void setOpen(boolean open) {

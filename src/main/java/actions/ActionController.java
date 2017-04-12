@@ -13,19 +13,19 @@ import textbasedadventure.State;
 import java.util.List;
 
 /**
- *
  * @author Aenaos
  */
 public class ActionController {
 
     public boolean executeAction(Action action, List<Feature> features, State state) {
-        if (action.existsInContext(state, features)) {
-            return action.execute(state, features);
-        } else {
-            IMessage message = new FeatureNotFoundMessage("feature");
-            message.display();
-            return true;
+        for (Feature feature : features) {
+            if (action.existsInContext(state, feature)) {
+                return action.execute(state, feature);
+            }
         }
+        IMessage message = new FeatureNotFoundMessage("feature");
+        message.display();
+        return true;
     }
 
     public Action getAction(String command) {

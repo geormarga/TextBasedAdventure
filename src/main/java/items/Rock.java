@@ -9,7 +9,6 @@ import features.FeatureFactory;
 import rooms.Room;
 
 /**
- *
  * @author Aenaos
  */
 public class Rock extends Item {
@@ -17,7 +16,7 @@ public class Rock extends Item {
     public Rock(FeatureFactory featureFactory) {
         name = "rock";
         description = "Lifting the rock revealed a hidden place. There is a golden chest";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     private void createItem(Room room) {

@@ -11,7 +11,6 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class Dungeon extends Room implements Observer {
@@ -20,7 +19,7 @@ public class Dungeon extends Room implements Observer {
         name = "dungeon";
         description = "This must be a dungeon, by the looks of it many people drew their final breath here...";
         hint = "There's a musty corpse on the ground";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

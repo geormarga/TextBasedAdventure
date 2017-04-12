@@ -10,7 +10,6 @@ import items.Item;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class TurnAction implements Action<Turnable> {
@@ -20,8 +19,8 @@ public class TurnAction implements Action<Turnable> {
         turnable.turn(state);
         return true;
     }
-    
-    
+
+
     /*  Returns true if the string represents an item in the current room. Else returns false.
      */
     @Override

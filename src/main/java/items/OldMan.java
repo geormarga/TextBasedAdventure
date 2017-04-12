@@ -5,25 +5,24 @@
  */
 package items;
 
-import java.util.Scanner;
-
 import features.FeatureFactory;
 import rooms.Room;
 
+import java.util.Scanner;
+
 /**
- *
  * @author Aenaos
  */
 public class OldMan extends Item {
 
-    public String choice;
+    private String choice;
 
     public OldMan(FeatureFactory featureFactory) {
         name = "old man";
         description = "You see an old man screaming in pain.What do you do?\n"
                 + "Put him out of his misery..[press 1]\nTry to help him somehow[press 2]"
                 + "\nDo nothing[press 3]";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     public void examine(Room room) {

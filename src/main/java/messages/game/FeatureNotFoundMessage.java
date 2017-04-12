@@ -8,7 +8,6 @@ package messages.game;
 import messages.IMessage;
 
 /**
- *
  * @author Aenaos
  */
 public class FeatureNotFoundMessage implements IMessage {
@@ -19,7 +18,7 @@ public class FeatureNotFoundMessage implements IMessage {
         this.attr = attr;
     }
 
-    
+
     @Override
     public void display() {
         System.out.println("Could not find " + this.attr + ".");

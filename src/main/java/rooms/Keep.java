@@ -12,7 +12,6 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class Keep extends Room implements Observer {
@@ -21,7 +20,7 @@ public class Keep extends Room implements Observer {
         name = "keep";
         description = "You are in the keep. Unfortunately there's no visible path from which you can enter.";
         hint = "You see something shining in a mudpit. A silver chest lies on the ground.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

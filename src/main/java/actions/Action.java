@@ -8,9 +8,8 @@ package actions;
 import textbasedadventure.State;
 
 /**
- *
- * @author Aenaos
  * @param <T> Item to do action on
+ * @author Aenaos
  */
 public interface Action<T> {
 

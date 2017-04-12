@@ -7,12 +7,10 @@ package items;
 
 import features.FeatureFactory;
 import features.Openable;
-import rooms.Room;
 import textbasedadventure.Inventory;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class Hatch extends Item implements Openable {
@@ -30,16 +28,16 @@ public class Hatch extends Item implements Openable {
     public Hatch(FeatureFactory featureFactory) {
         name = "hatch";
         description = "The area below the hatch is flooded. I need to get rid of the water so that I can go down there.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
-    public void updateDescription() {
+    void updateDescription() {
         this.setDescription("Water's gone. You can proceed.");
     }
 
     public void open(String attr, State state) {
 
-        WoodenWheel wheel= (WoodenWheel) state.getFeatureFactory().createFeature("wooden wheel");
+        WoodenWheel wheel = (WoodenWheel) state.getFeatureFactory().createFeature("wooden wheel");
         if (!wheel.isTurned()) {
             System.out.println("You need to get rid of the water first.");
         } else {

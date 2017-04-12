@@ -6,14 +6,12 @@
 package actions;
 
 import features.Moveable;
-import items.Item;
 import messages.IMessage;
 import messages.action.MoveFailureMessage;
 import rooms.Room;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class MoveAction implements Action<Moveable> {
@@ -21,7 +19,7 @@ public class MoveAction implements Action<Moveable> {
     @Override
     public boolean execute(State state, Moveable moveable) {
 
-        if (moveable instanceof Moveable) {
+        if (moveable != null) {
             moveable.move(state);
             return true;
         }

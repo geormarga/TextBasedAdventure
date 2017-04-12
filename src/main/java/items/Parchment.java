@@ -11,7 +11,6 @@ import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
- *
  * @author Aenaos
  */
 public class Parchment extends Item implements Pickable {
@@ -20,7 +19,7 @@ public class Parchment extends Item implements Pickable {
 
         name = "parchment";
         description = "It's all smudged. After all, moisture isn't papers' best friend...";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

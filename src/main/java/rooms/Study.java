@@ -13,7 +13,6 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class Study extends Room implements Observer {
@@ -22,7 +21,7 @@ public class Study extends Room implements Observer {
         name = "study";
         description = "There are lots of books here. Unfortunately, I don't have time to spend reading.";
         hint = "There is something curious about this bookshelf.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }

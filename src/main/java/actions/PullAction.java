@@ -10,7 +10,6 @@ import items.Item;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class PullAction implements Action<Pullable> {

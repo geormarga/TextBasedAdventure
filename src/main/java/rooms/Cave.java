@@ -12,7 +12,6 @@ import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class Cave extends Room implements Observer {
@@ -22,7 +21,7 @@ public class Cave extends Room implements Observer {
         name = "cave";
         description = "You are in a cave.";
         hint = "Its kinda dark and you can't see well in here, but you can hear someone screaming!";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
         this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
         this.setRoomItems(readXMLFile.getRoomItems(this.name));
 
@@ -32,12 +31,12 @@ public class Cave extends Room implements Observer {
     public void update(State state) {
         GoldenChest chest = (GoldenChest) state.getFeatureFactory().createFeature("golden chest");
         if (chest.isOpen()) {
-            
+
             this.registerItem("torn note");
             this.registerItem("circular artifact");
             chest.getContainerItems().add("torn note");
-             chest.getContainerItems().add("circular artifact");
-            
+            chest.getContainerItems().add("circular artifact");
+
             System.out.println("Items in chest:");
             for (String key : chest.getContainerItems()) {
                 System.out.println(key + ",");

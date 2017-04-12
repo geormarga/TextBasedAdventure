@@ -10,7 +10,6 @@ import items.Item;
 import textbasedadventure.State;
 
 /**
- *
  * @author Aenaos
  */
 public class UseAction implements Action<Usable> {
@@ -20,12 +19,12 @@ public class UseAction implements Action<Usable> {
         usable.use(state.getInventory(), state.getCurrentRoom());
         return true;
     }
-    
+
     /*  Returns true if the string represents an item in the current room. Else returns false.
      */
     @Override
     public boolean existsInContext(State state, Usable usable) {
         Item item = (Item) usable;
-        return state.getCurrentRoom().getRoomItems().contains(item.getName())||state.getInventory().isInInventory(item.getName());
+        return state.getCurrentRoom().getRoomItems().contains(item.getName()) || state.getInventory().isInInventory(item.getName());
     }
 }

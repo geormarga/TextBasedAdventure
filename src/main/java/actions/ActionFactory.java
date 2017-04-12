@@ -8,35 +8,37 @@ package actions;
 import java.util.HashMap;
 
 /**
- *
  * @author Aenaos
  */
-public class ActionFactory {
+class ActionFactory {
 
     private final HashMap<String, Action> actionMap = new HashMap<>();
+
     /**
      * Method that creates a mapping for each action <UniqueName,Action>
-     * @param name Unique name of the action
+     *
+     * @param name   Unique name of the action
      * @param action Instance of an command that implements the Action Interface
      */
-    public void registerAction(String name, Action action) {
+    private void registerAction(String name, Action action) {
         actionMap.put(name, action);
     }
 
     /**
      * Retrieves a registered action by its unique name
-     * @param command  Name of the action to be retrieved
+     *
+     * @param command Name of the action to be retrieved
      * @return Returns the action that has the specific name
      */
-    public Action createAction(String command) {
-        Action action = actionMap.get(command);
-        return action;
+    Action createAction(String command) {
+        return actionMap.get(command);
     }
 
     /**
      * Initializes the actionMap
      */
-    public void setActionFactory() {
+
+    void setActionFactory() {
         this.registerAction("examine", new ExamineAction());
         this.registerAction("go", new MoveAction());
         this.registerAction("look", new LookAroundAction());

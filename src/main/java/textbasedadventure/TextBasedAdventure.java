@@ -5,11 +5,7 @@
  */
 package textbasedadventure;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
- *
  * @author Aenaos
  */
 public class TextBasedAdventure {
@@ -18,14 +14,7 @@ public class TextBasedAdventure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        ReadXMLFile readXMLFile = new ReadXMLFile();
-        readXMLFile.translate();
         GameLoop loop = new GameLoop();
-        try {
-            loop.gameLoop(new State());
-        } catch (Exception ex) {
-            Logger.getLogger(TextBasedAdventure.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        loop.gameLoop(new State());
     }
 }

@@ -6,7 +6,6 @@
 package features;
 
 /**
- *
  * @author Aenaos
  */
 public interface Lookable extends Feature {

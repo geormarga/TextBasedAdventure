@@ -9,7 +9,6 @@ import features.FeatureFactory;
 import items.Item;
 
 /**
- *
  * @author Aenaos
  */
 public class Hole extends Item {
@@ -17,7 +16,7 @@ public class Hole extends Item {
     public Hole(FeatureFactory featureFactory) {
         name = "hole";
         description = "There's a hole on the ground, and what looks to be a torch in it.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
     //torch
 }

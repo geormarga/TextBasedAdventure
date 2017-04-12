@@ -8,8 +8,9 @@ package items.containers;
 import features.FeatureFactory;
 import features.Openable;
 import items.Item;
-import java.util.List;
 import textbasedadventure.Inventory;
+
+import java.util.List;
 
 /**
  *

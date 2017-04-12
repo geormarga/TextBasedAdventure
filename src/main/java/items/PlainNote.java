@@ -9,8 +9,8 @@ import features.FeatureFactory;
 import features.Pickable;
 import rooms.Room;
 import textbasedadventure.Inventory;
+
 /**
- *
  * @author Aenaos
  */
 public class PlainNote extends Item implements Pickable {
@@ -21,7 +21,7 @@ public class PlainNote extends Item implements Pickable {
         description = "I do not know if anyone is reading this."
                 + "When you will arrive in the hall of Castle , don't go down the stairs. "
                 + "For your own safety!";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 
     @Override

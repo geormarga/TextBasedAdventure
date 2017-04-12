@@ -8,7 +8,6 @@ package features;
 import java.util.HashMap;
 
 /**
- *
  * @author Aenaos
  */
 public class FeatureFactory {
@@ -17,7 +16,8 @@ public class FeatureFactory {
 
     /**
      * When the state is created, each object registers itself to the featureMap to be retrieved ingame
-     * @param Name Name of the feature (Room|Item|Inventory)
+     *
+     * @param Name    Name of the feature (Room|Item|Inventory)
      * @param feature Instance of (Room|Item|Inventory) that implements the Feature Interface
      */
     public void registerFeature(String Name, Feature feature) {
@@ -26,11 +26,11 @@ public class FeatureFactory {
 
     /**
      * Retrieves a registered feature by its unique name
+     *
      * @param name Name of the feature to be retrieved
      * @return Returns the feature that has the specific name (Room|Item|Inventory)
      */
     public Feature createFeature(String name) {
-        Feature feature = featureMap.get(name);
-        return feature;
+        return featureMap.get(name);
     }
 }

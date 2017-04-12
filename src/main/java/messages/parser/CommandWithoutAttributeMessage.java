@@ -8,7 +8,6 @@ package messages.parser;
 import messages.IMessage;
 
 /**
- *
  * @author Aenaos
  */
 public class CommandWithoutAttributeMessage implements IMessage {

@@ -9,14 +9,13 @@ import features.FeatureFactory;
 import items.Item;
 
 /**
- *
  * @author Aenaos
  */
-public class Mudpit extends Item{
+public class Mudpit extends Item {
 
     public Mudpit(FeatureFactory featureFactory) {
         name = "mudpit";
         description = "There's a key in the mudpit.";
-        featureFactory.registerFeature(this.name,this);
+        featureFactory.registerFeature(this.name, this);
     }
 }

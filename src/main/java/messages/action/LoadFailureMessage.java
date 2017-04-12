@@ -8,7 +8,6 @@ package messages.action;
 import messages.IMessage;
 
 /**
- *
  * @author Aenaos
  */
 public class LoadFailureMessage implements IMessage {

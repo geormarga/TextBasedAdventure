@@ -6,11 +6,10 @@
 package messages;
 
 /**
- *
  * @author Aenaos
  */
 public interface IMessage {
-    
+
     void display();
-    
+
 }
