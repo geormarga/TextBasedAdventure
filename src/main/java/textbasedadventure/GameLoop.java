@@ -33,10 +33,7 @@ class GameLoop {
         while (canContinue) {
             if (parser.CommandIsValid(text)) {
                 try {
-                    readXMLFile.translate(state, parser.getAttributes());
-                    for(String at : parser.getAttributes()){
-                        System.out.println(at);
-                    }
+                    readXMLFile.translate(state.getCurrentRoom().getName(), parser.getAttributes());
                     List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory());
                     Action action = actionController.getAction(parser.getCommand());
                     canContinue = actionController.executeAction(action, features, state);
