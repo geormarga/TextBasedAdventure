@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rooms>
+    <room name="forest">
+        <item name="">rusty key</item>
+        <item name="">moldy tree</item>
+        <item name="">sundial</item>
+    </room>
+    <room name="abandoned temple">
+        <item name="">statue</item>
+        <item name="">altar</item>
+    </room>
+    <room name="castle">
+        <item name="">common chest</item>
+    </room>
+    <room name="cave">
+        <item name="">rock</item>
+        <item name="">old man</item>
+    </room>
+    <room name="dead end">
+        <item name="">hole</item>
+        <item name="">wooden wheel</item>
+        <item name="">hatch</item>
+    </room>
+    <room name="dungeon">
+        <item name="">water</item>
+        <item name="">corpse</item>
+        <item name="">parchment</item>
+    </room>
+    <room name="hall">
+        <item name="">common chest</item>
+        <item name="">rusty key</item>
+    </room>
+    <room name="hidden room">
+        <item name="">stand</item>
+        <item name="">triangular artifact</item>
+    </room>
+    <room name="keep">
+        <item name="">silver chest</item>
+        <item name="">mudpit</item>
+        <item name="">silver key</item>
+    </room>
+    <room name="study">
+        <item name="">book</item>
+        <item name="">bookshelf</item>
+    </room>
+</rooms>

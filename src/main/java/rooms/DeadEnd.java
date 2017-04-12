@@ -10,6 +10,7 @@ import items.Hatch;
 import items.WoodenWheel;
 import items.containers.Hole;
 import textbasedadventure.Observer;
+import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
@@ -18,11 +19,13 @@ import textbasedadventure.State;
  */
 public class DeadEnd extends Room implements Observer {
 
-    public DeadEnd(FeatureFactory featureFactory) {
+    public DeadEnd(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
         name = "dead end";
         description = "This is the end of the road. There is a switchlike wheel, and a hatch in the room.";
         hint = "While looking arround you stumble upon a hole in the ground.";
         featureFactory.registerFeature(this.name,this);
+        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
+        this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }
     /*
      System.out.println("You must open the hatch first.");

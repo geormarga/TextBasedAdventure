@@ -7,9 +7,10 @@ package rooms;
 
 import features.Lookable;
 import features.Moveable;
+import textbasedadventure.State;
+
 import java.io.Serializable;
 import java.util.List;
-import textbasedadventure.State;
 
 /**
  *

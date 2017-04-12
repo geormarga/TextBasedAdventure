@@ -6,6 +6,7 @@
 package rooms;
 
 import features.FeatureFactory;
+import textbasedadventure.ReadXMLFile;
 
 /**
  *
@@ -13,10 +14,12 @@ import features.FeatureFactory;
  */
 public class LivingRoom extends Room {
 
-    public LivingRoom(FeatureFactory featureFactory) {
+    public LivingRoom(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
         name = "living room";
         description = "This is the main Dining Room. The plates on the table indicated that this castle has long been abandonded.";
         hint = "This room is a mess... something happened here!";
         featureFactory.registerFeature(this.name,this);
+        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
+        this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }
 }

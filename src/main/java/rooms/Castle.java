@@ -8,6 +8,7 @@ package rooms;
 import features.FeatureFactory;
 import items.containers.CommonChest;
 import textbasedadventure.Observer;
+import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
@@ -16,11 +17,13 @@ import textbasedadventure.State;
  */
 public class Castle extends Room implements Observer {
 
-    public Castle(FeatureFactory featureFactory) {
+    public Castle(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
         name = "castle";
         description = "You are in the castle yard. You are free to go in, but there is also a cave to the west...";
         hint = "You found a chest on the ground.";
         featureFactory.registerFeature(this.name,this);
+        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
+        this.setRoomItems(readXMLFile.getRoomItems(this.name));
     }
 
     @Override

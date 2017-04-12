@@ -1,60 +1,51 @@
 package textbasedadventure;
 
-import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
 import javax.xml.parsers.DocumentBuilder;
-
-import org.w3c.dom.*;
-
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-class ReadXMLFile {
-    private File fXmlFile;
-    private DocumentBuilderFactory dbFactory;
-    private DocumentBuilder dBuilder;
-    private Document doc;
-
+public class ReadXMLFile {
     /**
      * Method that maps the user given attributes to game contextual objects depending on the current room
      *
      * @param currentRoom The room currently at
      * @param attributes  The command attributes that have been parsed
      */
-    void translate(String currentRoom, List<String> attributes) {
-        try {
-            fXmlFile = new File("Map.xml");
-            dbFactory = DocumentBuilderFactory.newInstance();
-            dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(fXmlFile);
-            doc.getDocumentElement().normalize();
+    void getRoomInDirection(String currentRoom, List<String> attributes) {
 
-            List<Element> elementList = new ArrayList<>();
-            List<Element> parentList = toElementList(doc.getDocumentElement().getChildNodes());
-            for (Element parent : parentList) {
-                List<Element> childList = toElementList(parent.getChildNodes());
-                elementList.addAll(childList);
-            }
+        NodeList nodeList = toNodeList("Map.xml");
+        List<Element> elementList = new ArrayList<>();
+        List<Element> parentList = toElementList(nodeList);
+        for (Element parent : parentList) {
+            List<Element> childList = toElementList(parent.getChildNodes());
+            elementList.addAll(childList);
+        }
 
-            for (Element element : elementList) {
-                Element parent = (Element) element.getParentNode();
-                if (parent.getAttribute("name").equals(currentRoom)) {
-                    for (String attr : attributes) {
-                        if (element.getAttribute("name").equals(attr)) {
-                            attributes.set(attributes.indexOf(attr), element.getFirstChild().getTextContent());
-                        }
+        for (Element element : elementList) {
+            Element parent = (Element) element.getParentNode();
+            if (parent.getAttribute("name").equals(currentRoom)) {
+                for (String attr : attributes) {
+                    if (element.getAttribute("name").equals(attr)) {
+                        attributes.set(attributes.indexOf(attr), element.getFirstChild().getTextContent());
                     }
                 }
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
     /**
      * Method that takes a NodeList and keeps only the nodes of type ELEMENT
+     *
      * @param nodeList the NodeList given
      * @return Cleared out element list
      */
@@ -66,5 +57,62 @@ class ReadXMLFile {
             }
         }
         return elementList;
+    }
+
+    public List<String> getNearbyRooms(String roomName) {
+        List<Element> elementList = new ArrayList<>();
+        List<Element> parentList = toElementList(toNodeList("Map.xml"));
+        for (Element parent : parentList) {
+            List<Element> childList = toElementList(parent.getChildNodes());
+            elementList.addAll(childList);
+        }
+
+        List<String> nearbyRooms = new ArrayList<>();
+        for (Element element : elementList) {
+            Element parent = (Element) element.getParentNode();
+            if (parent.getAttribute("name").equals(roomName)) {
+                nearbyRooms.add(element.getFirstChild().getTextContent());
+            }
+        }
+        return nearbyRooms;
+    }
+
+
+    public List<String> getRoomItems(String roomName) {
+        List<Element> elementList = new ArrayList<>();
+        List<Element> parentList = toElementList(toNodeList("Items.xml"));
+        for (Element parent : parentList) {
+            List<Element> childList = toElementList(parent.getChildNodes());
+            elementList.addAll(childList);
+        }
+
+        List<String> roomItems = new ArrayList<>();
+        for (Element element : elementList) {
+            Element parent = (Element) element.getParentNode();
+            if (parent.getAttribute("name").equals(roomName)) {
+                roomItems.add(element.getFirstChild().getTextContent());
+            }
+        }
+        return roomItems;
+    }
+
+
+    public NodeList toNodeList(String pathName) {
+        try {
+            File fXmlFile = new File(pathName);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(fXmlFile);
+            doc.getDocumentElement().normalize();
+            NodeList nodeList = doc.getDocumentElement().getChildNodes();
+            return nodeList;
+        } catch (ParserConfigurationException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (SAXException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }
