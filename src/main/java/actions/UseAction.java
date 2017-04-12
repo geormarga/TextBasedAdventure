@@ -15,13 +15,10 @@ import textbasedadventure.State;
 public class UseAction implements Action<Usable> {
 
     @Override
-    public boolean execute(State state, Usable usable) {
+    public void execute(State state, Usable usable) {
         usable.use(state.getInventory(), state.getCurrentRoom());
-        return true;
     }
 
-    /*  Returns true if the string represents an item in the current room. Else returns false.
-     */
     @Override
     public boolean existsInContext(State state, Usable usable) {
         Item item = (Item) usable;

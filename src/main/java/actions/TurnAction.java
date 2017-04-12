@@ -15,14 +15,10 @@ import textbasedadventure.State;
 public class TurnAction implements Action<Turnable> {
 
     @Override
-    public boolean execute(State state, Turnable turnable) {
+    public void execute(State state, Turnable turnable) {
         turnable.turn(state);
-        return true;
     }
 
-
-    /*  Returns true if the string represents an item in the current room. Else returns false.
-     */
     @Override
     public boolean existsInContext(State state, Turnable turnable) {
         Item item = (Item) turnable;

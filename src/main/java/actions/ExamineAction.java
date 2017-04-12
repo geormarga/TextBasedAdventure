@@ -7,8 +7,6 @@ package actions;
 
 import features.Examinable;
 import items.Item;
-import messages.IMessage;
-import messages.action.ExamineFailureMessage;
 import textbasedadventure.State;
 
 /**
@@ -17,17 +15,9 @@ import textbasedadventure.State;
 public class ExamineAction implements Action<Examinable> {
 
     @Override
-    public boolean execute(State state, Examinable examinable) {
-        if (examinable != null) {
-            examinable.examine();
-            return true;
-        }
-        IMessage message = new ExamineFailureMessage();
-        message.display();
-        return true;
+    public void execute(State state, Examinable examinable) {
+        examinable.examine();
     }
-    /*  Returns true if the string represents an item in the room or an item in the inventory Else returns false.
-     */
 
     @Override
     public boolean existsInContext(State state, Examinable examinable) {

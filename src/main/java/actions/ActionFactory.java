@@ -37,7 +37,6 @@ class ActionFactory {
     /**
      * Initializes the actionMap
      */
-
     void setActionFactory() {
         this.registerAction("examine", new ExamineAction());
         this.registerAction("go", new MoveAction());

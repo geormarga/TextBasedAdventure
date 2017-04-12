@@ -6,8 +6,6 @@
 package actions;
 
 import features.Moveable;
-import messages.IMessage;
-import messages.action.MoveFailureMessage;
 import rooms.Room;
 import textbasedadventure.State;
 
@@ -17,19 +15,10 @@ import textbasedadventure.State;
 public class MoveAction implements Action<Moveable> {
 
     @Override
-    public boolean execute(State state, Moveable moveable) {
-
-        if (moveable != null) {
-            moveable.move(state);
-            return true;
-        }
-        IMessage message = new MoveFailureMessage();
-        message.display();
-        return true;
+    public void execute(State state, Moveable moveable) {
+        moveable.move(state);
     }
 
-    /*  Returns true if the string represents any room nearby to this room. Else returns false.
-     */
     @Override
     public boolean existsInContext(State state, Moveable moveable) {
         Room room = (Room) moveable;

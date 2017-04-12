@@ -15,14 +15,11 @@ import textbasedadventure.State;
 public class PullAction implements Action<Pullable> {
 
     @Override
-    public boolean execute(State state, Pullable pullable) {
+    public void execute(State state, Pullable pullable) {
         pullable.pull();
-        return true;
     }
 
     @Override
-    /*  Returns true if the string represents an item in the current room. Else returns false.
-     */
     public boolean existsInContext(State state, Pullable pullable) {
         Item item = (Item) pullable;
         return state.getCurrentRoom().getRoomItems().contains(item.getName());

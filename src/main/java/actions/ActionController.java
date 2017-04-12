@@ -6,8 +6,6 @@
 package actions;
 
 import features.Feature;
-import messages.IMessage;
-import messages.game.FeatureNotFoundMessage;
 import textbasedadventure.State;
 
 import java.util.List;
@@ -17,17 +15,27 @@ import java.util.List;
  */
 public class ActionController {
 
-    public boolean executeAction(Action action, List<Feature> features, State state) {
+    /**
+     * Method that checks if the feature exists in context and then tries to execute the action
+     *
+     * @param action   Action to be performed
+     * @param features Features to perform action on
+     * @param state    The state object of the game
+     */
+    public void executeAction(Action action, List<Feature> features, State state) {
         for (Feature feature : features) {
             if (action.existsInContext(state, feature)) {
-                return action.execute(state, feature);
+                action.execute(state, feature);
             }
         }
-        IMessage message = new FeatureNotFoundMessage("feature");
-        message.display();
-        return true;
     }
 
+    /**
+     * Method that gets the action from the ActionFactory
+     *
+     * @param command Name of the action
+     * @return The action for that unique name
+     */
     public Action getAction(String command) {
         ActionFactory actionFactory = new ActionFactory();
         actionFactory.setActionFactory();

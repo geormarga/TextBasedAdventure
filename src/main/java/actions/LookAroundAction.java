@@ -15,13 +15,10 @@ import textbasedadventure.State;
 public class LookAroundAction implements Action<Lookable> {
 
     @Override
-    public boolean execute(State state, Lookable lookable) {
+    public void execute(State state, Lookable lookable) {
         lookable.look();
-        return true;
     }
 
-    /*  Returns true if the string represents the current room. Else returns false.
-     */
     @Override
     public boolean existsInContext(State state, Lookable lookable) {
         Room room = (Room) lookable;

@@ -12,8 +12,19 @@ import textbasedadventure.State;
  * @author Aenaos
  */
 public interface Action<T> {
+    /**
+     * Method that executes the action for the specified feature
+     * @param state The state object of the game
+     * @param t The feature the action will be executed upon
+     */
+    void execute(State state, T t);
 
-    boolean execute(State state, T t);
-
+    /**
+     * Returns true if the string represents an item in the current room. Else returns false.
+     *
+     * @param state The state object of the game
+     * @param t Generic type value (Feature)
+     * @return True if the feature exists in context (Room|Inventory)
+     */
     boolean existsInContext(State state, T t);
 }
