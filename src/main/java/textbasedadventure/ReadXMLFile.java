@@ -53,6 +53,11 @@ class ReadXMLFile {
         }
     }
 
+    /**
+     * Method that takes a NodeList and keeps only the nodes of type ELEMENT
+     * @param nodeList the NodeList given
+     * @return Cleared out element list
+     */
     private List<Element> toElementList(NodeList nodeList) {
         List<Element> elementList = new ArrayList<>();
         for (int index = 0; index < nodeList.getLength(); index++) {
