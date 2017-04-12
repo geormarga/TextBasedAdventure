@@ -10,8 +10,6 @@ import actions.ActionController;
 import features.Feature;
 import features.FeatureController;
 
-import javax.swing.plaf.synth.SynthEditorPaneUI;
-import java.io.InvalidClassException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,13 +25,13 @@ class GameLoop {
     private boolean canContinue = true;
     private ReadXMLFile readXMLFile;
 
-    void gameLoop(State state) throws Exception {
+    void gameLoop(State state) {
 
         this.setText();
         while (canContinue) {
             if (parser.CommandIsValid(text)) {
                 try {
-                    readXMLFile.translate(state.getCurrentRoom().getName(), parser.getAttributes());
+                    readXMLFile.getRoomInDirection(state.getCurrentRoom().getName(), parser.getAttributes());
                     List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory());
                     Action action = actionController.getAction(parser.getCommand());
                     canContinue = actionController.executeAction(action, features, state);
