@@ -13,17 +13,29 @@ import java.util.HashMap;
  */
 public class ActionFactory {
 
-    private final HashMap<String, Action> anActionMap = new HashMap<>();
-
-    public void registerAction(String Name, Action action) {
-        anActionMap.put(Name, action);
+    private final HashMap<String, Action> actionMap = new HashMap<>();
+    /**
+     * Method that creates a mapping for each action <UniqueName,Action>
+     * @param name Unique name of the action
+     * @param action Instance of an command that implements the Action Interface
+     */
+    public void registerAction(String name, Action action) {
+        actionMap.put(name, action);
     }
 
+    /**
+     * Retrieves a registered action by its unique name
+     * @param command  Name of the action to be retrieved
+     * @return Returns the action that has the specific name
+     */
     public Action createAction(String command) {
-        Action action = anActionMap.get(command);
+        Action action = actionMap.get(command);
         return action;
     }
 
+    /**
+     * Initializes the actionMap
+     */
     public void setActionFactory() {
         this.registerAction("examine", new ExamineAction());
         this.registerAction("go", new MoveAction());

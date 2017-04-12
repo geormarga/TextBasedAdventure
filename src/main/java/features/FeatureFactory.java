@@ -13,14 +13,24 @@ import java.util.HashMap;
  */
 public class FeatureFactory {
 
-    private final HashMap<String, Feature> aFeatureMap = new HashMap<>();
+    private final HashMap<String, Feature> featureMap = new HashMap<>();
 
+    /**
+     * When the state is created, each object registers itself to the featureMap to be retrieved ingame
+     * @param Name Name of the feature (Room|Item|Inventory)
+     * @param feature Instance of (Room|Item|Inventory) that implements the Feature Interface
+     */
     public void registerFeature(String Name, Feature feature) {
-        aFeatureMap.put(Name, feature);
+        featureMap.put(Name, feature);
     }
 
-    public Feature createFeature(String command) {
-        Feature feature = aFeatureMap.get(command);
+    /**
+     * Retrieves a registered feature by its unique name
+     * @param name Name of the feature to be retrieved
+     * @return Returns the feature that has the specific name (Room|Item|Inventory)
+     */
+    public Feature createFeature(String name) {
+        Feature feature = featureMap.get(name);
         return feature;
     }
 }
