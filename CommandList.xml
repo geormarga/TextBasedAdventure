@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<commands>
+    <command name="start">
+        <attribute>game</attribute>
+    </command>
+    <command name="go">
+        <attribute>east</attribute>
+        <attribute>west</attribute>
+        <attribute>south</attribute>
+        <attribute>north</attribute>
+        <attribute>in</attribute>
+        <attribute>out</attribute>
+        <attribute>left</attribute>
+        <attribute>right</attribute>
+        <attribute>straight</attribute>
+        <attribute>back</attribute>
+        <attribute>down</attribute>
+        <attribute>up</attribute>
+    </command>
+    <command name="use">
+        <attribute>rusty key</attribute>
+        <attribute>silver key</attribute>
+        <attribute>golden key</attribute>
+        <attribute>torch</attribute>
+        <attribute>elixir</attribute>
+    </command>
+    <command name="open">
+        <attribute>door</attribute>
+        <attribute>chest</attribute>
+        <attribute>hatch</attribute>
+    </command>
+    <command name="load">
+        <attribute>game</attribute>
+    </command>
+    <command name="look">
+        <attribute>around</attribute>
+    </command>
+    <command name="show">
+        <attribute>inventory</attribute>
+    </command>
+    <command name="turn">
+        <attribute>wheel</attribute>
+    </command>
+    <command name="pull">
+        <attribute>book</attribute>
+    </command>
+    <command name="pick up">
+        <attribute>key</attribute>
+        <attribute>note</attribute>
+        <attribute>torch</attribute>
+        <attribute>sundial</attribute>
+        <attribute>artifact</attribute>
+        <attribute>elixir</attribute>
+        <attribute>piece</attribute>
+    </command>
+    <command name="examine">
+        <attribute>key</attribute>
+        <attribute>torch</attribute>
+        <attribute>tree</attribute>
+        <attribute>sundial</attribute>
+        <attribute>hole</attribute>
+        <attribute>chest</attribute>
+        <attribute>note</attribute>
+        <attribute>plain note</attribute>
+        <attribute>torn note</attribute>
+        <attribute>mud pit</attribute>
+        <attribute>corpse</attribute>
+        <attribute>water</attribute>
+        <attribute>wheel</attribute>
+        <attribute>wooden wheel</attribute>
+        <attribute>hatch</attribute>
+        <attribute>parchment</attribute>
+        <attribute>statue</attribute>
+        <attribute>altar</attribute>
+        <attribute>bookshelf</attribute>
+        <attribute>book</attribute>
+        <attribute>stand</attribute>
+        <attribute>artifact</attribute>
+        <attribute>circular artifact</attribute>
+        <attribute>triangular artifact</attribute>
+        <attribute>rectangular artifact</attribute>
+        <attribute>rock</attribute>
+        <attribute>old man</attribute>
+        <attribute>elixir</attribute>
+        <attribute>rusty key</attribute>
+        <attribute>silver key</attribute>
+        <attribute>golden key</attribute>
+    </command>
+</commands>

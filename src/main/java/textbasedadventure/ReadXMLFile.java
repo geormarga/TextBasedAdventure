@@ -81,6 +81,30 @@ public class ReadXMLFile {
         return getElements(roomName, "Items.xml");
     }
 
+
+    /**
+     * Method that gets all the available commands to validate against
+     *
+     * @return A list of the available commands
+     */
+    List<String> getCommands() {
+        List<String> commands = new ArrayList();
+        NodeList nodelist = toNodeList("CommandList.xml");
+        List<Element> elements = toElementList(nodelist);
+        elements.forEach(element -> commands.add(element.getAttribute("name")));
+        return commands;
+    }
+
+    /**
+     * Method that gets a commands's attributes as defined in the xml file
+     *
+     * @param command The string representing a command name
+     * @return The contained attributes for the specified command
+     */
+    List<String> getAttributes(String command) {
+        return getElements(command, "CommandList.xml");
+    }
+
     /**
      * Method that gets the child nodes' string values for a parent node given
      *
