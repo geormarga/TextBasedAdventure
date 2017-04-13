@@ -24,5 +24,4 @@ public class ShowInventoryAction implements Action<Showable> {
         Inventory inventory = (Inventory) showable;
         return state.getInventory().getName().equals(inventory.getName());
     }
-
 }

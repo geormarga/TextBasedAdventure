@@ -14,7 +14,7 @@ import items.Item;
 public class Mudpit extends Item {
 
     public Mudpit(FeatureFactory featureFactory) {
-        name = "mudpit";
+        name = "mud pit";
         description = "There's a key in the mudpit.";
         featureFactory.registerFeature(this.name, this);
     }
