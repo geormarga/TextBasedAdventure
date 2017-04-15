@@ -28,10 +28,10 @@ class GameLoop {
 
         this.setText();
         while (true) {
-            if (parser.CommandIsValid(text)) {
+            if (parser.commandIsValid(text)) {
                 try {
                     readXMLFile.getRoomInDirection(state.getCurrentRoom().getName(), parser.getAttributes());
-                    List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory());
+                    List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory(), state);
                     Action action = actionController.getAction(parser.getCommand());
                     actionController.executeAction(action, features, state);
                 } catch (NullPointerException ex) {
@@ -40,6 +40,7 @@ class GameLoop {
                     System.out.println("Can't perform that action on this item.");
                 }
             }
+            parser.clearParserValues();
             this.setText();
         }
     }

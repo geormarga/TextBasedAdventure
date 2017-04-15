@@ -29,10 +29,10 @@ public class Parser {
      * @param text The user input
      * @return The boolean value that represents the command and attribute validity.
      */
-    boolean CommandIsValid(String text) {
+    boolean commandIsValid(String text) {
 
         for (String value : readXMLFile.getCommands()) {
-            if (text.contains(value)) {
+            if (text.contains(value + " ")) {
                 command = value;
                 text = text.replace(value, "").trim();
             }
@@ -42,7 +42,7 @@ public class Parser {
         for (String attr : readXMLFile.getAttributes(command)) {
             if (text.contains(attr)) {
                 attributes.add(attr);
-                text = text.replace("pick up", "").trim();
+                text = text.replace(attr, "").trim();
             }
         }
 
@@ -51,6 +51,7 @@ public class Parser {
         }
         message.display();
         return false;
+
     }
 
     /**
@@ -83,6 +84,11 @@ public class Parser {
         return false;
     }
 
+    void clearParserValues() {
+        this.command = null;
+        this.attributes = null;
+    }
+
     public String getCommand() {
         return command;
     }
@@ -91,3 +97,4 @@ public class Parser {
         return attributes;
     }
 }
+
