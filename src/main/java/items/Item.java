@@ -10,28 +10,25 @@ import features.Examinable;
 import java.io.Serializable;
 
 /**
- *
  * @author Aenaos
  */
 public abstract class Item implements Examinable, Serializable {
 
-    
     protected String name;
     protected String description;
 
     @Override
-    public void examine(){
+    public void examine() {
         System.out.println(description);
     }
 
     public void setDescription(String desc) {
         description = desc;
     }
-    
+
     public String getDescription() {
         return description;
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -40,9 +37,5 @@ public abstract class Item implements Examinable, Serializable {
     public String getName() {
         return name;
     }
-    
-    
-    
-    
 
 }
