@@ -96,6 +96,7 @@ public class State implements Serializable {
         new CircularArtifact(this.featureFactory);
         new RectangularArtifact(this.featureFactory);
         new SilverKey(this.featureFactory);
+        new Torch(this.featureFactory);
 
         this.currentRoom = startingRoom;
         this.previousRoom = startingRoom;
