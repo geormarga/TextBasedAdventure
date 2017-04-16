@@ -20,7 +20,7 @@ public class TurnAction implements Action<Turnable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Turnable turnable) {
+    public boolean isEligibleForAction(State state, Turnable turnable) {
         Item item = (Item) turnable;
         return state.getCurrentRoom().getRoomItems().contains(item.getName());
     }

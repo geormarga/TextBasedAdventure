@@ -29,16 +29,10 @@ class GameLoop {
         this.setText();
         while (true) {
             if (parser.commandIsValid(text)) {
-                try {
-                    readXMLFile.getRoomInDirection(state.getCurrentRoom().getName(), parser.getAttributes());
-                    List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory(), state);
-                    Action action = actionController.getAction(parser.getCommand());
-                    actionController.executeAction(action, features, state);
-                } catch (NullPointerException ex) {
-                    System.out.println("Could not find what you were looking for.");
-                } catch (ClassCastException ex) {
-                    System.out.println("Can't perform that action on this item.");
-                }
+                readXMLFile.getRoomInDirection(state.getCurrentRoom().getName(), parser.getAttributes());
+                Action action = actionController.getAction(parser.getCommand());
+                List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory());
+                actionController.executeAction(action, features, state);
             }
             parser.clearParserValues();
             this.setText();

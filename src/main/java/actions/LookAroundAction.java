@@ -20,7 +20,7 @@ public class LookAroundAction implements Action<Lookable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Lookable lookable) {
+    public boolean isEligibleForAction(State state, Lookable lookable) {
         Room room = (Room) lookable;
         return state.getCurrentRoom().getName().equals(room.getName());
     }

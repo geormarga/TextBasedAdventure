@@ -43,11 +43,10 @@ class ActionFactory {
         this.registerAction("look", new LookAroundAction());
         this.registerAction("show", new ShowInventoryAction());
         this.registerAction("start", new MoveAction());
-        this.registerAction("pickup", new PickUpAction());
+        this.registerAction("pick up", new PickUpAction());
         this.registerAction("open", new OpenAction());
         this.registerAction("pull", new PullAction());
         this.registerAction("turn", new TurnAction());
         this.registerAction("use", new UseAction());
     }
-
 }

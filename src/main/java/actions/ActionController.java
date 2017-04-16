@@ -9,6 +9,7 @@ import features.Feature;
 import textbasedadventure.State;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Aenaos
@@ -23,12 +24,18 @@ public class ActionController {
      * @param state    The state object of the game
      */
     public void executeAction(Action action, List<Feature> features, State state) {
-        for (Feature feature : features) {
-            if (action.existsInContext(state, feature)) {
+        try {
+            features = features.stream().filter(feature -> action.isEligibleForAction(state, feature)).collect(Collectors.toList());
+            for (Feature feature : features) {
                 action.execute(state, feature);
             }
+        } catch (NullPointerException ex) {
+            System.out.println("Could not find what you were looking for.");
+        } catch (ClassCastException ex) {
+            System.out.println("Can't perform that action on this item.");
         }
     }
+
 
     /**
      * Method that gets the action from the ActionFactory

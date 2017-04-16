@@ -20,7 +20,7 @@ public class MoveAction implements Action<Moveable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Moveable moveable) {
+    public boolean isEligibleForAction(State state, Moveable moveable) {
         Room room = (Room) moveable;
         return state.getCurrentRoom().getNearbyRooms().contains(room.getName());
     }

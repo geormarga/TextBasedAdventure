@@ -20,7 +20,7 @@ public class ExamineAction implements Action<Examinable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Examinable examinable) {
+    public boolean isEligibleForAction(State state, Examinable examinable) {
         Item item = (Item) examinable;
         return state.getCurrentRoom().getRoomItems().contains(item.getName()) || state.getInventory().isInInventory(item.getName());
     }

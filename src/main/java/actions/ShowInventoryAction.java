@@ -20,7 +20,7 @@ public class ShowInventoryAction implements Action<Showable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Showable showable) {
+    public boolean isEligibleForAction(State state, Showable showable) {
         Inventory inventory = (Inventory) showable;
         return state.getInventory().getName().equals(inventory.getName());
     }

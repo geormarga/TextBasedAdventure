@@ -21,7 +21,7 @@ public class PickUpAction implements Action<Pickable> {
 
 
     @Override
-    public boolean existsInContext(State state, Pickable pickable) {
+    public boolean isEligibleForAction(State state, Pickable pickable) {
         Item item = (Item) pickable;
         return state.getCurrentRoom().getRoomItems().contains(item.getName());
     }

@@ -20,7 +20,7 @@ public class OpenAction implements Action<Openable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Openable openable) {
+    public boolean isEligibleForAction(State state, Openable openable) {
         Item item = (Item) openable;
         return state.getCurrentRoom().getRoomItems().contains(item.getName());
     }

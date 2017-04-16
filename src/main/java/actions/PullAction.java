@@ -20,7 +20,7 @@ public class PullAction implements Action<Pullable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Pullable pullable) {
+    public boolean isEligibleForAction(State state, Pullable pullable) {
         Item item = (Item) pullable;
         return state.getCurrentRoom().getRoomItems().contains(item.getName());
     }

@@ -26,5 +26,5 @@ public interface Action<T> {
      * @param t Generic type value (Feature)
      * @return True if the feature exists in context (Room|Inventory)
      */
-    boolean existsInContext(State state, T t);
+    boolean isEligibleForAction(State state, T t);
 }

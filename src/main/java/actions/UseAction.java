@@ -20,8 +20,8 @@ public class UseAction implements Action<Usable> {
     }
 
     @Override
-    public boolean existsInContext(State state, Usable usable) {
+    public boolean isEligibleForAction(State state, Usable usable) {
         Item item = (Item) usable;
-        return state.getCurrentRoom().getRoomItems().contains(item.getName()) || state.getInventory().isInInventory(item.getName());
+        return state.getInventory().isInInventory(item.getName());
     }
 }
