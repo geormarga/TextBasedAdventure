@@ -7,13 +7,14 @@ package items;
 
 import features.FeatureFactory;
 import features.Pickable;
+import features.Usable;
 import rooms.Room;
 import textbasedadventure.Inventory;
 
 /**
  * @author Aenaos
  */
-public class Torch extends Item implements Pickable {
+public class Torch extends Item implements Pickable, Usable {
 
     public Torch(FeatureFactory featureFactory) {
         name = "torch";
@@ -27,6 +28,13 @@ public class Torch extends Item implements Pickable {
         room.unregisterItem(this.name);
         System.out.println("You picked up a torch.");
     }
+
+    @Override
+    public void use(Inventory inventory, Room room) {
+        System.out.println("You used the torch.");
+        inventory.unregisterItem(this.getName());
+    }
+
     /*
      public void use(String attr, State state) {
      setLit(true);

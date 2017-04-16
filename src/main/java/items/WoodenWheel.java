@@ -44,5 +44,4 @@ public class WoodenWheel extends Item implements Turnable {
             System.out.println(this.getDescription());
         }
     }
-
 }
