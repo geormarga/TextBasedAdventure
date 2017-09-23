@@ -16,6 +16,11 @@ import java.util.List;
 
 public class ReadXMLFile {
 
+    private NodeList rooms = toNodeList("Rooms.xml");
+    private NodeList items = toNodeList("Items.xml");
+    private NodeList commandList = toNodeList("CommandList.xml");
+    private NodeList config;
+
     /**
      * Method that maps the user given attributes to game contextual objects depending on the current room
      *
@@ -24,9 +29,8 @@ public class ReadXMLFile {
      */
     void getRoomInDirection(String currentRoom, List<String> attributes) {
 
-        NodeList nodeList = toNodeList("Rooms.xml");
         List<Element> elementList = new ArrayList<>();
-        List<Element> parentList = toElementList(nodeList);
+        List<Element> parentList = toElementList(rooms);
         for (Element parent : parentList) {
             List<Element> childList = toElementList(parent.getChildNodes());
             elementList.addAll(childList);
@@ -67,7 +71,7 @@ public class ReadXMLFile {
      * @return The adjacent rooms for the specified roomName
      */
     public List<String> getNearbyRooms(String roomName) {
-        return getElements(roomName, "Rooms.xml");
+        return getElements(roomName, rooms);
     }
 
 
@@ -78,7 +82,7 @@ public class ReadXMLFile {
      * @return The contained items for the specified roomName
      */
     public List<String> getRoomItems(String roomName) {
-        return getElements(roomName, "Items.xml");
+        return getElements(roomName, items);
     }
 
 
@@ -89,8 +93,7 @@ public class ReadXMLFile {
      */
     List<String> getCommands() {
         List<String> commands = new ArrayList();
-        NodeList nodelist = toNodeList("CommandList.xml");
-        List<Element> elements = toElementList(nodelist);
+        List<Element> elements = toElementList(commandList);
         elements.forEach(element -> commands.add(element.getAttribute("name")));
         return commands;
     }
@@ -102,19 +105,19 @@ public class ReadXMLFile {
      * @return The contained attributes for the specified command
      */
     List<String> getAttributes(String command) {
-        return getElements(command, "CommandList.xml");
+        return getElements(command, commandList);
     }
 
     /**
      * Method that gets the child nodes' string values for a parent node given
      *
      * @param parentName The attribute name of the parent node
-     * @param pathName   XmlFile path
+     * @param nodelist   NodeList to get the child nodes from
      * @return The list of elements in string
      */
-    private List<String> getElements(String parentName, String pathName) {
+    private List<String> getElements(String parentName, NodeList nodelist) {
         List<Element> elementList = new ArrayList<>();
-        List<Element> parentList = toElementList(toNodeList(pathName));
+        List<Element> parentList = toElementList(nodelist);
         for (Element parent : parentList) {
             List<Element> childList = toElementList(parent.getChildNodes());
             elementList.addAll(childList);
