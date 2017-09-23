@@ -55,7 +55,7 @@ public class Parser {
     }
 
     /**
-     * It checks whether a command is valid, otherwise it sets an error message to be displayed.
+     * Checks whether a command is valid, otherwise sets an error message to be displayed.
      *
      * @param command The command string given by the user
      * @param cmdList The list of commands and attributes class
@@ -70,7 +70,7 @@ public class Parser {
     }
 
     /**
-     * It checks whether an attribute is valid, otherwise it sets an error message to be displayed.
+     * Checks whether an attribute is valid, otherwise sets an error message to be displayed.
      *
      * @param attributes The command attributes given by the user
      * @param cmdList    The list of commands and attributes class

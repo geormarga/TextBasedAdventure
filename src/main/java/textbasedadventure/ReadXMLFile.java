@@ -16,10 +16,16 @@ import java.util.List;
 
 public class ReadXMLFile {
 
-    private NodeList rooms = toNodeList("Rooms.xml");
-    private NodeList items = toNodeList("Items.xml");
-    private NodeList commandList = toNodeList("CommandList.xml");
+    private NodeList rooms;
+    private NodeList items;
+    private NodeList commandList;
     private NodeList config;
+
+    ReadXMLFile() {
+        rooms = toNodeList("Rooms.xml");
+        items = toNodeList("Items.xml");
+        commandList = toNodeList("CommandList.xml");
+    }
 
     /**
      * Method that maps the user given attributes to game contextual objects depending on the current room
