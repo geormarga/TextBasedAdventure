@@ -34,7 +34,7 @@ class CommandList {
      * @return A list of the available commands
      */
     List<String> getCommands() {
-        List<String> commands = new ArrayList();
+        List<String> commands = new ArrayList<>();
         List<Element> elements = XMLParser.toElementList(commandList);
         elements.forEach(element -> commands.add(element.getAttribute("name")));
         return commands;
