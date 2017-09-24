@@ -6,7 +6,7 @@
 package rooms;
 
 import features.FeatureFactory;
-import textbasedadventure.ReadXMLFile;
+import textbasedadventure.Map;
 import textbasedadventure.State;
 
 /**
@@ -14,7 +14,7 @@ import textbasedadventure.State;
  */
 public class StartingRoom extends Room {
 
-    public StartingRoom(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
+    public StartingRoom(FeatureFactory featureFactory, Map map) {
         name = "starting room";
         description = "Welcome, this is the starting room!\n"
                 + "The goal of the game is to collect all artifacts\n"
@@ -22,8 +22,8 @@ public class StartingRoom extends Room {
                 + "By typing exit game, you can exit anytime. Type start game to begin...";
         hint = "This is the starting room. What did you expect to see?";
         featureFactory.registerFeature(this.name, this);
-        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
-        this.setRoomItems(readXMLFile.getRoomItems(this.name));
+        this.setNearbyRooms(map.getNearbyRooms(this.name));
+        this.setRoomItems(map.getRoomItems(this.name));
     }
 
     @Override

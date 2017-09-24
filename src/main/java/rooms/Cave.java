@@ -8,7 +8,7 @@ package rooms;
 import features.FeatureFactory;
 import items.containers.GoldenChest;
 import textbasedadventure.Observer;
-import textbasedadventure.ReadXMLFile;
+import textbasedadventure.Map;
 import textbasedadventure.State;
 
 /**
@@ -17,13 +17,13 @@ import textbasedadventure.State;
 public class Cave extends Room implements Observer {
 
 
-    public Cave(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
+    public Cave(FeatureFactory featureFactory, Map map) {
         name = "cave";
         description = "You are in a cave.";
         hint = "Its kinda dark and you can't see well in here, but you can hear someone screaming!";
         featureFactory.registerFeature(this.name, this);
-        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
-        this.setRoomItems(readXMLFile.getRoomItems(this.name));
+        this.setNearbyRooms(map.getNearbyRooms(this.name));
+        this.setRoomItems(map.getRoomItems(this.name));
 
     }
 

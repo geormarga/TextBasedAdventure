@@ -22,19 +22,26 @@ class GameLoop {
     private final ActionController actionController;
     private final FeatureController featureController;
     private final Parser parser;
-    private ReadXMLFile readXMLFile;
+    private Command command;
 
     void gameLoop(State state) {
 
         this.setText();
         while (true) {
-            if (parser.commandIsValid(text)) {
-                readXMLFile.getRoomInDirection(state.getCurrentRoom().getName(), parser.getAttributes());
-                Action action = actionController.getAction(parser.getCommand());
-                List<Feature> features = featureController.getFeatures(parser.getAttributes(), state.getFeatureFactory());
+            boolean commandIsValid = parser.commandIsValid(text, command);
+            if (commandIsValid) {
+                // Replace direction with actual room name (e.g. "north" could be replaced with "forest").
+                String currentRoomName = state.getCurrentRoom().getName();
+                Map map = state.getMap();
+                map.getRoomInDirection(currentRoomName, command.getAttributes());
+                // Select the correct action based on the command given.
+                Action action = actionController.getAction(command.getCommand());
+                // Select the items the action should be executed on based on the attributes of the command given.
+                List<Feature> features = featureController.getFeatures(command.getAttributes(), state.getFeatureFactory());
+                // Execute the action
                 actionController.executeAction(action, features, state);
             }
-            parser.clearParserValues();
+            command.clearValues();
             this.setText();
         }
     }
@@ -49,6 +56,6 @@ class GameLoop {
         this.actionController = new ActionController();
         this.featureController = new FeatureController();
         this.parser = new Parser();
-        this.readXMLFile = new ReadXMLFile();
+        this.command = new Command();
     }
 }

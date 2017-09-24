@@ -8,7 +8,7 @@ package rooms;
 import features.FeatureFactory;
 import items.containers.SilverChest;
 import textbasedadventure.Observer;
-import textbasedadventure.ReadXMLFile;
+import textbasedadventure.Map;
 import textbasedadventure.State;
 
 /**
@@ -16,13 +16,13 @@ import textbasedadventure.State;
  */
 public class Keep extends Room implements Observer {
 
-    public Keep(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
+    public Keep(FeatureFactory featureFactory, Map map) {
         name = "keep";
         description = "You are in the keep. Unfortunately there's no visible path from which you can enter.";
         hint = "You see something shining in a mudpit. A silver chest lies on the ground.";
         featureFactory.registerFeature(this.name, this);
-        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
-        this.setRoomItems(readXMLFile.getRoomItems(this.name));
+        this.setNearbyRooms(map.getNearbyRooms(this.name));
+        this.setRoomItems(map.getRoomItems(this.name));
     }
 
     @Override

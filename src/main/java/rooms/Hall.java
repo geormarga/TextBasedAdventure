@@ -6,19 +6,19 @@
 package rooms;
 
 import features.FeatureFactory;
-import textbasedadventure.ReadXMLFile;
+import textbasedadventure.Map;
 
 /**
  * @author Aenaos
  */
 public class Hall extends Room {
 
-    public Hall(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
+    public Hall(FeatureFactory featureFactory, Map map) {
         name = "hall";
         description = "You went inside the Castle. It's vast halls seem haunted";
         hint = "You can see some rooms left and right ... and stairs heading down.";
         featureFactory.registerFeature(this.name, this);
-        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
-        this.setRoomItems(readXMLFile.getRoomItems(this.name));
+        this.setNearbyRooms(map.getNearbyRooms(this.name));
+        this.setRoomItems(map.getRoomItems(this.name));
     }
 }

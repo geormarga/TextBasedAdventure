@@ -6,8 +6,8 @@
 package rooms;
 
 import features.FeatureFactory;
+import textbasedadventure.Map;
 import textbasedadventure.Observer;
-import textbasedadventure.ReadXMLFile;
 import textbasedadventure.State;
 
 /**
@@ -15,13 +15,13 @@ import textbasedadventure.State;
  */
 public class Forest extends Room implements Observer {
 
-    public Forest(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
+    public Forest(FeatureFactory featureFactory, Map map) {
         name = "forest";
         description = "You are in the forest. West of you there's a castle, and in the east there's a keep ";
         hint = "One tree looks different from the others, it's sticking out. In front of you lies a rusty key";
         featureFactory.registerFeature(this.name, this);
-        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
-        this.setRoomItems(readXMLFile.getRoomItems(this.name));
+        this.setNearbyRooms(map.getNearbyRooms(this.name));
+        this.setRoomItems(map.getRoomItems(this.name));
     }
 
     @Override

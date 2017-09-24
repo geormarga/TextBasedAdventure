@@ -9,7 +9,7 @@ import features.FeatureFactory;
 import items.Book;
 import items.Bookshelf;
 import textbasedadventure.Observer;
-import textbasedadventure.ReadXMLFile;
+import textbasedadventure.Map;
 import textbasedadventure.State;
 
 /**
@@ -17,13 +17,13 @@ import textbasedadventure.State;
  */
 public class Study extends Room implements Observer {
 
-    public Study(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
+    public Study(FeatureFactory featureFactory, Map map) {
         name = "study";
         description = "There are lots of books here. Unfortunately, I don't have time to spend reading.";
         hint = "There is something curious about this bookshelf.";
         featureFactory.registerFeature(this.name, this);
-        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
-        this.setRoomItems(readXMLFile.getRoomItems(this.name));
+        this.setNearbyRooms(map.getNearbyRooms(this.name));
+        this.setRoomItems(map.getRoomItems(this.name));
     }
 
     @Override

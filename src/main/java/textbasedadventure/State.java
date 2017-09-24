@@ -17,7 +17,7 @@ public class State implements Serializable {
     private Room currentRoom;
     private Room previousRoom;
     private Inventory inventory;
-    private ReadXMLFile readXMLFile = new ReadXMLFile();
+    private final Map map = new Map();
 
     private final FeatureFactory featureFactory = new FeatureFactory();
 
@@ -49,25 +49,25 @@ public class State implements Serializable {
         return featureFactory;
     }
 
-    public ReadXMLFile getReadXMLFile() {
-        return this.readXMLFile;
+    public Map getMap() {
+        return this.map;
     }
 
     public State() {
 
         //Create Rooms
-        new Forest(this.featureFactory, this.readXMLFile);
-        new AbandonedTemple(this.featureFactory, this.readXMLFile);
-        new Castle(this.featureFactory, this.readXMLFile);
-        new Cave(this.featureFactory, this.readXMLFile);
-        new DeadEnd(this.featureFactory, this.readXMLFile);
-        new Dungeon(this.featureFactory, this.readXMLFile);
-        new Hall(this.featureFactory, this.readXMLFile);
-        new HiddenRoom(this.featureFactory, this.readXMLFile);
-        new Keep(this.featureFactory, this.readXMLFile);
-        new LivingRoom(this.featureFactory, this.readXMLFile);
-        new Study(this.featureFactory, this.readXMLFile);
-        Room startingRoom = new StartingRoom(this.featureFactory, this.readXMLFile);
+        new Forest(this.featureFactory, this.map);
+        new AbandonedTemple(this.featureFactory, this.map);
+        new Castle(this.featureFactory, this.map);
+        new Cave(this.featureFactory, this.map);
+        new DeadEnd(this.featureFactory, this.map);
+        new Dungeon(this.featureFactory, this.map);
+        new Hall(this.featureFactory, this.map);
+        new HiddenRoom(this.featureFactory, this.map);
+        new Keep(this.featureFactory, this.map);
+        new LivingRoom(this.featureFactory, this.map);
+        new Study(this.featureFactory, this.map);
+        Room startingRoom = new StartingRoom(this.featureFactory, this.map);
 
         //Create Items
         new RustyKey(this.featureFactory);

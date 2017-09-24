@@ -7,7 +7,7 @@ package rooms;
 
 import features.FeatureFactory;
 import textbasedadventure.Observer;
-import textbasedadventure.ReadXMLFile;
+import textbasedadventure.Map;
 import textbasedadventure.State;
 
 /**
@@ -15,13 +15,13 @@ import textbasedadventure.State;
  */
 public class Dungeon extends Room implements Observer {
 
-    public Dungeon(FeatureFactory featureFactory, ReadXMLFile readXMLFile) {
+    public Dungeon(FeatureFactory featureFactory, Map map) {
         name = "dungeon";
         description = "This must be a dungeon, by the looks of it many people drew their final breath here...";
         hint = "There's a musty corpse on the ground";
         featureFactory.registerFeature(this.name, this);
-        this.setNearbyRooms(readXMLFile.getNearbyRooms(this.name));
-        this.setRoomItems(readXMLFile.getRoomItems(this.name));
+        this.setNearbyRooms(map.getNearbyRooms(this.name));
+        this.setRoomItems(map.getRoomItems(this.name));
     }
 
     @Override

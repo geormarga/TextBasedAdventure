@@ -1,28 +1,21 @@
 package textbasedadventure;
 
-import java.util.HashMap;
-import java.util.LinkedList;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import java.util.ArrayList;
 import java.util.List;
 
 class CommandList {
 
-    private HashMap<String, List<String>> commandList;
+    private NodeList commandList;
 
     CommandList() {
-        this.commandList = new HashMap<>();
-        ReadXMLFile readXMLFile = new ReadXMLFile();
-        List<String> commands = readXMLFile.getCommands();
-        for (String command : commands) {
-            commandList.put(command, readXMLFile.getAttributes(command));
-        }
-    }
-
-    private HashMap<String, List<String>> getCommandList() {
-        return this.commandList;
+        this.commandList = XMLParser.toNodeList("CommandList.xml");
     }
 
     boolean isVerb(String command) {
-        return this.getCommandList().containsKey(command);
+        return this.getCommands().contains(command);
     }
 
     /**
@@ -31,9 +24,29 @@ class CommandList {
      * @param attributes The user given command attributes
      * @return True if all of the attributes are valid
      */
-    boolean areValidAttributes(List<String> attributes) {
-        List<String> attrList = new LinkedList<>();
-        this.commandList.values().forEach(attrList::addAll);
-        return attrList.containsAll(attributes) && !attributes.isEmpty();
+    boolean areValidAttributes(String command, List<String> attributes) {
+        return getAttributes(command).containsAll(attributes) && !attributes.isEmpty();
+    }
+
+    /**
+     * Method that gets all the available commands to validate against
+     *
+     * @return A list of the available commands
+     */
+    List<String> getCommands() {
+        List<String> commands = new ArrayList();
+        List<Element> elements = XMLParser.toElementList(commandList);
+        elements.forEach(element -> commands.add(element.getAttribute("name")));
+        return commands;
+    }
+
+    /**
+     * Method that gets a commands's attributes as defined in the xml file
+     *
+     * @param command The string representing a command name
+     * @return The contained attributes for the specified command
+     */
+    List<String> getAttributes(String command) {
+        return XMLParser.getElements(command, commandList);
     }
 }
