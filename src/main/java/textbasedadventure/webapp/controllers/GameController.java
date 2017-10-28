@@ -13,11 +13,11 @@ public class GameController {
     private State state = new State();
     private Game game = new Game();
 
-    @RequestMapping(value = "/game", method = RequestMethod.GET)
+    @RequestMapping(value = "/game", method = RequestMethod.POST)
     public ResponseEntity<CommandModel> game(@RequestBody CommandModel commandModel)
     {
         commandModel.setCommandResult(game.getDescription(state, commandModel.getCommand()));
-        return new ResponseEntity<CommandModel>(commandModel, HttpStatus.OK);
+        return new ResponseEntity<>(commandModel, HttpStatus.OK);
     }
 
     @RequestMapping("/game/save")

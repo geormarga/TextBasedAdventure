@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 @RestController
 public class UserController {
 
-    List<UserModel> userlist = initUsers();
+    private List<UserModel> userlist = initUsers();
 
     private List<UserModel> initUsers() {
-        List<UserModel> userModels = new ArrayList();
+        List<UserModel> userModels = new ArrayList<>();
         userModels.add(new UserModel("JohnDoe", "John@Doe.com", "123456aA!"));
         userModels.add(new UserModel("Talos", "Talos@Principle.com", "123456aA!"));
         userModels.add(new UserModel("Token", "John@Doe.com", "123456aA!"));
@@ -26,16 +26,6 @@ public class UserController {
         userModels.add(new UserModel("Takis", "John@Doe.com", "123456aA!"));
         userModels.add(new UserModel("Aenaos23", "John@Doe.com", "123456aA!"));
         return userModels;
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity login(@RequestBody UserModel userModel) {
-        List<UserModel> existentUserModel = userlist.stream().filter(x -> x.login(userModel.getUsername(), userModel.getPassword())).collect(Collectors.toList());
-        if (!existentUserModel.isEmpty()) {
-            return new ResponseEntity<>("Successfully authenticated.", HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>("Wrong username or password.", HttpStatus.FORBIDDEN);
-        }
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
@@ -49,21 +39,37 @@ public class UserController {
         return new ResponseEntity<>(userlist, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity register(@RequestBody UserModel userModel) {
-        List<UserModel> playersOfTeam = userlist.stream()
-                .filter(x -> x.usernameExists(userModel.getUsername()))
-                .collect(Collectors.toList());
-        if (playersOfTeam.isEmpty()) {
-            userlist.add(userModel);
-            return new ResponseEntity("UserModel successfully created", HttpStatus.OK);
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResponseEntity<? extends String> login(@RequestBody UserModel userModel) {
+        List<UserModel> existentUserModel = userlist.stream().filter(x -> x.login(userModel.getUsername(), userModel.getPassword())).collect(Collectors.toList());
+        if (!existentUserModel.isEmpty()) {
+            return new ResponseEntity<>("Successfully authenticated.", HttpStatus.OK);
         } else {
-            return new ResponseEntity("Username already exists", HttpStatus.CONFLICT);
+            return new ResponseEntity<>("Wrong username or password.", HttpStatus.FORBIDDEN);
         }
     }
 
-    @RequestMapping("/user")
-    public String index() {
-        return "Greetings from Spring Boot!";
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    public ResponseEntity<? extends String> changePassword(@RequestBody UserModel userModel) {
+        List<UserModel> existentUserModel = userlist.stream().filter(x -> x.login(userModel.getUsername(),userModel.getPassword())).collect(Collectors.toList());
+        if (!existentUserModel.isEmpty()) {
+            userModel.setPassword("");
+            return new ResponseEntity<>("Password successfully authenticated.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Wrong username or password.", HttpStatus.FORBIDDEN);
+        }
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ResponseEntity<String> register(@RequestBody UserModel userModel) {
+        List<UserModel> existentUserModel = userlist.stream()
+                .filter(x -> x.usernameExists(userModel.getUsername()))
+                .collect(Collectors.toList());
+        if (existentUserModel.isEmpty()) {
+            userlist.add(userModel);
+            return new ResponseEntity<>("User successfully created", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Username already exists", HttpStatus.CONFLICT);
+        }
     }
 }
