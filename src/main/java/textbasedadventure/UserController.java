@@ -17,6 +17,11 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ResponseEntity<User> getUser(@RequestBody User user) {
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
     @RequestMapping("/register")
     public String register() {
         return "Greetings from Spring Boot!";
