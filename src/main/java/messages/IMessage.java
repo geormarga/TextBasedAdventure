@@ -10,6 +10,6 @@ package messages;
  */
 public interface IMessage {
 
-    void display();
+    String display();
 
 }

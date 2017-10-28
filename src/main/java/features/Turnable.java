@@ -12,5 +12,5 @@ import textbasedadventure.State;
  */
 public interface Turnable extends Feature {
 
-    void turn(State state);
+    String turn(State state);
 }

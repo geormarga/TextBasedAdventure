@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class PullAction implements Action<Pullable> {
 
     @Override
-    public void execute(State state, Pullable pullable) {
-        pullable.pull();
+    public String execute(State state, Pullable pullable) {
+        return pullable.pull();
     }
 
     @Override

@@ -15,8 +15,8 @@ public class MoveFailureMessage implements IMessage {
     private String attr;
 
     @Override
-    public void display() {
-        System.out.println("You can't go that way!");
+    public String display() {
+        return "You can't go that way!";
     }
 
 }

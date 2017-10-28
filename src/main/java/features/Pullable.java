@@ -10,5 +10,5 @@ package features;
  */
 public interface Pullable extends Feature {
 
-    void pull();
+    String pull();
 }

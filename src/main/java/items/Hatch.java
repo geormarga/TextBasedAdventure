@@ -35,20 +35,20 @@ public class Hatch extends Item implements Openable {
         this.setDescription("Water's gone. You can proceed.");
     }
 
-    public void open(String attr, State state) {
+    public String open(String attr, State state) {
 
         WoodenWheel wheel = (WoodenWheel) state.getFeatureFactory().createFeature("wooden wheel");
         if (!wheel.isTurned()) {
-            System.out.println("You need to get rid of the water first.");
+            return "You need to get rid of the water first.";
         } else {
-            System.out.println("The hatch is now open.");
             setDescription("The hatch is now open.");
-
+            return "The hatch is now open.";
         }
     }
 
     @Override
-    public void open(Inventory inventory) {
+    public String open(Inventory inventory) {
         //if wheel is turned open hatch
+        return "Not implemented method";
     }
 }

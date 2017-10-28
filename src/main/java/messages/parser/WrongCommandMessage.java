@@ -15,8 +15,8 @@ public class WrongCommandMessage implements IMessage {
     private String attr;
 
     @Override
-    public void display() {
-        System.out.println("I didn't recognise the command.");
+    public String display() {
+        return "I didn't recognise the command.";
     }
 
 }

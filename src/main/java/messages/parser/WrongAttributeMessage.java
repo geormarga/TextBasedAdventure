@@ -15,8 +15,8 @@ public class WrongAttributeMessage implements IMessage {
     private String attr;
 
     @Override
-    public void display() {
-        System.out.println("The command given is right, but I didn't recognise the attribute.");
+    public String display() {
+        return "The command given is right, but I didn't recognise the attribute.";
     }
 
 }

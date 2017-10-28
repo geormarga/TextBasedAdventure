@@ -15,8 +15,8 @@ public class LoadSuccessMessage implements IMessage {
     private String attr;
 
     @Override
-    public void display() {
-        System.out.println("The game has been loaded , you are ready to play!");
+    public String display() {
+        return "The game has been loaded , you are ready to play!";
     }
 
 }

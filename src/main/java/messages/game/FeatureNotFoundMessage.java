@@ -20,8 +20,8 @@ public class FeatureNotFoundMessage implements IMessage {
 
 
     @Override
-    public void display() {
-        System.out.println("Could not find " + this.attr + ".");
+    public String display() {
+        return "Could not find " + this.attr + ".";
     }
 
 }

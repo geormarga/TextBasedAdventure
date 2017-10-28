@@ -27,9 +27,9 @@ public class StartingRoom extends Room {
     }
 
     @Override
-    public void move(State state) {
+    public String move(State state) {
         state.setPreviousRoom(this);
         state.setCurrentRoom(this);
-        this.getMovementMessage();
+        return this.getMovementMessage();
     }
 }

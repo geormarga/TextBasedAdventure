@@ -79,19 +79,19 @@ public abstract class Room implements Lookable, Serializable, Moveable {
         this.hint = hint;
     }
 
-    public void getMovementMessage() {
-        System.out.println(this.getDescription());
+    public String getMovementMessage() {
+        return this.getDescription();
     }
 
     @Override
-    public void look() {
-        System.out.println(hint);
+    public String look() {
+        return hint;
     }
 
     @Override
-    public void move(State state) {
+    public String move(State state) {
         state.setPreviousRoom(state.getCurrentRoom());
         state.setCurrentRoom(this);
-        this.getMovementMessage();
+        return this.getMovementMessage();
     }
 }

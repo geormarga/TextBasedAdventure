@@ -15,8 +15,8 @@ public class PickUpFailureMessage implements IMessage {
     private String attr;
 
     @Override
-    public void display() {
-        System.out.println("There isn't such an item in this room.");
+    public String display() {
+        return "There isn't such an item in this room.";
     }
 
 }

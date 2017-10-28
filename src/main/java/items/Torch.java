@@ -23,16 +23,16 @@ public class Torch extends Item implements Pickable, Usable {
     }
 
     @Override
-    public void pickup(Inventory inventory, Room room) {
+    public String pickup(Inventory inventory, Room room) {
         inventory.registerItem(this.name);
         room.unregisterItem(this.name);
-        System.out.println("You picked up a torch.");
+        return "You picked up a torch.";
     }
 
     @Override
-    public void use(Inventory inventory, Room room) {
-        System.out.println("You used the torch.");
+    public String use(Inventory inventory, Room room) {
         inventory.unregisterItem(this.getName());
+        return "You used the torch.";
     }
 
     /*

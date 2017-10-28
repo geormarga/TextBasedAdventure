@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class LookAroundAction implements Action<Lookable> {
 
     @Override
-    public void execute(State state, Lookable lookable) {
-        lookable.look();
+    public String execute(State state, Lookable lookable) {
+        return lookable.look();
     }
 
     @Override

@@ -48,8 +48,10 @@ public class Inventory implements Showable {
     }
 
     @Override
-    public void show() {
-        items.forEach(System.out::println);
+    public String show() {
+        String string = "";
+        items.forEach(item -> string.concat(" ,"+item));
+        return string;
     }
 
 }

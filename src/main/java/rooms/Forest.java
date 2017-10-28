@@ -35,11 +35,11 @@ public class Forest extends Room implements Observer {
     }
 
     @Override
-    public void move(State state) {
+    public String move(State state) {
         if (state.getPreviousRoom().getName().equals("starting room")) {
             state.setPreviousRoom(this);
         }
         state.setCurrentRoom(this);
-        this.getMovementMessage();
+        return this.getMovementMessage();
     }
 }

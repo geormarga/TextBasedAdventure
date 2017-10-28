@@ -31,17 +31,17 @@ public class WoodenWheel extends Item implements Turnable {
     }
 
     @Override
-    public void turn(State state) {
+    public String turn(State state) {
 
         if (!isTurned()) {
             this.setTurned(true);
             this.setDescription("Already turned.");
-            System.out.println("The floodgate is open.");
             Hatch hatch = (Hatch) state.getFeatureFactory().createFeature("hatch");
             hatch.setOpen(true);
             hatch.updateDescription();
+            return "The floodgate is open.";
         } else {
-            System.out.println(this.getDescription());
+            return this.getDescription();
         }
     }
 }

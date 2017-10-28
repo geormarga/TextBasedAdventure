@@ -30,9 +30,9 @@ public class Book extends Item implements Pullable {
     }
 
     @Override
-    public void pull() {
+    public String pull() {
         this.setPulled(true);
         this.setDescription("You already pulled the book");
-        System.out.println("A chasm opened on the wall, you can go in");
+        return "A chasm opened on the wall, you can go in.";
     }
 }

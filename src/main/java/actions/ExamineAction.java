@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class ExamineAction implements Action<Examinable> {
 
     @Override
-    public void execute(State state, Examinable examinable) {
-        examinable.examine();
+    public String execute(State state, Examinable examinable) {
+        return examinable.examine();
     }
 
     @Override

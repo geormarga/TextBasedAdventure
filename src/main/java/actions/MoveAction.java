@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class MoveAction implements Action<Moveable> {
 
     @Override
-    public void execute(State state, Moveable moveable) {
-        moveable.move(state);
+    public String execute(State state, Moveable moveable) {
+        return moveable.move(state);
     }
 
     @Override

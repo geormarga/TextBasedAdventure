@@ -15,8 +15,8 @@ public class LoadFailureMessage implements IMessage {
     private String attr;
 
     @Override
-    public void display() {
-        System.out.println("Could not load the game, absence of file.");
+    public String display() {
+        return "Could not load the game, absence of file.";
     }
 
 }

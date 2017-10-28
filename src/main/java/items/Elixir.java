@@ -23,10 +23,10 @@ public class Elixir extends Item implements Pickable, Usable {
     }
 
     @Override
-    public void pickup(Inventory inventory, Room room) {
+    public String pickup(Inventory inventory, Room room) {
         inventory.registerItem(this.name);
         room.unregisterItem(this.name);
-        System.out.println("You picked up an elixir.");
+        return "You picked up an elixir.";
     }
 
     /*
@@ -52,9 +52,10 @@ public class Elixir extends Item implements Pickable, Usable {
      }
      */
     @Override
-    public void use(Inventory inventory, Room room) {
+    public String use(Inventory inventory, Room room) {
         room.registerItem(this.name);
         inventory.unregisterItem(this.name);
         //altar you already set the object
+        return "Use method";
     }
 }

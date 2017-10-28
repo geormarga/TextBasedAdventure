@@ -10,5 +10,5 @@ package features;
  */
 public interface Examinable extends Feature {
 
-    void examine();
+    String examine();
 }

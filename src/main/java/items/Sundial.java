@@ -22,10 +22,10 @@ public class Sundial extends Item implements Pickable {
     }
 
     @Override
-    public void pickup(Inventory inventory, Room room) {
+    public String pickup(Inventory inventory, Room room) {
         inventory.registerItem(this.name);
         room.unregisterItem(this.name);
-        System.out.println("You picked up a sundial.");
+        return "You picked up a sundial.";
     }
 
 }

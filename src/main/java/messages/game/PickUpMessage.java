@@ -18,7 +18,6 @@ public class PickUpMessage implements IMessage {
         this.attr = attr;
     }
 
-    public void display() {
-        System.out.println("You picked up a(n)" + this.attr + ".");
+    public String display(){ return "You picked up a(n)" + this.attr + ".";
     }
 }

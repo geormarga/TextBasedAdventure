@@ -18,8 +18,8 @@ public abstract class Item implements Examinable, Serializable {
     protected String description;
 
     @Override
-    public void examine() {
-        System.out.println(description);
+    public String examine() {
+        return description;
     }
 
     public void setDescription(String desc) {

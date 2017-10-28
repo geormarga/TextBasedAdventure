@@ -17,7 +17,7 @@ public interface Action<T> {
      * @param state The state object of the game
      * @param t The feature the action will be executed upon
      */
-    void execute(State state, T t);
+    String execute(State state, T t);
 
     /**
      * Returns true if the string represents an item in the current room. Else returns false.

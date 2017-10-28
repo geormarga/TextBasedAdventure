@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class UseAction implements Action<Usable> {
 
     @Override
-    public void execute(State state, Usable usable) {
-        usable.use(state.getInventory(), state.getCurrentRoom());
+    public String execute(State state, Usable usable) {
+        return usable.use(state.getInventory(), state.getCurrentRoom());
     }
 
     @Override

@@ -9,7 +9,6 @@ import messages.IMessage;
 import messages.parser.WrongAttributeMessage;
 import messages.parser.WrongCommandMessage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,26 +16,31 @@ import java.util.List;
  */
 class Parser {
 
+    private boolean isValid;
     private final CommandList cmdList = new CommandList();
     private IMessage message;
 
+    boolean commandIsValid(){
+        return isValid;
+    }
     /**
      * Takes in the user input and checks if it complies with the command structure. Otherwise displays an error message.
      *
      * @param text The user input
      * @return The boolean value that represents the command and attribute validity.
      */
-    boolean commandIsValid(String text, Command command) {
+    String getCommandResultMessage(String text, Command command) {
 
-        if(text.isEmpty()){
-            return false;
+        if (text.isEmpty()) {
+            isValid = false;
+            return "Command is empty.";
         }
 
         command.setCommand(text, cmdList.getCommands());
+        if (!this.isCommand(command.getCommand())) {
 
-        if(!this.isCommand(command.getCommand())){
-            message.display();
-            return false;
+            isValid = false;
+            return message.display();
         }
 
         // Remove command from user input text
@@ -45,11 +49,13 @@ class Parser {
         //
         command.setAttributes(text, cmdList.getAttributes(command.getCommand()));
         if (this.isAttribute(command.getCommand(), command.getAttributes())) {
-            return true;
+            isValid = true;
+            return "Command is valid";
+
         }
 
-        message.display();
-        return false;
+        isValid = false;
+        return message.display();
     }
 
     /**

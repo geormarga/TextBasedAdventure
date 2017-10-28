@@ -15,8 +15,8 @@ import textbasedadventure.State;
 public class PickUpAction implements Action<Pickable> {
 
     @Override
-    public void execute(State state, Pickable pickable) {
-        pickable.pickup(state.getInventory(), state.getCurrentRoom());
+    public String execute(State state, Pickable pickable) {
+        return pickable.pickup(state.getInventory(), state.getCurrentRoom());
     }
 
 

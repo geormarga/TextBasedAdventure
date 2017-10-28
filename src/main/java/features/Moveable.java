@@ -12,5 +12,5 @@ import textbasedadventure.State;
  */
 public interface Moveable extends Feature {
 
-    void move(State state);
+    String move(State state);
 }

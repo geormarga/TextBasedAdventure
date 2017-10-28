@@ -15,7 +15,7 @@ public class CommandWithoutAttributeMessage implements IMessage {
     private String attr;
 
     @Override
-    public void display() {
-        System.out.println("You gave a command, without any attributes.");
+    public String display() {
+        return "You gave a command, without any attributes.";
     }
 }

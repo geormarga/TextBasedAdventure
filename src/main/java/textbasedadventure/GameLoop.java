@@ -28,8 +28,9 @@ class GameLoop {
 
         this.setText();
         while (true) {
-            boolean commandIsValid = parser.commandIsValid(text, command);
-            if (commandIsValid) {
+            this.setText();
+            String commandResult = parser.getCommandResultMessage(text, command);
+            if (parser.commandIsValid()) {
                 // Replace direction with actual room name (e.g. "north" could be replaced with "forest").
                 String currentRoomName = state.getCurrentRoom().getName();
                 Map map = state.getMap();
@@ -38,11 +39,13 @@ class GameLoop {
                 Action action = actionController.getAction(command.getCommand());
                 // Select the items the action should be executed on based on the attributes of the command given.
                 List<Feature> features = featureController.getFeatures(command.getAttributes(), state.getFeatureFactory());
+                //Clear the command values.
+                command.clearValues();
                 // Execute the action
-                actionController.executeAction(action, features, state);
+                System.out.println(actionController.executeAction(action, features, state));
+            }else{
+                System.out.println(commandResult);
             }
-            command.clearValues();
-            this.setText();
         }
     }
 
