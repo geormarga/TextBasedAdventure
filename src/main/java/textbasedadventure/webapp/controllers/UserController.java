@@ -1,48 +1,53 @@
 package textbasedadventure.webapp.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import textbasedadventure.webapp.models.UserModel;
+import textbasedadventure.webapp.models.User;
+import textbasedadventure.webapp.repositories.UserRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 public class UserController {
 
-    private List<UserModel> userlist = initUsers();
+    @Autowired
+    private UserRepository repository;
 
-    private List<UserModel> initUsers() {
-        List<UserModel> userModels = new ArrayList<>();
-        userModels.add(new UserModel("JohnDoe", "John@Doe.com", "123456aA!"));
-        userModels.add(new UserModel("Talos", "Talos@Principle.com", "123456aA!"));
-        userModels.add(new UserModel("Token", "John@Doe.com", "123456aA!"));
-        userModels.add(new UserModel("EricCartman", "John@Doe.com", "123456aA!"));
-        userModels.add(new UserModel("Takis", "John@Doe.com", "123456aA!"));
-        userModels.add(new UserModel("Aenaos23", "John@Doe.com", "123456aA!"));
-        return userModels;
+    private void initUsers() {
+        repository.save(new User("JohnDoe", "John@Doe.com", "123456aA!"));
+        repository.save(new User("Talos", "Talos@Principle.com", "123456aA!"));
+        repository.save(new User("Token", "John@Doe.com", "123456aA!"));
+        repository.save(new User("EricCartman", "John@Doe.com", "123456aA!"));
+        repository.save(new User("Takis", "John@Doe.com", "123456aA!"));
+        repository.save(new User("Aenaos23", "John@Doe.com", "123456aA!"));
+    }
+
+    @RequestMapping("/")
+    public String init(){
+        initUsers();
+        return "initialized";
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public ResponseEntity<UserModel> getUser() {
-        UserModel userModel = userlist.get(0);
-        return new ResponseEntity<>(userModel, HttpStatus.OK);
+    public ResponseEntity<User> getUser() {
+        User user = repository.findByUsername("Talos");
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public ResponseEntity<List<UserModel>> getAll() {
-        return new ResponseEntity<>(userlist, HttpStatus.OK);
+    public ResponseEntity<List<User>> getAll() {
+        return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<? extends String> login(@RequestBody UserModel userModel) {
-        List<UserModel> existentUserModel = userlist.stream().filter(x -> x.login(userModel.getUsername(), userModel.getPassword())).collect(Collectors.toList());
-        if (!existentUserModel.isEmpty()) {
+    public ResponseEntity<String> login(@RequestBody User user) {
+        User existentUser = repository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        if (existentUser != null) {
             return new ResponseEntity<>("Successfully authenticated.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Wrong username or password.", HttpStatus.FORBIDDEN);
@@ -50,10 +55,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
-    public ResponseEntity<? extends String> changePassword(@RequestBody UserModel userModel) {
-        List<UserModel> existentUserModel = userlist.stream().filter(x -> x.login(userModel.getUsername(),userModel.getPassword())).collect(Collectors.toList());
-        if (!existentUserModel.isEmpty()) {
-            userModel.setPassword("");
+    public ResponseEntity<String> changePassword(@RequestBody User user) {
+        User existentUser = repository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        if (existentUser != null) {
+            user.setPassword("");
             return new ResponseEntity<>("Password successfully authenticated.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Wrong username or password.", HttpStatus.FORBIDDEN);
@@ -61,12 +66,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity<String> register(@RequestBody UserModel userModel) {
-        List<UserModel> existentUserModel = userlist.stream()
-                .filter(x -> x.usernameExists(userModel.getUsername()))
-                .collect(Collectors.toList());
-        if (existentUserModel.isEmpty()) {
-            userlist.add(userModel);
+    public ResponseEntity<String> register(@RequestBody User user) {
+        User existentUser = repository.findByUsername(user.getUsername());
+        if (existentUser == null) {
+            repository.save(user);
             return new ResponseEntity<>("User successfully created", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Username already exists", HttpStatus.CONFLICT);

@@ -1,14 +1,19 @@
 package textbasedadventure.webapp.models;
 
-public class UserModel {
+import org.springframework.data.annotation.Id;
+
+public class User {
+
+    @Id
+    public String id;
     private String username;
     private String email;
     private String password;
 
-    public UserModel() {
+    public User() {
     }
 
-    public UserModel(String username, String email, String password) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -36,13 +41,5 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean usernameExists(String username) {
-        return this.username.equals(username);
-    }
-
-    public boolean login(String username,String password) {
-        return this.username.equals(username) && this.password.equals(password);
     }
 }
