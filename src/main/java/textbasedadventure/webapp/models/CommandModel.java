@@ -1,4 +1,4 @@
-package textbasedadventure.webapp;
+package textbasedadventure.webapp.models;
 
 public class CommandModel {
     private String command;

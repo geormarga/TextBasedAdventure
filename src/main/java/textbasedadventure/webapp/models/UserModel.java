@@ -1,14 +1,14 @@
-package textbasedadventure.webapp;
+package textbasedadventure.webapp.models;
 
 public class UserModel {
     private String username;
     private String email;
     private String password;
 
-    UserModel() {
+    public UserModel() {
     }
 
-    UserModel(String username, String email, String password) {
+    public UserModel(String username, String email, String password) {
         this.username = username;
         this.password = password;
         this.email = email;

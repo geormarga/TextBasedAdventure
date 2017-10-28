@@ -1,4 +1,4 @@
-package textbasedadventure.webapp;
+package textbasedadventure.webapp.controllers;
 
 
 import org.springframework.http.HttpStatus;
@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import textbasedadventure.game.Game;
 import textbasedadventure.game.State;
+import textbasedadventure.webapp.models.CommandModel;
 
 @RestController
 public class GameController {
