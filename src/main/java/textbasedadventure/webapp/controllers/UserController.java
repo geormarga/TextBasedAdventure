@@ -22,13 +22,14 @@ public class UserController {
         repository.save(new User("JohnDoe", "John@Doe.com", "123456aA!"));
         repository.save(new User("Talos", "Talos@Principle.com", "123456aA!"));
         repository.save(new User("Token", "John@Doe.com", "123456aA!"));
-        repository.save(new User("EricCartman", "John@Doe.com", "123456aA!"));
+        repository.save(new User("Eric", "John@Doe.com", "123456aA!"));
         repository.save(new User("Takis", "John@Doe.com", "123456aA!"));
         repository.save(new User("Aenaos23", "John@Doe.com", "123456aA!"));
     }
 
     @RequestMapping("/")
     public String init(){
+        repository.deleteAll();
         initUsers();
         return "initialized";
     }

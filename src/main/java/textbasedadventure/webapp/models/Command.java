@@ -1,6 +1,6 @@
 package textbasedadventure.webapp.models;
 
-public class CommandModel {
+public class Command {
     private String command;
     private String commandResult;
 

@@ -5,19 +5,23 @@
  */
 package textbasedadventure.game;
 
+import com.google.gson.annotations.Expose;
 import textbasedadventure.game.features.FeatureFactory;
 import textbasedadventure.game.items.*;
-import textbasedadventure.game.rooms.*;
 import textbasedadventure.game.items.containers.*;
-import java.io.Serializable;
+import textbasedadventure.game.rooms.*;
 
-public class State implements Serializable {
+public class State {
 
+    @Expose
     private Room currentRoom;
+    @Expose
     private Room previousRoom;
+    @Expose
     private Inventory inventory;
+    @Expose
     private final Map map = new Map();
-
+    @Expose
     private final FeatureFactory featureFactory = new FeatureFactory();
 
     public Room getCurrentRoom() {
