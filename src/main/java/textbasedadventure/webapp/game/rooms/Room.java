@@ -21,14 +21,11 @@ import java.util.List;
 @Component
 public abstract class Room implements Lookable, Serializable, Moveable {
 
-    private List<String> nearbyRooms;
-    private List<String> roomItems;
+    protected List<String> nearbyRooms;
+    protected List<String> roomItems;
     protected String name;
     protected String description;
     protected String hint;
-    @Autowired
-    protected Map map;
-
 
     public void registerItem(String itemName) {
         roomItems.add(itemName);
@@ -84,14 +81,6 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     public void setHint(String hint) {
         this.hint = hint;
-    }
-
-    public Map getMap() {
-        return map;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
     }
 
     public String getMovementMessage() {

@@ -5,14 +5,19 @@
  */
 package textbasedadventure.webapp.game.actions;
 
-import java.util.HashMap;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @author Aenaos
  */
+@Component
 class ActionFactory {
 
-    private final HashMap<String, Action> actionMap = new HashMap<>();
+    @Autowired
+    private Map<String, Action> actionMap;
 
     /**
      * Method that creates a mapping for each action <UniqueName,Action>
@@ -32,21 +37,5 @@ class ActionFactory {
      */
     Action createAction(String command) {
         return actionMap.get(command);
-    }
-
-    /**
-     * Initializes the actionMap
-     */
-    void setActionFactory() {
-        this.registerAction("examine", new ExamineAction());
-        this.registerAction("go", new MoveAction());
-        this.registerAction("look", new LookAroundAction());
-        this.registerAction("show", new ShowInventoryAction());
-        this.registerAction("start", new MoveAction());
-        this.registerAction("pick up", new PickUpAction());
-        this.registerAction("open", new OpenAction());
-        this.registerAction("pull", new PullAction());
-        this.registerAction("turn", new TurnAction());
-        this.registerAction("use", new UseAction());
     }
 }

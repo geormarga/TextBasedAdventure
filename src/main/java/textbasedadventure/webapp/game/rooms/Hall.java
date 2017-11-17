@@ -5,9 +5,9 @@
  */
 package textbasedadventure.webapp.game.rooms;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
+import textbasedadventure.webapp.game.Map;
 
 /**
  * @author Aenaos
@@ -15,15 +15,12 @@ import javax.annotation.PostConstruct;
 @Component("hall")
 public class Hall extends Room {
 
-    public Hall() {
+    @Autowired
+    public Hall(Map map) {
         name = "hall";
         description = "You went inside the Castle. It's vast halls seem haunted";
         hint = "You can see some rooms left and right ... and stairs heading down.";
-    }
-    @PostConstruct
-    private void init(){
-        //featureFactory.registerFeature(name, this);
-        this.setNearbyRooms(map.getNearbyRooms(name));
-        this.setRoomItems(map.getRoomItems(name));
+        nearbyRooms = map.getNearbyRooms(name);
+        roomItems = map.getRoomItems(name);
     }
 }

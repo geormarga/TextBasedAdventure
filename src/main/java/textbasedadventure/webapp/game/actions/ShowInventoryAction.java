@@ -5,6 +5,7 @@
  */
 package textbasedadventure.webapp.game.actions;
 
+import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Showable;
 import textbasedadventure.webapp.game.Inventory;
 import textbasedadventure.webapp.game.State;
@@ -12,6 +13,7 @@ import textbasedadventure.webapp.game.State;
 /**
  * @author Aenaos
  */
+@Component("show")
 public class ShowInventoryAction implements Action<Showable> {
 
     @Override

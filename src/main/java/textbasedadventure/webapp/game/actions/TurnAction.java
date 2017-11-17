@@ -5,6 +5,7 @@
  */
 package textbasedadventure.webapp.game.actions;
 
+import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Turnable;
 import textbasedadventure.webapp.game.items.Item;
 import textbasedadventure.webapp.game.State;
@@ -12,6 +13,7 @@ import textbasedadventure.webapp.game.State;
 /**
  * @author Aenaos
  */
+@Component("turn")
 public class TurnAction implements Action<Turnable> {
 
     @Override

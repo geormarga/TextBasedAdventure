@@ -5,6 +5,7 @@
  */
 package textbasedadventure.webapp.game.actions;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.State;
@@ -18,6 +19,8 @@ import java.util.stream.Collectors;
 @Component
 public class ActionController {
 
+    @Autowired
+    private ActionFactory actionFactory;
     /**
      * Method that checks if the feature exists in context and then tries to execute the action
      *
@@ -48,8 +51,6 @@ public class ActionController {
      * @return The action for that unique name
      */
     public Action getAction(String command) {
-        ActionFactory actionFactory = new ActionFactory();
-        actionFactory.setActionFactory();
         return actionFactory.createAction(command);
     }
 }

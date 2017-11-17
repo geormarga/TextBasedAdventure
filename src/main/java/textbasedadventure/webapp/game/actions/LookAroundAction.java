@@ -5,6 +5,7 @@
  */
 package textbasedadventure.webapp.game.actions;
 
+import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Lookable;
 import textbasedadventure.webapp.game.rooms.Room;
 import textbasedadventure.webapp.game.State;
@@ -12,6 +13,7 @@ import textbasedadventure.webapp.game.State;
 /**
  * @author Aenaos
  */
+@Component("look")
 public class LookAroundAction implements Action<Lookable> {
 
     @Override

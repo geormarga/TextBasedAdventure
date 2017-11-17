@@ -5,7 +5,9 @@
  */
 package textbasedadventure.webapp.game.rooms;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.items.containers.SilverChest;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
@@ -18,16 +20,13 @@ import javax.annotation.PostConstruct;
 @Component("keep")
 public class Keep extends Room implements Observer {
 
-    public Keep() {
+    @Autowired
+    public Keep(Map map) {
         name = "keep";
         description = "You are in the keep. Unfortunately there's no visible path from which you can enter.";
         hint = "You see something shining in a mudpit. A silver chest lies on the ground.";
-    }
-    @PostConstruct
-    private void init(){
-        //featureFactory.registerFeature(name, this);
-        this.setNearbyRooms(map.getNearbyRooms(name));
-        this.setRoomItems(map.getRoomItems(name));
+        nearbyRooms = map.getNearbyRooms(name);
+        roomItems= map.getRoomItems(name);
     }
 
     @Override

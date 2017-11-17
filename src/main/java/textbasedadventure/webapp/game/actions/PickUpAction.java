@@ -5,6 +5,7 @@
  */
 package textbasedadventure.webapp.game.actions;
 
+import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Pickable;
 import textbasedadventure.webapp.game.items.Item;
 import textbasedadventure.webapp.game.State;
@@ -12,6 +13,7 @@ import textbasedadventure.webapp.game.State;
 /**
  * @author Aenaos
  */
+@Component("pick up")
 public class PickUpAction implements Action<Pickable> {
 
     @Override

@@ -5,7 +5,9 @@
  */
 package textbasedadventure.webapp.game.rooms;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import textbasedadventure.webapp.game.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -15,15 +17,12 @@ import javax.annotation.PostConstruct;
 @Component("living room")
 public class LivingRoom extends Room {
 
-    public LivingRoom() {
+    @Autowired
+    public LivingRoom(Map map) {
         name = "living room";
         description = "This is the main Dining Room. The plates on the table indicated that this castle has long been abandonded.";
         hint = "This room is a mess... something happened here!";
-    }
-    @PostConstruct
-    private void init(){
-        //featureFactory.registerFeature(name, this);
-        this.setNearbyRooms(map.getNearbyRooms(name));
-        this.setRoomItems(map.getRoomItems(name));
+        nearbyRooms = map.getNearbyRooms(name);
+        roomItems= map.getRoomItems(name);
     }
 }

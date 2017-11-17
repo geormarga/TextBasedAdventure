@@ -5,6 +5,7 @@
  */
 package textbasedadventure.webapp.game.actions;
 
+import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Pullable;
 import textbasedadventure.webapp.game.items.Item;
 import textbasedadventure.webapp.game.State;
@@ -12,6 +13,7 @@ import textbasedadventure.webapp.game.State;
 /**
  * @author Aenaos
  */
+@Component("pull")
 public class PullAction implements Action<Pullable> {
 
     @Override

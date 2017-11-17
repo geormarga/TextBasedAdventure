@@ -23,6 +23,7 @@ class GameLoop {
     private final FeatureController featureController;
     private final Parser parser;
     private Command command;
+    private Map map;
 
     void gameLoop(State state) {
 
@@ -33,7 +34,6 @@ class GameLoop {
             if (parser.commandIsValid()) {
                 // Replace direction with actual room name (e.g. "north" could be replaced with "forest").
                 String currentRoomName = state.getCurrentRoom().getName();
-                Map map = state.getCurrentRoom().getMap();
                 map.getRoomInDirection(currentRoomName, command.getAttributes());
                 // Select the correct action based on the command given.
                 Action action = actionController.getAction(command.getCommand());

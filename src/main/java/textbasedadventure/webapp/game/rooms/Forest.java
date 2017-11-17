@@ -7,28 +7,23 @@ package textbasedadventure.webapp.game.rooms;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
-
-import javax.annotation.PostConstruct;
 
 /**
  * @author Aenaos
  */
 @Component("forest")
 public class Forest extends Room implements Observer {
+
     @Autowired
-    public Forest() {
+    public Forest(Map map) {
         name = "forest";
         description = "You are in the forest. West of you there's a castle, and in the east there's a keep ";
         hint = "One tree looks different from the others, it's sticking out. In front of you lies a rusty key";
-
-    }
-    @PostConstruct
-    public void init(){
-        //featureFactory.registerFeature(name, this);
-        this.setNearbyRooms(map.getNearbyRooms(name));
-        this.setRoomItems(map.getRoomItems(name));
+        nearbyRooms = map.getNearbyRooms(name);
+        roomItems = map.getRoomItems(name);
     }
 
     @Override

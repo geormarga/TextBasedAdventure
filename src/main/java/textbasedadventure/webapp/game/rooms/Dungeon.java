@@ -5,7 +5,9 @@
  */
 package textbasedadventure.webapp.game.rooms;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
 
@@ -17,22 +19,17 @@ import javax.annotation.PostConstruct;
 @Component
 public class Dungeon extends Room implements Observer {
 
-    public Dungeon() {
+    @Autowired
+    public Dungeon(Map map) {
         name = "dungeon";
         description = "This must be a dungeon, by the looks of it many people drew their final breath here...";
         hint = "There's a musty corpse on the ground";
-    }
-    @PostConstruct
-    private void init(){
-        //featureFactory.registerFeature(name, this);
-        this.setNearbyRooms(map.getNearbyRooms(name));
-        this.setRoomItems(map.getRoomItems(name));
+        nearbyRooms = map.getNearbyRooms(name);
+        roomItems= map.getRoomItems(name);
     }
 
     @Override
-    public void update(State state) {
-        //
-    }
+    public void update(State state) {}
 
     @Override
     public String getMovementMessage() {

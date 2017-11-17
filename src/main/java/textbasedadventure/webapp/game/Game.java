@@ -21,15 +21,16 @@ public class Game {
     private Parser parser;
     @Autowired
     private Command command;
+    @Autowired
+    private Map map;
 
-    public String getDescription(State state,String text) {
+    public String getDescription(State state, String text) {
 
         this.setText(text);
         String commandResult = parser.getCommandResultMessage(text, command);
         if (parser.commandIsValid()) {
             // Replace direction with actual room name (e.g. "north" could be replaced with "forest").
             String currentRoomName = state.getCurrentRoom().getName();
-            Map map = state.getCurrentRoom().getMap();
             map.getRoomInDirection(currentRoomName, command.getAttributes());
             // Select the correct action based on the command given.
             Action action = actionController.getAction(command.getCommand());
@@ -39,7 +40,7 @@ public class Game {
             command.clearValues();
             // Execute the action
             return actionController.executeAction(action, features, state);
-        }else{
+        } else {
             return commandResult;
         }
     }
