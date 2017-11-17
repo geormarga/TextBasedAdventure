@@ -4,14 +4,15 @@ package textbasedadventure.webapp.controllers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import textbasedadventure.game.Game;
-import textbasedadventure.game.State;
+import textbasedadventure.webapp.game.Game;
+import textbasedadventure.webapp.game.State;
 import textbasedadventure.webapp.models.Command;
 import textbasedadventure.webapp.models.Save;
 import textbasedadventure.webapp.repositories.SaveRepository;
@@ -19,13 +20,15 @@ import textbasedadventure.webapp.repositories.SaveRepository;
 import java.util.List;
 
 @RestController
+@Scope("session")
 public class GameController {
 
     @Autowired
     private SaveRepository repository;
-
-    private State state = new State();
-    private Game game = new Game();
+    @Autowired
+    private State state;
+    @Autowired
+    private Game game;
 
     @RequestMapping(value = "/game", method = RequestMethod.POST)
     public ResponseEntity<Command> game(@RequestBody Command command) {

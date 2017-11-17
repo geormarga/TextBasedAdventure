@@ -1,6 +1,7 @@
 package textbasedadventure.webapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import textbasedadventure.webapp.repositories.UserRepository;
 import java.util.List;
 
 @RestController
+@Scope("session")
 public class UserController {
 
     @Autowired

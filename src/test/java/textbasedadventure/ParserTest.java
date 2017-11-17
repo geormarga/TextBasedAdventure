@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import textbasedadventure.game.Command;
-import textbasedadventure.game.CommandList;
-import textbasedadventure.game.Parser;
+import textbasedadventure.webapp.game.Command;
+import textbasedadventure.webapp.game.CommandList;
+import textbasedadventure.webapp.game.Parser;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

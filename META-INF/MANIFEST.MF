@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: textbasedadventure.game.TextBasedAdventure
+Main-Class: textbasedadventure.webapp.game.TextBasedAdventure
