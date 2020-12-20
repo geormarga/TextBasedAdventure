@@ -1,39 +1,38 @@
 package textbasedadventure.webapp.game;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.w3c.dom.NodeList;
-
 import javax.annotation.PostConstruct;
+
+import org.json.simple.JSONArray;
+import org.springframework.stereotype.Component;
+
+import textbasedadventure.webapp.game.parsing.JSONParser;
 
 @Component
 public class Persistence {
-
-    private NodeList items;
-    private NodeList rooms;
+    private JSONArray roomsArray, itemsArray;
 
     Persistence() {
     }
 
     @PostConstruct
-    public void init(){
-        rooms = XMLParser.toNodeList("Rooms.xml");
-        items = XMLParser.toNodeList("Items.xml");
+    public void init() {
+        roomsArray = JSONParser.toJsonArray("src/main/resources/Rooms.json", "rooms");
+        itemsArray = JSONParser.toJsonArray("src/main/resources/Items.json", "rooms");
     }
 
-    public NodeList getRooms() {
-        return rooms;
+    public JSONArray getRoomsArray() {
+        return roomsArray;
     }
 
-    public void setRooms(NodeList rooms) {
-        this.rooms = rooms;
+    public void setRoomsArray(JSONArray roomsArray) {
+        this.roomsArray = roomsArray;
     }
 
-    public NodeList getItems() {
-        return items;
+    public JSONArray getItemsArray() {
+        return itemsArray;
     }
 
-    public void setItems(NodeList items) {
-        this.items = items;
+    public void setItemsArray(JSONArray itemsArray) {
+        this.itemsArray = itemsArray;
     }
 }

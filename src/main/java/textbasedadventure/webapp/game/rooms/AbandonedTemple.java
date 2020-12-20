@@ -7,11 +7,10 @@ package textbasedadventure.webapp.game.rooms;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
-
-import javax.annotation.PostConstruct;
 
 /**
  * @author Aenaos
@@ -26,7 +25,7 @@ public class AbandonedTemple extends Room implements Observer {
                 + " by to witness this enchanted old ruin.";
         hint = "In sight are: A statue and an altar.";
         nearbyRooms = map.getNearbyRooms(name);
-        roomItems= map.getRoomItems(name);
+        roomItems = map.getRoomItems(name);
 
     }
 

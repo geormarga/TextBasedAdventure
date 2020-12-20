@@ -1,10 +1,13 @@
 package textbasedadventure.webapp.game;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.w3c.dom.Element;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class Map {
@@ -18,27 +21,20 @@ public class Map {
      * @param currentRoom The room currently at
      * @param attributes  The command attributes that have been parsed
      */
-    void getRoomInDirection(String currentRoom, List<String> attributes) {
+    List<String> getRoomInDirection(String currentRoom, List<String> attributes) {
+        JSONArray jsonArray = (JSONArray) persistence
+                .getRoomsArray()
+                .stream()
+                .filter(cmd -> ((JSONObject) cmd).get("name").equals(currentRoom))
+                .map(cmd -> ((JSONObject) cmd).get("adjacentRooms"))
+                .findFirst().get();
 
-        List<Element> elementList = new ArrayList<>();
-        List<Element> parentList = XMLParser.toElementList(persistence.getRooms());
-        for (Element parent : parentList) {
-            List<Element> childList = XMLParser.toElementList(parent.getChildNodes());
-            elementList.addAll(childList);
-        }
-
-        for (Element element : elementList) {
-            Element parent = (Element) element.getParentNode();
-            if (parent.getAttribute("name").equals(currentRoom)) {
-                for (String attr : attributes) {
-                    if (element.getAttribute("name").equals(attr)) {
-                        attributes.set(attributes.indexOf(attr), element.getFirstChild().getTextContent());
-                    }
-                }
-            }
-        }
+        return (List<String>) jsonArray
+                .stream()
+                .filter(cmd -> attributes.contains(((JSONObject) cmd).get("name")))
+                .map(room -> ((JSONObject) room).get("text"))
+                .collect(Collectors.toList());
     }
-
 
 
     /**
@@ -48,19 +44,34 @@ public class Map {
      * @return The adjacent rooms for the specified roomName
      */
     public List<String> getNearbyRooms(String roomName) {
-        return XMLParser.getElements(roomName, persistence.getRooms());
+        JSONArray jsonArray = (JSONArray) persistence.getRoomsArray()
+                .stream()
+                .filter(room -> ((JSONObject) room).get("name").equals(roomName))
+                .map(room -> ((JSONObject) room).get("adjacentRooms"))
+                .findFirst().get();
+
+        return (List<String>) jsonArray
+                .stream()
+                .map(room -> ((JSONObject) room).get("name"))
+                .collect(Collectors.toList());
     }
 
     /**
-     * Method that gets a room's items as defined in the xml file
+     * Method that gets a room's items
      *
      * @param roomName The name of the room
      * @return The contained items for the specified roomName
      */
     public List<String> getRoomItems(String roomName) {
-        return XMLParser.getElements(roomName, persistence.getItems());
-    }
+        List<JSONArray> returnList = (List<JSONArray>) persistence.getItemsArray()
+                .stream()
+                .filter(cmd -> ((JSONObject) cmd).get("name").equals(roomName))
+                .map(cmd -> ((JSONObject) cmd).getOrDefault("items", null))
+                .collect(Collectors.toList());
 
+        return returnList.isEmpty() ? Collections.emptyList() : (List<String>) returnList.get(0);
+
+    }
 
 
 }

@@ -1,0 +1,123 @@
+{
+  "commands": [
+    {
+      "name": "start",
+      "attributes": [
+        "game"
+      ]
+    },
+    {
+      "name": "go",
+      "attributes": [
+        "east",
+        "west",
+        "south",
+        "north",
+        "in",
+        "out",
+        "left",
+        "right",
+        "straight",
+        "back",
+        "down",
+        "up"
+      ]
+    },
+    {
+      "name": "use",
+      "attributes": [
+        "rusty key",
+        "silver key",
+        "golden key",
+        "torch",
+        "elixir"
+      ]
+    },
+    {
+      "name": "open",
+      "attributes": [
+        "door",
+        "chest",
+        "hatch"
+      ]
+    },
+    {
+      "name": "load",
+      "attributes": [
+        "game"
+      ]
+    },
+    {
+      "name": "look",
+      "attributes": [
+        "around"
+      ]
+    },
+    {
+      "name": "show",
+      "attributes": [
+        "inventory"
+      ]
+    },
+    {
+      "name": "turn",
+      "attributes": [
+        "wheel"
+      ]
+    },
+    {
+      "name": "pull",
+      "attributes": [
+        "book"
+      ]
+    },
+    {
+      "name": "pick up",
+      "attributes": [
+        "key",
+        "note",
+        "torch",
+        "sundial",
+        "artifact",
+        "elixir",
+        "piece"
+      ]
+    },
+    {
+      "name": "examine",
+      "attributes": [
+        "key",
+        "torch",
+        "tree",
+        "sundial",
+        "hole",
+        "chest",
+        "note",
+        "plain note",
+        "torn note",
+        "mud pit",
+        "corpse",
+        "water",
+        "wheel",
+        "wooden wheel",
+        "hatch",
+        "parchment",
+        "statue",
+        "altar",
+        "bookshelf",
+        "book",
+        "stand",
+        "artifact",
+        "circular artifact",
+        "triangular artifact",
+        "rectangular artifact",
+        "rock",
+        "old man",
+        "elixir",
+        "rusty key",
+        "silver key",
+        "golden key"
+      ]
+    }
+  ]
+}

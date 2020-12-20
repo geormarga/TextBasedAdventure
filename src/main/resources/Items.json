@@ -1,0 +1,77 @@
+{
+  "rooms": [
+    {
+      "name": "forest",
+      "items": [
+        "rusty key",
+        "moldy tree",
+        "sundial"
+      ]
+    },
+    {
+      "name": "abandoned temple",
+      "items": [
+        "statue",
+        "altar"
+      ]
+    },
+    {
+      "name": "castle",
+      "items": [
+        "common chest"
+      ]
+    },
+    {
+      "name": "cave",
+      "items": [
+        "rock",
+        "old man"
+      ]
+    },
+    {
+      "name": "dead end",
+      "items": [
+        "hole",
+        "wooden wheel",
+        "hatch"
+      ]
+    },
+    {
+      "name": "dungeon",
+      "items": [
+        "water",
+        "corpse",
+        "parchment"
+      ]
+    },
+    {
+      "name": "hall",
+      "items": [
+        "common chest",
+        "rusty key"
+      ]
+    },
+    {
+      "name": "hidden room",
+      "items": [
+        "stand",
+        "triangular artifact"
+      ]
+    },
+    {
+      "name": "keep",
+      "items": [
+        "silver chest",
+        "mudpit",
+        "silver key"
+      ]
+    },
+    {
+      "name": "study",
+      "items": [
+        "book",
+        "bookshelf"
+      ]
+    }
+  ]
+}

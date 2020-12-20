@@ -1,17 +1,19 @@
 package textbasedadventure.webapp.game;
 
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import textbasedadventure.webapp.game.parsing.JSONParser;
 
 public class CommandList {
 
-    private NodeList commandList;
+    private final JSONArray commandList;
 
     public CommandList() {
-        this.commandList = XMLParser.toNodeList("CommandList.xml");
+        this.commandList = JSONParser.toJsonArray("src/main/resources/CommandList.json", "commands");
     }
 
     boolean isVerb(String command) {
@@ -34,19 +36,24 @@ public class CommandList {
      * @return A list of the available commands
      */
     List<String> getCommands() {
-        List<String> commands = new ArrayList<>();
-        List<Element> elements = XMLParser.toElementList(commandList);
-        elements.forEach(element -> commands.add(element.getAttribute("name")));
-        return commands;
+        return (List<String>) commandList
+                .stream()
+                .map(cmd -> ((JSONObject) cmd).get("name"))
+                .map(Object::toString)
+                .collect(Collectors.toList());
     }
 
     /**
-     * Method that gets a commands's attributes as defined in the xml file
+     * Method that gets a command's attributes by providing the command name
      *
      * @param command The string representing a command name
      * @return The contained attributes for the specified command
      */
     List<String> getAttributes(String command) {
-        return XMLParser.getElements(command, commandList);
+        return (List<String>) commandList
+                .stream()
+                .filter(cmd -> ((JSONObject) cmd).get("name").equals(command))
+                .map(cmd -> ((JSONObject) cmd).get("attributes"))
+                .findFirst().get();
     }
 }

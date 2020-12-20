@@ -1,0 +1,156 @@
+{
+  "rooms": [
+    {
+      "name": "forest",
+      "adjacentRooms": [
+        {
+          "name": "north",
+          "text": "dead end"
+        },
+        {
+          "name": "west",
+          "text": "castle"
+        },
+        {
+          "name": "east",
+          "text": "keep"
+        }
+      ]
+    },
+    {
+      "name": "abandoned temple",
+      "adjacentRooms": [
+        {
+          "name": "west",
+          "text": "keep"
+        }
+      ]
+    },
+    {
+      "name": "castle",
+      "adjacentRooms": [
+        {
+          "name": "east",
+          "text": "forest"
+        },
+        {
+          "name": "in",
+          "text": "hall"
+        },
+        {
+          "name": "west",
+          "text": "cave"
+        }
+      ]
+    },
+    {
+      "name": "cave",
+      "adjacentRooms": [
+        {
+          "name": "east",
+          "text": "castle"
+        }
+      ]
+    },
+    {
+      "name": "dead end",
+      "adjacentRooms": [
+        {
+          "name": "south",
+          "text": "forest"
+        },
+        {
+          "name": "down",
+          "text": "dungeon"
+        }
+      ]
+    },
+    {
+      "name": "dungeon",
+      "adjacentRooms": [
+        {
+          "name": "up",
+          "text": "hall"
+        }
+      ]
+    },
+    {
+      "name": "hall",
+      "adjacentRooms": [
+        {
+          "name": "out",
+          "text": "castle"
+        },
+        {
+          "name": "right",
+          "text": "living room"
+        },
+        {
+          "name": "down",
+          "text": "dungeon"
+        },
+        {
+          "name": "left",
+          "text": "study"
+        }
+      ]
+    },
+    {
+      "name": "hidden room",
+      "adjacentRooms": [
+        {
+          "name": "out",
+          "text": "study"
+        }
+      ]
+    },
+    {
+      "name": "keep",
+      "adjacentRooms": [
+        {
+          "name": "west",
+          "text": "forest"
+        },
+        {
+          "name": "east",
+          "text": "abandoned temple"
+        }
+      ]
+    },
+    {
+      "name": "living room",
+      "adjacentRooms": [
+        {
+          "name": "left",
+          "text": "hall"
+        }
+      ]
+    },
+    {
+      "name": "starting room",
+      "adjacentRooms": [
+        {
+          "name": "game",
+          "text": "forest"
+        }
+      ]
+    },
+    {
+      "name": "study",
+      "adjacentRooms": [
+        {
+          "name": "right",
+          "text": "hall"
+        },
+        {
+          "name": "down",
+          "text": "dungeon"
+        },
+        {
+          "name": "in",
+          "text": "hidden room"
+        }
+      ]
+    }
+  ]
+}
