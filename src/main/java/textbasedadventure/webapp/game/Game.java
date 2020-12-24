@@ -31,11 +31,11 @@ public class Game {
         if (parser.commandIsValid()) {
             // Replace direction with actual room name (e.g. "north" could be replaced with "forest").
             String currentRoomName = state.getCurrentRoom().getName();
-            map.getRoomInDirection(currentRoomName, command.getAttributes());
+            List<String> rooms = map.getRoomInDirection(currentRoomName, command.getAttributes());
             // Select the correct action based on the command given.
             Action action = actionController.getAction(command.getCommand());
             // Select the items the action should be executed on based on the attributes of the command given.
-            List<Feature> features = featureController.getFeatures(command.getAttributes(), state.getFeatureFactory());
+            List<Feature> features = featureController.getFeatures(rooms, state.getFeatureFactory());
             //Clear the command values.
             command.clearValues();
             // Execute the action
