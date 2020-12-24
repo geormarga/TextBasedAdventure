@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="tba:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="tba-1.0.0.war">
-      <element id="artifact" artifact-name="tba:war exploded" />
-    </root>
-  </artifact>
-</component>
