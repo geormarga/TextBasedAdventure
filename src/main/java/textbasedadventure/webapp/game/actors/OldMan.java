@@ -1,35 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package textbasedadventure.webapp.game.items;
-
-import org.springframework.stereotype.Component;
-import textbasedadventure.webapp.game.rooms.Room;
+package textbasedadventure.webapp.game.actors;
 
 import java.util.Scanner;
+
+import org.springframework.stereotype.Component;
+
+import textbasedadventure.webapp.game.features.Examinable;
+import textbasedadventure.webapp.game.features.Interactable;
+import textbasedadventure.webapp.game.rooms.Room;
 
 /**
  * @author Aenaos
  */
 @Component("old man")
-public class OldMan extends Item {
+public class OldMan extends Actor implements Interactable, Examinable {
 
     private String choice;
 
     public OldMan() {
         name = "old man";
         description = "You see an old man screaming in pain.What do you do?\n"
-                + "Put him out of his misery..[press 1]\nTry to help him somehow[press 2]"
-                + "\nDo nothing[press 3]";
+                + "Put him out of his misery..[press 1]\nTry to help him somehow[press 2]\n"
+                + "Do nothing[press 3]";
         //featureFactory.registerFeature(this.name, this);
     }
 
-    public void examine(Room room) {
+    @Override
+    public String interact(Room room) {
         System.out.println(this.getDescription());
         OUTER:
-        while (this.getDescription().equals("You see an old man screaming in pain.What do you do?\n"
+        while (this.getDescription().equals("You see an old man screaming in pain. What do you do?\n"
                 + "Put him out of his misery..[press 1]\nTry to help him somehow[press 2]"
                 + "\nDo nothing[press 3]")) {
             Scanner scan = new Scanner(System.in);
@@ -41,8 +40,8 @@ public class OldMan extends Item {
                     this.createItem(room);
                     break;
                 case "2": //Change the descriptions
-                    this.setDescription("The old man is in a lot of pain and he is trempling.\n"
-                            + "He seems to have a desease");
+                    this.setDescription("The old man is in a lot of pain and he is trembling.\n"
+                            + "He seems to have a disease");
                     System.out.println(this.getDescription());
                     break;
                 case "3":
@@ -53,6 +52,7 @@ public class OldMan extends Item {
                     break;
             }
         }
+        return this.getDescription();
     }
 
     private void createItem(Room room) //Create item golden key

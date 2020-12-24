@@ -23,6 +23,7 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     protected List<String> nearbyRooms;
     protected List<String> roomItems;
+    protected List<String> roomActors;
     protected String name;
     protected String description;
     protected String hint;
@@ -33,6 +34,18 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     public void unregisterItem(String itemName) {
         roomItems.remove(itemName);
+    }
+
+    public void registerActor(String actorName) {
+        roomActors.add(actorName);
+    }
+
+    public void unregisterActor(String actorName) {
+        roomActors.remove(actorName);
+    }
+
+    public boolean isPresentInRoom(String actorName) {
+        return roomActors.contains(actorName);
     }
 
     void registerRoom(String roomName) {
