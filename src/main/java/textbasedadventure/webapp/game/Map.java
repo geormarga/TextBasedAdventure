@@ -31,8 +31,8 @@ public class Map {
 
         return (List<String>) jsonArray
                 .stream()
-                .filter(cmd -> attributes.contains(((JSONObject) cmd).get("name")))
-                .map(room -> ((JSONObject) room).get("text"))
+                .filter(cmd -> attributes.contains(((JSONObject) cmd).get("text")))
+                .map(room -> ((JSONObject) room).get("name"))
                 .collect(Collectors.toList());
     }
 
