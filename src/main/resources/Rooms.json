@@ -4,16 +4,16 @@
       "name": "forest",
       "adjacentRooms": [
         {
-          "name": "north",
-          "text": "dead end"
+          "name": "dead end",
+          "text": "north"
         },
         {
-          "name": "west",
-          "text": "castle"
+          "name": "castle",
+          "text": "west"
         },
         {
-          "name": "east",
-          "text": "keep"
+          "name": "keep",
+          "text": "east"
         }
       ]
     },
@@ -21,8 +21,8 @@
       "name": "abandoned temple",
       "adjacentRooms": [
         {
-          "name": "west",
-          "text": "keep"
+          "name": "keep",
+          "text": "west"
         }
       ]
     },
@@ -30,16 +30,16 @@
       "name": "castle",
       "adjacentRooms": [
         {
-          "name": "east",
-          "text": "forest"
+          "name": "forest",
+          "text": "east"
         },
         {
-          "name": "in",
-          "text": "hall"
+          "name": "hall",
+          "text": "in"
         },
         {
-          "name": "west",
-          "text": "cave"
+          "name": "cave",
+          "text": "west"
         }
       ]
     },
@@ -47,8 +47,8 @@
       "name": "cave",
       "adjacentRooms": [
         {
-          "name": "east",
-          "text": "castle"
+          "name": "castle",
+          "text": "east"
         }
       ]
     },
@@ -56,8 +56,8 @@
       "name": "dead end",
       "adjacentRooms": [
         {
-          "name": "south",
-          "text": "forest"
+          "name": "forest",
+          "text": "south"
         },
         {
           "name": "down",
@@ -69,8 +69,8 @@
       "name": "dungeon",
       "adjacentRooms": [
         {
-          "name": "up",
-          "text": "hall"
+          "name": "hall",
+          "text": "up"
         }
       ]
     },
@@ -78,8 +78,8 @@
       "name": "hall",
       "adjacentRooms": [
         {
-          "name": "out",
-          "text": "castle"
+          "name": "castle",
+          "text": "out"
         },
         {
           "name": "right",
@@ -99,8 +99,8 @@
       "name": "hidden room",
       "adjacentRooms": [
         {
-          "name": "out",
-          "text": "study"
+          "name": "study",
+          "text": "out"
         }
       ]
     },
@@ -108,12 +108,12 @@
       "name": "keep",
       "adjacentRooms": [
         {
-          "name": "west",
-          "text": "forest"
+          "name": "forest",
+          "text": "west"
         },
         {
-          "name": "east",
-          "text": "abandoned temple"
+          "name": "abandoned temple",
+          "text": "east"
         }
       ]
     },
@@ -121,8 +121,8 @@
       "name": "living room",
       "adjacentRooms": [
         {
-          "name": "left",
-          "text": "hall"
+          "name": "hall",
+          "text": "left"
         }
       ]
     },
@@ -130,8 +130,8 @@
       "name": "starting room",
       "adjacentRooms": [
         {
-          "name": "game",
-          "text": "forest"
+          "name": "forest",
+          "text": "north"
         }
       ]
     },
@@ -139,16 +139,16 @@
       "name": "study",
       "adjacentRooms": [
         {
-          "name": "right",
-          "text": "hall"
+          "name": "hall",
+          "text": "right"
         },
         {
-          "name": "down",
-          "text": "dungeon"
+          "name": "dungeon",
+          "text": "down"
         },
         {
-          "name": "in",
-          "text": "hidden room"
+          "name": "hidden room",
+          "text": "in"
         }
       ]
     }
