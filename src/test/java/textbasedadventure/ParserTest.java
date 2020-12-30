@@ -113,44 +113,8 @@ public class ParserTest {
     @Test
     public void commandWithValidMultipleAttributes() {
         parser.getCommandResultMessage("pick up rectangular artifact triangular artifact", command);
-        list.add("triangular artifact");
         list.add("rectangular artifact");
+        list.add("triangular artifact");
         Assert.assertEquals(list, command.getAttributes());
-    }
-
-    @Test
-    public void isNotCommand() throws Exception {
-        method = Parser.class.getDeclaredMethod("isCommand", String.class, CommandList.class);
-        method.setAccessible(true);
-        String command = "takis";
-        boolean test = (boolean) this.method.invoke(parser, command, cmdList);
-        Assert.assertEquals(false, test);
-    }
-
-    @Test
-    public void isCommand() throws Exception {
-        method = Parser.class.getDeclaredMethod("isCommand", String.class, CommandList.class);
-        method.setAccessible(true);
-        String command = "start";
-        boolean test = (boolean) this.method.invoke(parser, command, cmdList);
-        Assert.assertEquals(true, test);
-    }
-
-    @Test
-    public void isNotAttribute() throws Exception {
-        method = Parser.class.getDeclaredMethod("isAttribute", List.class, CommandList.class);
-        method.setAccessible(true);
-        list = Arrays.asList("rectangular", "key");
-        boolean actual = (boolean) this.method.invoke(parser, list, cmdList);
-        Assert.assertEquals(false, actual);
-    }
-
-    @Test
-    public void isAttribute() throws Exception {
-        method = Parser.class.getDeclaredMethod("isAttribute", List.class, CommandList.class);
-        method.setAccessible(true);
-        list = Arrays.asList("rectangular artifact", "key");
-        boolean actual = (boolean) this.method.invoke(parser, list, cmdList);
-        Assert.assertEquals(true, actual);
     }
 }
