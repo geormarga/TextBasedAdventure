@@ -66,6 +66,25 @@
       ]
     },
     {
+      "name": "hit",
+      "attributes": [
+        "old man"
+      ]
+    },
+    {
+      "name": "give",
+      "attributes": [
+        "potion",
+        "old man"
+      ]
+    },
+    {
+      "name": "interact",
+      "attributes": [
+        "old man"
+      ]
+    },
+    {
       "name": "pull",
       "attributes": [
         "book"
@@ -78,7 +97,8 @@
         "note",
         "torch",
         "sundial",
-        "artifact",
+        "rectangular artifact",
+        "triangular artifact",
         "elixir",
         "piece"
       ]
