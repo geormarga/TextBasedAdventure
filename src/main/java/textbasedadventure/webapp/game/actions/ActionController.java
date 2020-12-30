@@ -7,6 +7,8 @@ package textbasedadventure.webapp.game.actions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import textbasedadventure.webapp.game.exceptions.NotEligibleForActionException;
 import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.State;
 
@@ -30,16 +32,17 @@ public class ActionController {
      */
     public String executeAction(Action action, List<Feature> features, State state) {
         try {
-            features = features.stream().filter(feature -> action.isEligibleForAction(state, feature)).collect(Collectors.toList());
-            for (Feature feature : features) {
-                return action.execute(state, feature);
-            }
+            action.isEligibleForAction(state, features);
+            return action.execute(state, features);
         } catch (NullPointerException ex) {
             return "Could not find what you were looking for.";
         } catch (ClassCastException ex) {
             return "Can't perform that action on this item.";
+        } catch (NotEligibleForActionException ex){
+            return "Can't perform that action on this item.";
+        }catch (Exception ex){
+            return ex.getMessage();
         }
-        return "Unknown error";
     }
 
 

@@ -5,9 +5,11 @@
  */
 package textbasedadventure.webapp.game.actions;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Examinable;
+import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.items.Item;
 import textbasedadventure.webapp.game.State;
 
@@ -15,15 +17,17 @@ import textbasedadventure.webapp.game.State;
  * @author Aenaos
  */
 @Component("examine")
-public class ExamineAction implements Action<Examinable> {
+public class ExamineAction implements Action {
 
     @Override
-    public String execute(State state, Examinable examinable) {
+    public String execute(State state, List<Feature> examinables) {
+        Examinable examinable = (Examinable) examinables.get(0);
         return examinable.examine();
     }
 
     @Override
-    public boolean isEligibleForAction(State state, Examinable examinable) {
+    public boolean isEligibleForAction(State state, List<Feature> examinables) {
+        Examinable examinable = (Examinable) examinables.get(0);
         Item item = (Item) examinable;
         return state.getCurrentRoom().getRoomItems().contains(item.getName()) || state.getInventory().isInInventory(item.getName());
     }
