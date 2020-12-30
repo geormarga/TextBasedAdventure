@@ -35,6 +35,7 @@ public class GoldenChest extends Item implements Openable {
 
     @Override
     public String open(Inventory inventory) {
+        //TODO: instance of Golden Key instead
         if (inventory.isInInventory("golden key")) {
             this.setOpen(true);
             return "Chest is open you should probably examine it.";
