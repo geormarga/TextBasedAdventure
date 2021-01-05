@@ -2,22 +2,22 @@ package textbasedadventure;
 
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import textbasedadventure.webapp.game.Inventory;
 import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.actors.OldMan;
 import textbasedadventure.webapp.game.items.Elixir;
 import textbasedadventure.webapp.game.rooms.Cave;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootApplication(scanBasePackageClasses= {
+@SpringBootApplication(scanBasePackageClasses = {
         OldMan.class,
         Elixir.class,
         Cave.class,
@@ -32,6 +32,8 @@ public class OldManTest {
     private Map map;
     @Autowired
     private Cave cave;
+    @Autowired
+    private Inventory inventory;
 
 
     @Before
@@ -43,11 +45,25 @@ public class OldManTest {
         cave = null;
         oldMan = null;
         elixir = null;
+        inventory = null;
     }
 
     @Test
-    public void tempTest() {
+    public void saveOldManTest() {
+        this.inventory.registerItem("elixir");
         System.out.println(oldMan.getDescription());
-        oldMan.give(cave, elixir);
+        System.out.println(inventory.show());
+        System.out.println(oldMan.give(inventory, elixir));
+        System.out.println(inventory.show());
+        Assert.assertFalse(inventory.show().contains("elixir"));
+        Assert.assertTrue(inventory.show().contains("golden key"));
+    }
+
+    @Test
+    public void killOldManTest() {
+        System.out.println(oldMan.getDescription());
+        System.out.println(oldMan.hit(cave));
+        System.out.println(oldMan.examine(inventory));
+        Assert.assertTrue(inventory.show().contains("golden key"));
     }
 }
