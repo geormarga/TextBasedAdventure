@@ -22,7 +22,7 @@ public class GiveAction implements Action {
                 .filter(g -> giveable instanceof Item)
                 .findFirst()
                 .get();
-        return giveable.give(state.getCurrentRoom(), item);
+        return giveable.give(state.getInventory(), item);
     }
 
     @Override
