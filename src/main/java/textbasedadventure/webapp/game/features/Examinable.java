@@ -5,10 +5,12 @@
  */
 package textbasedadventure.webapp.game.features;
 
+import textbasedadventure.webapp.game.Inventory;
+
 /**
  * @author Aenaos
  */
 public interface Examinable extends Feature {
 
-    String examine();
+    String examine(Inventory inventory);
 }

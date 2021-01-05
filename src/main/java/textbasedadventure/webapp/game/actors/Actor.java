@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.springframework.stereotype.Component;
 
+import textbasedadventure.webapp.game.Inventory;
 import textbasedadventure.webapp.game.features.Examinable;
 
 /**
@@ -16,7 +17,7 @@ public abstract class Actor implements Examinable, Serializable {
     protected String description;
 
     @Override
-    public String examine() {
+    public String examine(Inventory inventory) {
         return description;
     }
 

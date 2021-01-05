@@ -22,7 +22,7 @@ public class ExamineAction implements Action {
     @Override
     public String execute(State state, List<Feature> examinables) {
         Examinable examinable = (Examinable) examinables.get(0);
-        return examinable.examine();
+        return examinable.examine(state.getInventory());
     }
 
     @Override

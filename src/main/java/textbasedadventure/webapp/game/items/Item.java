@@ -6,6 +6,8 @@
 package textbasedadventure.webapp.game.items;
 
 import org.springframework.stereotype.Component;
+
+import textbasedadventure.webapp.game.Inventory;
 import textbasedadventure.webapp.game.features.Examinable;
 
 import java.io.Serializable;
@@ -20,7 +22,7 @@ public abstract class Item implements Examinable, Serializable {
     protected String description;
 
     @Override
-    public String examine() {
+    public String examine(Inventory inventory) {
         return description;
     }
 
