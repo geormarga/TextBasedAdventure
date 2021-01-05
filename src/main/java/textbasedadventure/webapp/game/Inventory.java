@@ -1,10 +1,11 @@
 package textbasedadventure.webapp.game;
 
-import org.springframework.stereotype.Component;
-import textbasedadventure.webapp.game.features.Showable;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import textbasedadventure.webapp.game.features.Showable;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -49,9 +50,7 @@ public class Inventory implements Showable {
 
     @Override
     public String show() {
-        String string = "";
-        items.forEach(item -> string.concat(" ,"+item));
-        return string;
+        return String.join(",", items);
     }
 
 }
