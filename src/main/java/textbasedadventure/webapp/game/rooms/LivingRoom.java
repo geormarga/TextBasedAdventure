@@ -22,7 +22,6 @@ public class LivingRoom extends Room {
         name = "living room";
         description = "This is the main Dining Room. The plates on the table indicated that this castle has long been abandonded.";
         hint = "This room is a mess... something happened here!";
-        nearbyRooms = map.getNearbyRooms(name);
         roomItems= map.getRoomItems(name);
     }
 }

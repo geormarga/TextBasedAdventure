@@ -23,7 +23,6 @@ public class HiddenRoom extends Room implements Observer {
         name = "hidden room";
         description = "Wow. I didn't believe that it would work!";
         hint = "There is a stand in the center of the room.";
-        nearbyRooms = map.getNearbyRooms(name);
         roomItems = map.getRoomItems(name);
     }
 

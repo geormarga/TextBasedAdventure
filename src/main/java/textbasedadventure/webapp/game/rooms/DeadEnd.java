@@ -27,7 +27,6 @@ public class DeadEnd extends Room implements Observer {
         name = "dead end";
         description = "This is the end of the road. There is a switchlike wheel, and a hatch in the room.";
         hint = "While looking arround you stumble upon a hole in the ground.";
-        nearbyRooms = map.getNearbyRooms(name);
         roomItems= map.getRoomItems(name);
     }
     /*

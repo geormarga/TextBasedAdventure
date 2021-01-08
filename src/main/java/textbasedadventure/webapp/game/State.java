@@ -26,6 +26,8 @@ public class State {
     private Inventory inventory;
     @Autowired
     private FeatureFactory featureFactory;
+    @Autowired
+    private Map map;
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -53,6 +55,14 @@ public class State {
 
     public FeatureFactory getFeatureFactory() {
         return featureFactory;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     public State() {

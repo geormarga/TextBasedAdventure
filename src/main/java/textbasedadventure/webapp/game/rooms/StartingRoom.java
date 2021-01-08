@@ -26,9 +26,6 @@ public class StartingRoom extends Room {
                 + "and find the Escape Room to escape.\n"
                 + "By typing exit game, you can exit anytime. Type start game to begin...";
         hint = "This is the starting room. What did you expect to see?";
-        nearbyRooms = map.getNearbyRooms(name);
-        roomItems= map.getRoomItems(name);
-        nearbyRooms = map.getNearbyRooms(name);
         roomItems= map.getRoomItems(name);
     }
 

@@ -52,24 +52,12 @@ public abstract class Room implements Lookable, Serializable, Moveable {
         nearbyRooms.add(roomName);
     }
 
-    public void unregisterRoom(String roomName) {
-        nearbyRooms.remove(roomName);
-    }
-
     public void setRoomItems(List<String> list) {
         this.roomItems = list;
     }
 
     public List<String> getRoomItems() {
         return this.roomItems;
-    }
-
-    public void setNearbyRooms(List<String> list) {
-        this.nearbyRooms = list;
-    }
-
-    public List<String> getNearbyRooms() {
-        return this.nearbyRooms;
     }
 
     boolean existsInRoom(String itemName) {

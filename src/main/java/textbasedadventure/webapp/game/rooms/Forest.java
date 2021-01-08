@@ -22,7 +22,6 @@ public class Forest extends Room implements Observer {
         name = "forest";
         description = "You are in the forest. West of you there's a castle, and in the east there's a keep ";
         hint = "One tree looks different from the others, it's sticking out. In front of you lies a rusty key";
-        nearbyRooms = map.getNearbyRooms(name);
         roomItems = map.getRoomItems(name);
     }
 
