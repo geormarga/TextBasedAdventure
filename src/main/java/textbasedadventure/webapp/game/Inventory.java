@@ -25,7 +25,6 @@ public class Inventory implements Showable {
 
     public Inventory() {
         name = "inventory";
-        //featureFactory.registerFeature(name, this);
     }
 
     public boolean isInInventory(String item) {
