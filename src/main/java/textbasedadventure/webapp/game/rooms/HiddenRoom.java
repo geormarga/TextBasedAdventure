@@ -21,7 +21,7 @@ public class HiddenRoom extends Room implements Observer {
     @Autowired
     public HiddenRoom(Map map) {
         name = "hidden room";
-        description = "Wow. I didn't believe that it would work!";
+        description = "Wow. I didn't believe that this would work!";
         hint = "There is a stand in the center of the room.";
         roomItems = map.getRoomItems(name);
     }
