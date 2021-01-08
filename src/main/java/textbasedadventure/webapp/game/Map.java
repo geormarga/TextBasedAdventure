@@ -73,5 +73,21 @@ public class Map {
 
     }
 
+    /**
+     * Method that checks if the room given is adjacent to the current room
+     *
+     * @param currentRoom The room currently at
+     * @param adjacentRoom  The possibly adjacent room
+     */
+    public boolean isAdjacent(String currentRoom, String adjacentRoom) {
+        JSONArray jsonArray = (JSONArray) persistence
+                .getRoomsArray()
+                .stream()
+                .filter(cmd -> ((JSONObject) cmd).get("name").equals(currentRoom))
+                .map(cmd -> ((JSONObject) cmd).get("adjacentRooms"))
+                .findFirst().get();
+        return jsonArray.stream().anyMatch(cmd -> ((JSONObject) cmd).get("name").equals(adjacentRoom));
+    }
+
 
 }
