@@ -5,13 +5,13 @@
  */
 package textbasedadventure.webapp.game.features;
 
-import textbasedadventure.webapp.game.rooms.Room;
 import textbasedadventure.webapp.game.items.containers.Inventory;
+import textbasedadventure.webapp.game.items.containers.Container;
 
 /**
  * @author Aenaos
  */
 public interface Pickable extends Examinable {
 
-    String pickup(Inventory inventory, Room room);
+    String pickup(Inventory inventory, Container container);
 }
