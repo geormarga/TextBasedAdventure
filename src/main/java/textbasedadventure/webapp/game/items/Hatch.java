@@ -36,7 +36,7 @@ public class Hatch extends Item implements Openable {
 
     public String open(String attr, State state) {
 
-        WoodenWheel wheel = (WoodenWheel) state.getFeatureFactory().createFeature("wooden wheel");
+        WoodenWheel wheel = (WoodenWheel) state.getFeatureFactory().getFeature("wooden wheel");
         if (!wheel.isTurned()) {
             return "You need to get rid of the water first.";
         } else {

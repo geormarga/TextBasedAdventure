@@ -37,7 +37,7 @@ public class WoodenWheel extends Item implements Turnable {
         if (!isTurned()) {
             this.setTurned(true);
             this.setDescription("Already turned.");
-            Hatch hatch = (Hatch) state.getFeatureFactory().createFeature("hatch");
+            Hatch hatch = (Hatch) state.getFeatureFactory().getFeature("hatch");
             hatch.setOpen(true);
             hatch.updateDescription();
             return "The floodgate is open.";

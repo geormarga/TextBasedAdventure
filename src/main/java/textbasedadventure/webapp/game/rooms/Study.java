@@ -30,10 +30,10 @@ public class Study extends Room implements Observer {
 
     @Override
     public void update(State state) {
-        Book book = (Book) state.getFeatureFactory().createFeature("book");
+        Book book = (Book) state.getFeatureFactory().getFeature("book");
         if (book.isPulled()) {
             this.registerRoom("hidden room");
-            Bookshelf bookshelf = (Bookshelf) state.getFeatureFactory().createFeature("bookshelf");
+            Bookshelf bookshelf = (Bookshelf) state.getFeatureFactory().getFeature("bookshelf");
             bookshelf.setDescription("A chasm opened on the wall, you can go in.");
         }
     }

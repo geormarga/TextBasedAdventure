@@ -30,7 +30,7 @@ public class HiddenRoom extends Room implements Observer {
     @Override
     public void update(State state) {
         if (!state.getCurrentRoom().existsInRoom("triangular artifact")) {
-            Stand stand = (Stand) state.getFeatureFactory().createFeature("stand");
+            Stand stand = (Stand) state.getFeatureFactory().getFeature("stand");
             stand.setDescription("A stone stand.");
         }
     }

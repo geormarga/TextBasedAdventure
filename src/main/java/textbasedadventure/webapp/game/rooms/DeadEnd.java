@@ -15,8 +15,6 @@ import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
 import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
-import javax.annotation.PostConstruct;
-
 /**
  * @author Aenaos
  */
@@ -38,13 +36,13 @@ public class DeadEnd extends Room implements Observer {
     @Override
     public void update(State state) {
         if (!existsInRoom("torch")) {
-            Hole hole = (Hole) state.getFeatureFactory().createFeature("hole");
+            Hole hole = (Hole) state.getFeatureFactory().getFeature("hole");
             hole.setDescription("Just an empty hole...");
         }
 
-        WoodenWheel wheel = (WoodenWheel) state.getFeatureFactory().createFeature("wooden wheel");
+        WoodenWheel wheel = (WoodenWheel) state.getFeatureFactory().getFeature("wooden wheel");
         if (wheel.isTurned()) {
-            Hatch hatch = (Hatch) state.getFeatureFactory().createFeature("hatch");
+            Hatch hatch = (Hatch) state.getFeatureFactory().getFeature("hatch");
             hatch.setOpen(true);
             this.registerItem("hatch");
         }
