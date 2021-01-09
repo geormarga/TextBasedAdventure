@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.items;
 
 import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Turnable;
 import textbasedadventure.webapp.game.State;
 
-/**
- * @author Aenaos
- */
 @Component("wooden wheel")
 public class WoodenWheel extends Item implements Turnable {
 
@@ -20,7 +12,6 @@ public class WoodenWheel extends Item implements Turnable {
     public WoodenWheel() {
         name = "wooden wheel";
         description = "You can turn it, to open the floodgate.";
-        //featureFactory.registerFeature(this.name, this);
     }
 
     public boolean isTurned() {

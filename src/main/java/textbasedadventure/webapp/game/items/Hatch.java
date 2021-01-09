@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.items;
 
 import textbasedadventure.webapp.game.features.Openable;
 import textbasedadventure.webapp.game.items.containers.Inventory;
 import textbasedadventure.webapp.game.State;
 
-/**
- * @author Aenaos
- */
 public class Hatch extends Item implements Openable {
 
     private boolean isOpen;
@@ -27,7 +19,6 @@ public class Hatch extends Item implements Openable {
     public Hatch() {
         name = "hatch";
         description = "The area below the hatch is flooded. I need to get rid of the water so that I can go down there.";
-        //featureFactory.registerFeature(this.name, this);
     }
 
     void updateDescription() {

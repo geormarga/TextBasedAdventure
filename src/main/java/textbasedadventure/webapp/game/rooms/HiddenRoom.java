@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.rooms;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +8,6 @@ import textbasedadventure.webapp.game.State;
 import textbasedadventure.webapp.game.items.Stand;
 import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
-/**
- * @author Aenaos
- */
 @Component
 public class HiddenRoom extends Room implements Observer {
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.items;
 
 import org.springframework.stereotype.Component;
@@ -12,16 +7,12 @@ import textbasedadventure.webapp.game.items.containers.Container;
 import textbasedadventure.webapp.game.rooms.Room;
 import textbasedadventure.webapp.game.items.containers.Inventory;
 
-/**
- * @author Aenaos
- */
 @Component("torch")
 public class Torch extends Item implements Pickable, Usable {
 
     public Torch() {
         name = "torch";
         description = "A wooden torch that can be used to see in the dark";
-        //featureFactory.registerFeature(this.name, this);
     }
 
     @Override

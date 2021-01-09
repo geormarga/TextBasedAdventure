@@ -4,10 +4,6 @@ import org.springframework.stereotype.Component;
 
 import textbasedadventure.webapp.game.features.Showable;
 
-
-/**
- * @author Aenaos
- */
 @Component("inventory")
 public class Inventory extends Container implements Showable {
 

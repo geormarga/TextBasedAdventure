@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.actions;
 
 import java.util.List;
@@ -14,9 +9,6 @@ import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.features.Pullable;
 import textbasedadventure.webapp.game.items.Item;
 
-/**
- * @author Aenaos
- */
 @Component("pull")
 public class PullAction implements Action {
 

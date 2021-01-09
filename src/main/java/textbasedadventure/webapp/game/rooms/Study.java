@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.rooms;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +9,6 @@ import textbasedadventure.webapp.game.items.Book;
 import textbasedadventure.webapp.game.items.Bookshelf;
 import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
-/**
- * @author Aenaos
- */
 @Component("study")
 public class Study extends Room implements Observer {
 

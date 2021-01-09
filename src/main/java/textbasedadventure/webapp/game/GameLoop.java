@@ -1,21 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game;
+
+import java.util.List;
+import java.util.Scanner;
 
 import textbasedadventure.webapp.game.actions.Action;
 import textbasedadventure.webapp.game.actions.ActionController;
 import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.features.FeatureController;
 
-import java.util.List;
-import java.util.Scanner;
-
-/**
- * @author Aenaos
- */
 class GameLoop {
 
     private String text;
@@ -43,7 +35,7 @@ class GameLoop {
                 command.clearValues();
                 // Execute the action
                 System.out.println(actionController.executeAction(action, features, state));
-            }else{
+            } else {
                 System.out.println(commandResult);
             }
         }

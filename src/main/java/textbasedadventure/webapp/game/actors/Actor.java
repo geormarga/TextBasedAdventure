@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.items.containers.Inventory;
 import textbasedadventure.webapp.game.features.Examinable;
 
-/**
- * @author Aenaos
- */
 @Component
 public abstract class Actor implements Examinable, Serializable {
 

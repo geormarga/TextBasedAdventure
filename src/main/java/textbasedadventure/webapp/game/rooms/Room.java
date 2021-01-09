@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.rooms;
 
 import java.io.Serializable;
@@ -15,9 +10,6 @@ import textbasedadventure.webapp.game.features.Lookable;
 import textbasedadventure.webapp.game.features.Moveable;
 import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
-/**
- * @author Aenaos
- */
 @Component
 public abstract class Room implements Lookable, Serializable, Moveable {
 

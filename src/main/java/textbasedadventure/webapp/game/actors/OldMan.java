@@ -11,9 +11,6 @@ import textbasedadventure.webapp.game.items.Elixir;
 import textbasedadventure.webapp.game.items.Item;
 import textbasedadventure.webapp.game.rooms.Room;
 
-/**
- * @author Aenaos
- */
 @Component("oldman")
 public class OldMan extends Actor implements Interactable, Hitable, Giveable, Examinable {
 

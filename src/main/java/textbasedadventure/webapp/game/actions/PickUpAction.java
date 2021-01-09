@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.actions;
 
 import java.util.ArrayList;
@@ -19,9 +14,6 @@ import textbasedadventure.webapp.game.items.Item;
 import textbasedadventure.webapp.game.items.containers.Chest;
 import textbasedadventure.webapp.game.items.containers.Container;
 
-/**
- * @author Aenaos
- */
 @Component("pick up")
 public class PickUpAction implements Action {
 
@@ -32,7 +24,6 @@ public class PickUpAction implements Action {
         Container container = getContainers(state).stream().filter(cont -> cont.isInContainer(item.getName())).findFirst().get();
         return pickable.pickup(state.getInventory(), container);
     }
-
 
     @Override
     public boolean isEligibleForAction(State state, List<Feature> pickables) {
