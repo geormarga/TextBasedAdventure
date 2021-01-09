@@ -1,10 +1,9 @@
 package textbasedadventure.webapp.game.items.containers;
 
-import java.util.List;
+import textbasedadventure.webapp.game.features.Showable;
 
-public abstract class Chest extends Container {
+public abstract class Chest extends Container implements Showable {
 
-    protected List<String> containerItems;
     protected boolean unlocked;
 
     public void setUnlocked(boolean unlocked) {
@@ -15,7 +14,8 @@ public abstract class Chest extends Container {
         return this.unlocked;
     }
 
-    public List<String> getContainerItems() {
-        return this.containerItems;
+    @Override
+    public String show() {
+        return String.join(",", items);
     }
 }

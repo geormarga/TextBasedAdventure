@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
+import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
 import javax.annotation.PostConstruct;
 
@@ -24,7 +25,7 @@ public class Dungeon extends Room implements Observer {
         name = "dungeon";
         description = "This must be a dungeon, by the looks of it many people drew their final breath here...";
         hint = "There's a musty corpse on the ground";
-        roomItems= map.getRoomItems(name);
+        roomContainer = new RoomContainer(map.getRoomItems(name));
     }
 
     @Override

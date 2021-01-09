@@ -29,6 +29,6 @@ public class ExamineAction implements Action {
     public boolean isEligibleForAction(State state, List<Feature> examinables) {
         Examinable examinable = (Examinable) examinables.get(0);
         Item item = (Item) examinable;
-        return state.getCurrentRoom().getRoomItems().contains(item.getName()) || state.getInventory().isInInventory(item.getName());
+        return state.getCurrentRoom().getRoomContainer().isInContainer(item.getName()) || state.getInventory().isInInventory(item.getName());
     }
 }

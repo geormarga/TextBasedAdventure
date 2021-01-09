@@ -8,6 +8,7 @@ package textbasedadventure.webapp.game.rooms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.Map;
+import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
 /**
  * @author Aenaos
@@ -20,6 +21,6 @@ public class Hall extends Room {
         name = "hall";
         description = "You went inside the Castle. It's vast halls seem haunted";
         hint = "You can see some rooms left and right ... and stairs heading down.";
-        roomItems = map.getRoomItems(name);
+        roomContainer = new RoomContainer(map.getRoomItems(name));
     }
 }

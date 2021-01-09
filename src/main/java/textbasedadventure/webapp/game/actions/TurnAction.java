@@ -30,6 +30,6 @@ public class TurnAction implements Action {
     public boolean isEligibleForAction(State state, List<Feature> turnables) {
         Turnable turnable = (Turnable) turnables.get(0);
         Item item = (Item) turnable;
-        return state.getCurrentRoom().getRoomItems().contains(item.getName());
+        return state.getCurrentRoom().getRoomContainer().isInContainer(item.getName());
     }
 }

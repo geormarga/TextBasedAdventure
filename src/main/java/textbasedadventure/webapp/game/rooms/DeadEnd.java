@@ -13,6 +13,7 @@ import textbasedadventure.webapp.game.items.WoodenWheel;
 import textbasedadventure.webapp.game.items.containers.Hole;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
+import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
 import javax.annotation.PostConstruct;
 
@@ -27,7 +28,8 @@ public class DeadEnd extends Room implements Observer {
         name = "dead end";
         description = "This is the end of the road. There is a switchlike wheel, and a hatch in the room.";
         hint = "While looking arround you stumble upon a hole in the ground.";
-        roomItems= map.getRoomItems(name);
+        roomContainer = new RoomContainer(map.getRoomItems(name));
+
     }
     /*
      System.out.println("You must open the hatch first.");

@@ -30,6 +30,6 @@ public class PullAction implements Action {
     public boolean isEligibleForAction(State state, List<Feature> pullables) {
         Pullable pullable = (Pullable) pullables.get(0);
         Item item = (Item) pullable;
-        return state.getCurrentRoom().getRoomItems().contains(item.getName());
+        return state.getCurrentRoom().getRoomContainer().isInContainer(item.getName());
     }
 }

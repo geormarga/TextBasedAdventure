@@ -11,6 +11,7 @@ import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
 import textbasedadventure.webapp.game.items.Stand;
+import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
 /**
  * @author Aenaos
@@ -23,7 +24,7 @@ public class HiddenRoom extends Room implements Observer {
         name = "hidden room";
         description = "Wow. I didn't believe that this would work!";
         hint = "There is a stand in the center of the room.";
-        roomItems = map.getRoomItems(name);
+        roomContainer = new RoomContainer(map.getRoomItems(name));
     }
 
     @Override

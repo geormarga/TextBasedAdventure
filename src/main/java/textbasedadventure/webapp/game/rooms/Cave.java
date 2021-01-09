@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import textbasedadventure.webapp.game.Map;
+import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
 @Component("cave")
 public class Cave extends Room {
@@ -18,7 +19,7 @@ public class Cave extends Room {
         name = "cave";
         description = "You are in a cave.";
         hint = "Its kinda dark and you can't see well in here, but you can hear someone screaming!";
-        roomItems= map.getRoomItems(name);
+        roomContainer = new RoomContainer(map.getRoomItems(name));
         this.registerItem("golden chest");
     }
 

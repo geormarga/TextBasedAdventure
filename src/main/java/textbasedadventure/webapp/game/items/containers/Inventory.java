@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Showable;
 
 
-
 /**
  * @author Aenaos
  */
@@ -19,4 +18,11 @@ public class Inventory extends Container implements Showable {
     public boolean isInInventory(String item) {
         return this.isInContainer(item);
     }
+
+    @Override
+    public String show() {
+        return String.join(",", items);
+    }
+
+
 }

@@ -5,15 +5,15 @@
  */
 package textbasedadventure.webapp.game.rooms;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import textbasedadventure.webapp.game.Map;
-import textbasedadventure.webapp.game.features.Lookable;
-import textbasedadventure.webapp.game.features.Moveable;
-import textbasedadventure.webapp.game.State;
-
 import java.io.Serializable;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import textbasedadventure.webapp.game.State;
+import textbasedadventure.webapp.game.features.Lookable;
+import textbasedadventure.webapp.game.features.Moveable;
+import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
 /**
  * @author Aenaos
@@ -22,19 +22,21 @@ import java.util.List;
 public abstract class Room implements Lookable, Serializable, Moveable {
 
     protected List<String> nearbyRooms;
-    protected List<String> roomItems;
+    protected RoomContainer roomContainer;
+
     protected List<String> roomActors;
     protected String name;
     protected String description;
     protected String hint;
 
     public void registerItem(String itemName) {
-        roomItems.add(itemName);
+        roomContainer.registerItem(itemName);
     }
 
     public void unregisterItem(String itemName) {
-        roomItems.remove(itemName);
+        roomContainer.unregisterItem(itemName);
     }
+
 
     public void registerActor(String actorName) {
         roomActors.add(actorName);
@@ -52,16 +54,8 @@ public abstract class Room implements Lookable, Serializable, Moveable {
         nearbyRooms.add(roomName);
     }
 
-    public void setRoomItems(List<String> list) {
-        this.roomItems = list;
-    }
-
-    public List<String> getRoomItems() {
-        return this.roomItems;
-    }
-
     boolean existsInRoom(String itemName) {
-        return roomItems.contains(itemName);
+        return roomContainer.isInContainer(itemName);
     }
 
     public String getName() {
@@ -86,6 +80,14 @@ public abstract class Room implements Lookable, Serializable, Moveable {
 
     public String getMovementMessage() {
         return this.getDescription();
+    }
+
+    public RoomContainer getRoomContainer() {
+        return roomContainer;
+    }
+
+    public void setRoomContainer(RoomContainer roomContainer) {
+        this.roomContainer = roomContainer;
     }
 
     @Override

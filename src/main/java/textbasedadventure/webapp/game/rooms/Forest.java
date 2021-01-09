@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.Observer;
 import textbasedadventure.webapp.game.State;
+import textbasedadventure.webapp.game.items.containers.RoomContainer;
 
 /**
  * @author Aenaos
@@ -22,7 +23,7 @@ public class Forest extends Room implements Observer {
         name = "forest";
         description = "You are in the forest. West of you there's a castle, and in the east there's a keep ";
         hint = "One tree looks different from the others, it's sticking out. In front of you lies a rusty key";
-        roomItems = map.getRoomItems(name);
+        roomContainer = new RoomContainer(map.getRoomItems(name));
     }
 
     @Override

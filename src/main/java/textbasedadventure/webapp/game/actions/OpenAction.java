@@ -30,6 +30,6 @@ public class OpenAction implements Action {
     public boolean isEligibleForAction(State state, List<Feature> openables) {
         Openable openable = (Openable) openables.get(0);
         Item item = (Item) openable;
-        return state.getCurrentRoom().getRoomItems().contains(item.getName());
+        return state.getCurrentRoom().getRoomContainer().isInContainer(item.getName());
     }
 }
