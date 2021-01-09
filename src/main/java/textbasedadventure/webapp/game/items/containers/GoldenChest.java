@@ -1,53 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textbasedadventure.webapp.game.items.containers;
 
 import textbasedadventure.webapp.game.features.Openable;
-import textbasedadventure.webapp.game.items.Item;
-import textbasedadventure.webapp.game.Inventory;
 
-import java.util.List;
-
-/**
- * @author Aenaos
- */
-public class GoldenChest extends Item implements Openable {
-
-    private List<String> containerItems;
-    private boolean open;
+public class GoldenChest extends Chest implements Openable {
 
     public GoldenChest() {
         name = "golden chest";
         description = "This chest can be opened with a golden key";
-        //featureFactory.registerFeature(this.name, this);
-    }
-
-    public void setOpen(boolean open) {
-        this.open = open;
-    }
-
-    public boolean isOpen() {
-        return this.open;
+        //TODO: Check which items go where
+        this.registerItem("circular artifact");
+        this.registerItem("torn note");
     }
 
     @Override
     public String open(Inventory inventory) {
-        //TODO: instance of Golden Key instead
-        if (inventory.isInInventory("golden key")) {
-            this.setOpen(true);
-            return "Chest is open you should probably examine it.";
+        String key = "golden key";
+        if (!this.isUnlocked() && !inventory.isInInventory(key)) {
+            return "Could not open chest";
         }
-        return "Could not open chest.";
-    }
 
-    public List<String> getContainerItems() {
-        return this.containerItems;
+        if (inventory.isInInventory(key)) {
+            inventory.unregisterItem(key);
+            this.setUnlocked(true);
+        }
+
+        return this.show();
     }
-    //circularArtifact
-    //on open getCurrentRoom & add items to current room 
-    //and maybe a list? so that I can show what each chest has in 
-    //in the same way remove when something gets picked up
 }

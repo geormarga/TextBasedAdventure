@@ -6,49 +6,35 @@
 package textbasedadventure.webapp.game.items.containers;
 
 import org.springframework.stereotype.Component;
-import textbasedadventure.webapp.game.features.Openable;
-import textbasedadventure.webapp.game.items.Item;
-import textbasedadventure.webapp.game.Inventory;
 
-import java.util.List;
+import textbasedadventure.webapp.game.features.Openable;
 
 /**
- *
  * @author Aenaos
  */
 @Component("silver chest")
-public class SilverChest extends Item implements Openable {
-
-    private List<String> containerItems;
-    private boolean open;
+public class SilverChest extends Chest implements Openable {
 
     public SilverChest() {
         name = "silver chest";
         description = "This chest can be opened with a silver key";
-        //featureFactory.registerFeature(this.name,this);
-    }
-
-    public void setOpen(boolean open) {
-        this.open = open;
-    }
-
-    public boolean isOpen() {
-        return this.open;
+        //TODO: Check which items go where
+        this.registerItem("rectangular artifact");
+        this.registerItem("torn note");
     }
 
     @Override
     public String open(Inventory inventory) {
-        if (inventory.isInInventory("silver key")) {
-            this.setOpen(true);
-            return "Chest is open you should probably examine it.";
+        String key = "silver key";
+        if (!this.isUnlocked() && !inventory.isInInventory(key)) {
+            return "Could not open chest";
         }
-        return "Could not open chest";
-    }
-    
-    public List<String> getContainerItems(){
-        return this.containerItems;
-    }
-    
-    //rectangularArtifact,tornNote
 
+        if (inventory.isInInventory(key)) {
+            inventory.unregisterItem(key);
+            this.setUnlocked(true);
+        }
+
+        return this.show();
+    }
 }

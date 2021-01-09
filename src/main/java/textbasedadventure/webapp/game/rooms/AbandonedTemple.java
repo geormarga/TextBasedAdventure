@@ -9,14 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import textbasedadventure.webapp.game.Map;
-import textbasedadventure.webapp.game.Observer;
-import textbasedadventure.webapp.game.State;
 
 /**
  * @author Aenaos
  */
 @Component("abandoned temple")
-public class AbandonedTemple extends Room implements Observer {
+public class AbandonedTemple extends Room {
 
     @Autowired
     public AbandonedTemple(Map map) {
@@ -26,10 +24,5 @@ public class AbandonedTemple extends Room implements Observer {
         hint = "In sight are: A statue and an altar.";
         roomItems = map.getRoomItems(name);
 
-    }
-
-    @Override
-    public void update(State state) {
-        //each one is set and all together 4 cases
     }
 }

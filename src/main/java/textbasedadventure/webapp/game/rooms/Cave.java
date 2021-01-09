@@ -7,18 +7,11 @@ package textbasedadventure.webapp.game.rooms;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import textbasedadventure.webapp.game.Map;
-import textbasedadventure.webapp.game.items.containers.GoldenChest;
-import textbasedadventure.webapp.game.Observer;
-import textbasedadventure.webapp.game.State;
 
-import javax.annotation.PostConstruct;
-
-/**
- * @author Aenaos
- */
 @Component("cave")
-public class Cave extends Room implements Observer {
+public class Cave extends Room {
 
     @Autowired
     public Cave(Map map) {
@@ -26,24 +19,8 @@ public class Cave extends Room implements Observer {
         description = "You are in a cave.";
         hint = "Its kinda dark and you can't see well in here, but you can hear someone screaming!";
         roomItems= map.getRoomItems(name);
+        this.registerItem("golden chest");
     }
 
-    @Override
-    public void update(State state) {
-        GoldenChest chest = (GoldenChest) state.getFeatureFactory().createFeature("golden chest");
-        if (chest.isOpen()) {
-
-            this.registerItem("torn note");
-            this.registerItem("circular artifact");
-            chest.getContainerItems().add("torn note");
-            chest.getContainerItems().add("circular artifact");
-
-            System.out.println("Items in chest:");
-            for (String key : chest.getContainerItems()) {
-                System.out.println(key + ",");
-            }
-            System.out.println(".");
-        }
-    }
 }
 

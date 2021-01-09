@@ -17,6 +17,5 @@ public class Mudpit extends Item {
     public Mudpit() {
         name = "mud pit";
         description = "There's a key in the mudpit.";
-        //featureFactory.registerFeature(this.name, this);
     }
 }

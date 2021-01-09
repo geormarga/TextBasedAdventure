@@ -17,6 +17,5 @@ public class MoldyTree extends Item {
     public MoldyTree() {
         name = "moldy tree";
         description = "The tree is pretty moldy and old. Looking down you see an old sundial lying on the ground, near the tree's roots";
-        //featureFactory.registerFeature(this.name, this);
     }
 }
