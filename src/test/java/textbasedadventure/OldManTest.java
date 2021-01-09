@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import textbasedadventure.webapp.game.Inventory;
+import textbasedadventure.webapp.game.items.containers.Inventory;
 import textbasedadventure.webapp.game.Map;
 import textbasedadventure.webapp.game.actors.OldMan;
 import textbasedadventure.webapp.game.items.Elixir;
