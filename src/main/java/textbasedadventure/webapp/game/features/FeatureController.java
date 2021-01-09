@@ -5,10 +5,10 @@
  */
 package textbasedadventure.webapp.game.features;
 
-import org.springframework.stereotype.Component;
-
-import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
 
 /**
  * @author Aenaos
@@ -24,9 +24,7 @@ public class FeatureController {
      * @return A list of features for the attributes given
      */
     public List<Feature> getFeatures(List<String> attributes, FeatureFactory featureFactory) {
-        List<Feature> features = new LinkedList<>();
-        attributes.forEach(attr -> features.add(featureFactory.getFeature(attr)));
-        return features;
+        return attributes.stream().map(featureFactory::getFeature).collect(Collectors.toList());
     }
 
 }
