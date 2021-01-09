@@ -25,7 +25,7 @@ public class FeatureController {
      */
     public List<Feature> getFeatures(List<String> attributes, FeatureFactory featureFactory) {
         List<Feature> features = new LinkedList<>();
-        attributes.forEach(attr -> features.add(featureFactory.createFeature(attr)));
+        attributes.forEach(attr -> features.add(featureFactory.getFeature(attr)));
         return features;
     }
 

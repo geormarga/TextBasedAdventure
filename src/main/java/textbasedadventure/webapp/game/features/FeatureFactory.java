@@ -35,7 +35,7 @@ public class FeatureFactory {
      * @param name Name of the feature to be retrieved
      * @return Returns the feature that has the specific name (Room|Item|Inventory)
      */
-    public Feature createFeature(String name) {
+    public Feature getFeature(String name) {
         return featureMap.get(name);
     }
 }
