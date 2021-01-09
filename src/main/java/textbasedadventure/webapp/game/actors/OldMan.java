@@ -2,7 +2,7 @@ package textbasedadventure.webapp.game.actors;
 
 import org.springframework.stereotype.Component;
 
-import textbasedadventure.webapp.game.Inventory;
+import textbasedadventure.webapp.game.items.containers.Inventory;
 import textbasedadventure.webapp.game.features.Examinable;
 import textbasedadventure.webapp.game.features.Giveable;
 import textbasedadventure.webapp.game.features.Hitable;

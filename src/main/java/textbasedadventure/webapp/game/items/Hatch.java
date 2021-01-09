@@ -6,7 +6,7 @@
 package textbasedadventure.webapp.game.items;
 
 import textbasedadventure.webapp.game.features.Openable;
-import textbasedadventure.webapp.game.Inventory;
+import textbasedadventure.webapp.game.items.containers.Inventory;
 import textbasedadventure.webapp.game.State;
 
 /**

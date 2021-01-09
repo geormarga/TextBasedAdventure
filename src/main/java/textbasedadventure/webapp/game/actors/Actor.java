@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.springframework.stereotype.Component;
 
-import textbasedadventure.webapp.game.Inventory;
+import textbasedadventure.webapp.game.items.containers.Inventory;
 import textbasedadventure.webapp.game.features.Examinable;
 
 /**

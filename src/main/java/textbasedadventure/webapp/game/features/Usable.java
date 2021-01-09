@@ -6,7 +6,7 @@
 package textbasedadventure.webapp.game.features;
 
 import textbasedadventure.webapp.game.rooms.Room;
-import textbasedadventure.webapp.game.Inventory;
+import textbasedadventure.webapp.game.items.containers.Inventory;
 
 /**
  * @author Aenaos

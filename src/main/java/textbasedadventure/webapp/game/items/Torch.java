@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import textbasedadventure.webapp.game.features.Pickable;
 import textbasedadventure.webapp.game.features.Usable;
 import textbasedadventure.webapp.game.rooms.Room;
-import textbasedadventure.webapp.game.Inventory;
+import textbasedadventure.webapp.game.items.containers.Inventory;
 
 /**
  * @author Aenaos

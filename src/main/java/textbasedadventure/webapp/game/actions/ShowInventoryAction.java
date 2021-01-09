@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import textbasedadventure.webapp.game.Inventory;
+import textbasedadventure.webapp.game.items.containers.Inventory;
 import textbasedadventure.webapp.game.State;
 import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.features.Showable;
