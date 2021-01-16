@@ -25,7 +25,7 @@ public class ExamineAction implements Action {
             Examinable examinable = (Examinable) examinables.get(0);
             Item item = (Item) examinable;
             return state.getCurrentRoom().getRoomContainer().isInContainer(item.getName()) || state.getInventory().isInInventory(item.getName());
-        }catch (Exception ex){
+        }catch (ClassCastException ex){
             throw new NotEligibleForActionException();
         }
     }
