@@ -1,7 +1,10 @@
 package textbasedadventure.webapp.game.items.containers;
 
+import org.springframework.stereotype.Component;
+
 import textbasedadventure.webapp.game.features.Openable;
 
+@Component("golden chest")
 public class GoldenChest extends Chest implements Openable {
 
     public GoldenChest() {

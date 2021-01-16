@@ -11,6 +11,8 @@ public class CommonChest extends Chest implements Openable {
         name = "common chest";
         description = "If only I had a key...";
         //TODO: Check which items go where
+        this.registerItem("circular artifact");
+        this.registerItem("torn note");
     }
 
     @Override
