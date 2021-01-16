@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import textbasedadventure.webapp.game.State;
 import textbasedadventure.webapp.game.actors.Actor;
+import textbasedadventure.webapp.game.exceptions.NotEligibleForActionException;
 import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.features.Hitable;
 
@@ -20,8 +21,12 @@ public class HitAction implements Action {
 
     @Override
     public boolean isEligibleForAction(State state, List<Feature> hitables) {
-        Hitable hitable = (Hitable) hitables.get(0);
-        Actor actor = (Actor) hitable;
-        return state.getCurrentRoom().isPresentInRoom(actor.getName());
+        try {
+            Hitable hitable = (Hitable) hitables.get(0);
+            Actor actor = (Actor) hitable;
+            return state.getCurrentRoom().isPresentInRoom(actor.getName());
+        } catch (ClassCastException ex) {
+            throw new NotEligibleForActionException();
+        }
     }
 }

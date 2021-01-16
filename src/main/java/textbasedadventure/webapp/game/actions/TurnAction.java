@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import textbasedadventure.webapp.game.State;
+import textbasedadventure.webapp.game.exceptions.NotEligibleForActionException;
 import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.features.Turnable;
 import textbasedadventure.webapp.game.items.Item;
@@ -20,8 +21,12 @@ public class TurnAction implements Action {
 
     @Override
     public boolean isEligibleForAction(State state, List<Feature> turnables) {
-        Turnable turnable = (Turnable) turnables.get(0);
-        Item item = (Item) turnable;
-        return state.getCurrentRoom().getRoomContainer().isInContainer(item.getName());
+        try {
+            Turnable turnable = (Turnable) turnables.get(0);
+            Item item = (Item) turnable;
+            return state.getCurrentRoom().getRoomContainer().isInContainer(item.getName());
+        } catch (ClassCastException ex) {
+            throw new NotEligibleForActionException();
+        }
     }
 }

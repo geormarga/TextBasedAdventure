@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import textbasedadventure.webapp.game.State;
+import textbasedadventure.webapp.game.exceptions.NotEligibleForActionException;
 import textbasedadventure.webapp.game.features.Feature;
 import textbasedadventure.webapp.game.features.Pickable;
 import textbasedadventure.webapp.game.items.Item;
@@ -27,10 +28,14 @@ public class PickUpAction implements Action {
 
     @Override
     public boolean isEligibleForAction(State state, List<Feature> pickables) {
-        Pickable pickable = (Pickable) pickables.get(0);
-        List<Container> containerList = getContainers(state);
-        Item item = (Item) pickable;
-        return containerList.stream().anyMatch(container -> container.isInContainer(item.getName()));
+        try {
+            Pickable pickable = (Pickable) pickables.get(0);
+            List<Container> containerList = getContainers(state);
+            Item item = (Item) pickable;
+            return containerList.stream().anyMatch(container -> container.isInContainer(item.getName()));
+        } catch (ClassCastException ex) {
+            throw new NotEligibleForActionException();
+        }
     }
 
     private boolean hasChest(State state) {
