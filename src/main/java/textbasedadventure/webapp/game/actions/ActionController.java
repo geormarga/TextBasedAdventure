@@ -1,19 +1,21 @@
 package textbasedadventure.webapp.game.actions;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import textbasedadventure.webapp.game.State;
+import textbasedadventure.webapp.game.exceptions.FeatureNotFoundException;
 import textbasedadventure.webapp.game.exceptions.NotEligibleForActionException;
 import textbasedadventure.webapp.game.features.Feature;
-import textbasedadventure.webapp.game.State;
-
-import java.util.List;
 
 @Component
 public class ActionController {
 
     @Autowired
     private ActionFactory actionFactory;
+
     /**
      * Method that checks if the feature exists in context and then tries to execute the action
      *
@@ -25,17 +27,12 @@ public class ActionController {
         try {
             action.isEligibleForAction(state, features);
             return action.execute(state, features);
-        } catch (NullPointerException ex) {
-            return "Could not find what you were looking for.";
-        } catch (ClassCastException ex) {
-            return "Can't perform that action on this item.";
-        } catch (NotEligibleForActionException ex){
-            return "Can't perform that action on this item.";
-        }catch (Exception ex){
+        } catch (NotEligibleForActionException | FeatureNotFoundException ex) {
+            return ex.getMessage();
+        } catch (Exception ex) {
             return ex.getMessage();
         }
     }
-
 
 
     /**
