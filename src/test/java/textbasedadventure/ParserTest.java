@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Aenaos on 13/4/2017.
- */
 public class ParserTest {
 
     private Parser parser;
