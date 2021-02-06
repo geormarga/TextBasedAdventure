@@ -15,6 +15,5 @@ public class Castle extends Room {
         description = "You are in the castle yard. You are free to go in, but there is also a cave to the west...";
         hint = "You found a chest on the ground.";
         roomContainer = new RoomContainer(map.getRoomItems(name));
-        this.registerItem("common chest");
     }
 }

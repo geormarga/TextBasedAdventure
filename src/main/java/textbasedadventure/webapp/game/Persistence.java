@@ -9,7 +9,7 @@ import textbasedadventure.webapp.game.parsing.JSONParser;
 
 @Component
 public class Persistence {
-    private JSONArray roomsArray, itemsArray;
+    private JSONArray roomsArray, itemsArray, containersArray;
 
     Persistence() {
     }
@@ -18,6 +18,7 @@ public class Persistence {
     public void init() {
         roomsArray = JSONParser.toJsonArray("src/main/resources/Rooms.json", "rooms");
         itemsArray = JSONParser.toJsonArray("src/main/resources/Items.json", "rooms");
+        containersArray = JSONParser.toJsonArray("src/main/resources/Containers.json", "containers");
     }
 
     public JSONArray getRoomsArray() {
@@ -35,4 +36,15 @@ public class Persistence {
     public void setItemsArray(JSONArray itemsArray) {
         this.itemsArray = itemsArray;
     }
+
+
+    public JSONArray getContainersArray() {
+        return containersArray;
+    }
+
+    public void getContainersArray(JSONArray itemsArray) {
+        this.containersArray = itemsArray;
+    }
+
+
 }

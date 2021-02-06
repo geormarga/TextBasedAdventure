@@ -89,5 +89,21 @@ public class Map {
         return jsonArray.stream().anyMatch(cmd -> ((JSONObject) cmd).get("name").equals(adjacentRoom));
     }
 
+    /**
+     * Method that gets a container's items
+     *
+     * @param containerName The name of the container
+     * @return The contained items for the specified container
+     */
+    public List<String> getContainerItems(String containerName) {
+        List<JSONArray> returnList = (List<JSONArray>) persistence.getItemsArray()
+                .stream()
+                .filter(cmd -> ((JSONObject) cmd).get("name").equals(containerName))
+                .map(cmd -> ((JSONObject) cmd).getOrDefault("items", null))
+                .collect(Collectors.toList());
+
+        return returnList.isEmpty() ? Collections.emptyList() : (List<String>) returnList.get(0);
+
+    }
 
 }

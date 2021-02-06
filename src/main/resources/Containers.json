@@ -1,0 +1,28 @@
+{
+  "containers": [
+    {
+      "name": "silver chest",
+      "items": [
+        "rusty key",
+        "moldy tree",
+        "sundial"
+      ]
+    },
+    {
+      "name": "common chest",
+      "items": [
+        "rusty key",
+        "moldy tree",
+        "sundial"
+      ]
+    },
+    {
+      "name": "golden chest",
+      "items": [
+        "rusty key",
+        "moldy tree",
+        "sundial"
+      ]
+    }
+  ]
+}

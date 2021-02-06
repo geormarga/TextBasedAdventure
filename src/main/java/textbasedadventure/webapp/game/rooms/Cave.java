@@ -15,7 +15,6 @@ public class Cave extends Room {
         description = "You are in a cave.";
         hint = "Its kinda dark and you can't see well in here, but you can hear someone screaming!";
         roomContainer = new RoomContainer(map.getRoomItems(name));
-        this.registerItem("golden chest");
     }
 
 }
