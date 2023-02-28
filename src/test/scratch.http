@@ -1,11 +1,10 @@
-
 POST http://localhost:8080/login
 Content-Type: application/json
 
 {
-"username":"Talos",
-"email":"geormarga@gmail.com",
-"password":"123456aA!"
+  "username": "Talos",
+  "email": "geormarga@gmail.com",
+  "password": "123456aA!"
 }
 
 ###
@@ -13,5 +12,5 @@ POST http://localhost:8080/game
 Content-Type: application/json
 
 {
-"command":"start game"
+  "command": "go north"
 }
